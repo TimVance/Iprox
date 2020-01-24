@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Объекты", 
+		"/sell/", 
+		Array(), 
+		Array("HARD_LINK"=>"Y"), 
+		"" 
+	),
+	Array(
+		"Аренда", 
+		"/arend/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новостройки", 
+		"/newbuildings/", 
+		Array(), 
+		Array("HARD_LINK"=>"Y"), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

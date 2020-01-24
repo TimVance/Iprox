@@ -1,0 +1,23 @@
+/*fonts*/
+@font-face {
+    font-family: 'ProximaNovaSemibold';
+    src: url('fonts/ProximaNovaSemibold.eot');
+    src: url('fonts/ProximaNovaSemibold.eot') format('embedded-opentype'),
+         url('fonts/ProximaNovaSemibold.woff2') format('woff2'),
+         url('fonts/ProximaNovaSemibold.woff') format('woff'),
+         url('fonts/ProximaNovaSemibold.ttf') format('truetype'),
+         url('fonts/ProximaNovaSemibold.svg#ProximaNovaSemibold') format('svg');
+}
+
+*{margin:0;padding:0}
+.back-z{position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:#396ca5 url(images/back-sochi_z.jpg) no-repeat;background-size:cover}
+.back-z:before{position:absolute;top:0;left:0;content:'';width:100%;height:100%;z-index:2;background:rgba(0,0,0,0.3)}
+.top-descr-z{position:absolute;top:7%;left:0;z-index:50;width:100%;text-align:center;color:#fff}
+.logo{width:230px;margin:0 auto 47px auto; float: unset !important;}
+.logo img{display:block;margin:0 auto;width:100%}
+.top-descr-z h1{text-align:center !important;font-size:37px;text-transform:uppercase;font-family:'ProximaNovaSemibold';font-weight:400;margin:0 0 8px 0;padding:0;line-height:normal;color:#fff}
+.top-descr-z h3{font-size:28px;text-transform:none;line-height:35px;font-family:'ProximaNovaSemibold';font-weight:400;margin:0;padding:0;line-height:normal;color:#fff}
+.but-input-z{position:absolute;left:0;width:100%;bottom:23%;z-index:50;font-size:28px;text-align:center;font-family:'ProximaNovaSemibold';text-transform:uppercase}
+.but-input-z a{display:inline-block;vertical-align:top;text-decoration:none;min-width:210px;padding:0 15px 0 15px;box-sizing:border-box;color:#20a6ad;height:50px;line-height:52px;text-transform:uppercase;background:rgba(255,255,255,0.8)}
+.but-input-z a:hover{background:#fff}
+#wr-pop-inp2 {position: relative !important;}

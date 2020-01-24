@@ -1,0 +1,1154 @@
+Host: morealti.com:80
+Date: 2018-03-21 18:43:57
+Module: 
+array (
+  'ACTIVE' => 'Y',
+  'MODIFIED_BY' => '3',
+  'IBLOCK_ID' => 7,
+  'ACTIVE_FROM' => '',
+  'ACTIVE_TO' => '',
+  'SORT' => '500',
+  'NAME' => '',
+  'CODE' => '',
+  'TAGS' => '',
+  'PREVIEW_TEXT' => '',
+  'PREVIEW_TEXT_TYPE' => 'text',
+  'DETAIL_TEXT' => '',
+  'DETAIL_TEXT_TYPE' => 'text',
+  'TMP_ID' => 0,
+  'PROPERTY_VALUES' => 
+  array (
+    281 => '',
+    54 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '43',
+      ),
+    ),
+    61 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '41',
+      ),
+    ),
+    69 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '57',
+      ),
+    ),
+    74 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '',
+      ),
+    ),
+    89 => 
+    array (
+      0 => 
+      array (
+        'VALUE' => '',
+      ),
+    ),
+    84 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '2',
+      ),
+    ),
+    188 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '312',
+      ),
+    ),
+    331 => 
+    array (
+      0 => 
+      array (
+        'VALUE' => '45',
+      ),
+    ),
+    157 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '400',
+      ),
+    ),
+    88 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '',
+      ),
+    ),
+    85 => 
+    array (
+      'n0' => 
+      array (
+        'VALUE' => '3',
+      ),
+    ),
+    34 => 
+    array (
+    ),
+    41 => 
+    array (
+    ),
+    206 => 
+    array (
+    ),
+  ),
+  'IBLOCK_SECTION' => 
+  array (
+  ),
+  'IPROPERTY_TEMPLATES' => 
+  array (
+    'ELEMENT_META_TITLE' => '',
+    'ELEMENT_META_KEYWORDS' => '',
+    'ELEMENT_META_DESCRIPTION' => '',
+    'ELEMENT_PAGE_TITLE' => '',
+    'ELEMENT_PREVIEW_PICTURE_FILE_ALT' => '',
+    'ELEMENT_PREVIEW_PICTURE_FILE_TITLE' => '',
+    'ELEMENT_PREVIEW_PICTURE_FILE_NAME' => '',
+    'ELEMENT_DETAIL_PICTURE_FILE_ALT' => '',
+    'ELEMENT_DETAIL_PICTURE_FILE_TITLE' => '',
+    'ELEMENT_DETAIL_PICTURE_FILE_NAME' => '',
+  ),
+  'SEARCHABLE_CONTENT' => '
+
+',
+)
+    SetNameByPropBeforeElement < ExecuteModuleEventEx < CAllIBlockElement::CheckFields < CAllIBlockElement::Add < require
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:475
+	/home/bitrix/www/bitrix/modules/iblock/classes/general/iblockelement.php:4614
+	/home/bitrix/www/bitrix/modules/iblock/classes/general/iblockelement.php:3437
+	/home/bitrix/www/bitrix/modules/iblock/admin/iblock_element_edit.php:1038
+	/home/bitrix/www/bitrix/admin/iblock_element_edit.php:1
+----------
+Host: morealti.com:80
+Date: 2018-03-22 11:01:29
+Module: external-login
+fsockopen Connection timed out (110)
+    weBitrixAuth::OnUserLoginExternal < ExecuteModuleEventEx < CAllUser::Login < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:475
+	/home/bitrix/www/bitrix/modules/main/classes/general/user.php:781
+	/home/bitrix/www/bitrix/modules/main/include.php:432
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:80
+Date: 2018-05-03 17:19:54
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/main.php<br> LINE: 4812 MySql Query Error: SELECT L.*, L.LID as ID, L.LID as LANGUAGE_ID, 	C.FORMAT_DATE, C.FORMAT_DATETIME, C.FORMAT_NAME, C.WEEK_START, C.CHARSET, C.DIRECTION FROM b_language L, b_culture C WHERE C.ID = L.CULTURE_ID  AND (L.LID='')  AND (L.ACTIVE='')  ORDER BY L.SORT  [[] ]
+    CDatabaseMysql::Query < CAllLanguage::GetList < CMain::GetLang < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:4812
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/main.php:47
+	/home/bitrix/www/bitrix/modules/main/include.php:48
+	/home/bitrix/www/bitrix/modules/main/include/prolog_admin_before.php:18
+	/home/bitrix/www/bitrix/modules/iblock/admin/iblock_element_edit.php:11
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:36
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:38
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:39
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:41
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:41
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:42
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:42
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:42
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:42
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:43
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:43
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:43
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:43
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:47
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/main.php<br> LINE: 4812 MySql Query Error: SELECT L.*, L.LID as ID, L.LID as LANGUAGE_ID, 	C.FORMAT_DATE, C.FORMAT_DATETIME, C.FORMAT_NAME, C.WEEK_START, C.CHARSET, C.DIRECTION FROM b_language L, b_culture C WHERE C.ID = L.CULTURE_ID  AND (L.LID='')  AND (L.ACTIVE='')  ORDER BY L.SORT  [[] ]
+    CDatabaseMysql::Query < CAllLanguage::GetList < CMain::GetLang < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:4812
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/main.php:47
+	/home/bitrix/www/bitrix/modules/main/include.php:48
+	/home/bitrix/www/bitrix/modules/main/include/prolog_admin_before.php:18
+	/home/bitrix/www/bitrix/modules/iblock/admin/iblock_element_admin.php:12
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:53
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/main.php<br> LINE: 4812 MySql Query Error: SELECT L.*, L.LID as ID, L.LID as LANGUAGE_ID, 	C.FORMAT_DATE, C.FORMAT_DATETIME, C.FORMAT_NAME, C.WEEK_START, C.CHARSET, C.DIRECTION FROM b_language L, b_culture C WHERE C.ID = L.CULTURE_ID  AND (L.LID='')  AND (L.ACTIVE='')  ORDER BY L.SORT  [[] ]
+    CDatabaseMysql::Query < CAllLanguage::GetList < CMain::GetLang < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:4812
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/main.php:47
+	/home/bitrix/www/bitrix/modules/main/include.php:48
+	/home/bitrix/www/bitrix/modules/main/include/prolog_admin_before.php:18
+	/home/bitrix/www/bitrix/modules/iblock/admin/iblock_element_admin.php:12
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:26:54
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/general/main.php<br> LINE: 4812 MySql Query Error: SELECT L.*, L.LID as ID, L.LID as LANGUAGE_ID, 	C.FORMAT_DATE, C.FORMAT_DATETIME, C.FORMAT_NAME, C.WEEK_START, C.CHARSET, C.DIRECTION FROM b_language L, b_culture C WHERE C.ID = L.CULTURE_ID  AND (L.LID='')  AND (L.ACTIVE='')  ORDER BY L.SORT  [[] ]
+    CDatabaseMysql::Query < CAllLanguage::GetList < CMain::GetLang < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/general/main.php:4812
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/main.php:47
+	/home/bitrix/www/bitrix/modules/main/include.php:48
+	/home/bitrix/www/bitrix/modules/main/include/prolog_admin_before.php:18
+	/home/bitrix/www/bitrix/modules/iblock/admin/iblock_element_admin.php:12
+----------
+Host: 
+Date: 2018-06-13 16:27:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:27:19
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 
+Date: 2018-06-13 16:28:02
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:28:25
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:29:00
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 
+Date: 2018-06-13 16:29:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:29:03
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 188.225.27.207:443
+Date: 2018-06-13 16:29:08
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 
+Date: 2018-06-13 16:30:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:37
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:37
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:37
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:37
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:38
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:38
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:30:38
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 
+Date: 2018-06-13 16:31:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: 
+Date: 2018-06-13 16:32:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: 
+Date: 2018-06-13 16:33:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:33:20
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:33:21
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:33:21
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:33:21
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:33:21
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-13 16:33:21
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='Y' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+----------
+Host: 
+Date: 2018-06-13 16:34:01
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: 
+Date: 2018-06-13 16:35:02
+Module: main
+ MySql Query Error: 
+			SELECT 'x'
+			FROM b_agent
+			WHERE
+				ACTIVE = 'Y'
+				AND NEXT_EXEC <= now()
+				AND (DATE_CHECK IS NULL OR DATE_CHECK <= now())
+				 AND IS_PERIOD='N' 
+			LIMIT 1
+		 [[] ]
+    CDatabaseMysql::Query < CAgent::ExecuteAgents < CAgent::CheckAgents < require_once < require
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:73
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/agent.php:38
+	/home/bitrix/www/bitrix/modules/main/include.php:262
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/tools/cron_events.php:10
+----------
+Host: morealti.com:443
+Date: 2018-06-14 07:58:11
+Module: main
+FILE: /home/bitrix/www/bitrix/modules/main/classes/mysql/main.php<br> LINE: 96 MySql Query Error: SELECT L.*, L.LID as ID, L.LID as SITE_ID, 	C.FORMAT_DATE, C.FORMAT_DATETIME, C.FORMAT_NAME, C.WEEK_START, C.CHARSET, C.DIRECTION FROM b_lang L, b_culture C WHERE C.ID=L.CULTURE_ID AND L.ACTIVE='Y' ORDER BY 	LENGTH(L.DIR) DESC, 	L.DOMAIN_LIMITED DESC, 	L.SORT  [[] ]
+    CDatabaseMysql::Query < CMain::GetLang < require_once < require_once < require_once
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/main.php:96
+	/home/bitrix/www/bitrix/modules/main/include.php:48
+	/home/bitrix/www/bitrix/modules/main/include/prolog_before.php:14
+	/home/bitrix/www/bitrix/modules/main/include/prolog.php:10
+	/home/bitrix/www/bitrix/header.php:1
+----------
+Host: morealti.com:443
+Date: 2018-08-10 15:29:36
+Module: main
+<br>Class: CUser<br>File: /home/bitrix/www/bitrix/modules/main/classes/mysql/user.php<br>Function: GetList<br>Line: 603 MySql Query Error: SELECT U.ID, U.ACTIVE
+			, DATE_FORMAT(BUF.UF_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') UF_ACTIVE_TO
+		
+			FROM
+				b_user U
+				INNER JOIN b_uts_user BUF ON BUF.VALUE_ID = U.ID
+				
+			WHERE
+				(1=1
+					AND
+					(
+						( 
+					(U.ID='3' and U.ID is not null)
+					 )
+					)
+					
+					AND
+					(
+						U.ACTIVE='Y'
+					)
+					
+					AND
+					(
+						
+BUF.UF_ACTIVE_TO >= 
+					)
+					)
+			ORDER BY U.ID asc [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+					)
+			ORDER BY U.ID asc' at line 26]
+    CDatabaseMysql::Query < CUser::GetList < CustomUsers::isUserActive < include < {closure}
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/user.php:603
+	/home/bitrix/www/local/php_interface/include/lib/classes/CustomUsers.php:118
+	/home/bitrix/www/local/php_interface/include/lib/constants.php:113
+	/home/bitrix/www/local/php_interface/include/lib/handlers_add.php:344
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:475
+----------
+Host: morealti.com:443
+Date: 2018-08-10 15:29:38
+Module: main
+<br>Class: CUser<br>File: /home/bitrix/www/bitrix/modules/main/classes/mysql/user.php<br>Function: GetList<br>Line: 603 MySql Query Error: SELECT U.ID, U.ACTIVE
+			, DATE_FORMAT(BUF.UF_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') UF_ACTIVE_TO
+		
+			FROM
+				b_user U
+				INNER JOIN b_uts_user BUF ON BUF.VALUE_ID = U.ID
+				
+			WHERE
+				(1=1
+					AND
+					(
+						( 
+					(U.ID='3' and U.ID is not null)
+					 )
+					)
+					
+					AND
+					(
+						U.ACTIVE='Y'
+					)
+					
+					AND
+					(
+						
+BUF.UF_ACTIVE_TO >= 
+					)
+					)
+			ORDER BY U.ID asc [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+					)
+			ORDER BY U.ID asc' at line 26]
+    CDatabaseMysql::Query < CUser::GetList < CustomUsers::isUserActive < include < {closure}
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/user.php:603
+	/home/bitrix/www/local/php_interface/include/lib/classes/CustomUsers.php:118
+	/home/bitrix/www/local/php_interface/include/lib/constants.php:113
+	/home/bitrix/www/local/php_interface/include/lib/handlers_add.php:344
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:475
+----------
+Host: morealti.com:443
+Date: 2018-08-10 15:29:49
+Module: main
+<br>Class: CUser<br>File: /home/bitrix/www/bitrix/modules/main/classes/mysql/user.php<br>Function: GetList<br>Line: 603 MySql Query Error: SELECT U.ID, U.ACTIVE
+			, DATE_FORMAT(BUF.UF_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') UF_ACTIVE_TO
+		
+			FROM
+				b_user U
+				INNER JOIN b_uts_user BUF ON BUF.VALUE_ID = U.ID
+				
+			WHERE
+				(1=1
+					AND
+					(
+						( 
+					(U.ID='3' and U.ID is not null)
+					 )
+					)
+					
+					AND
+					(
+						U.ACTIVE='Y'
+					)
+					
+					AND
+					(
+						
+BUF.UF_ACTIVE_TO > 
+					)
+					)
+			ORDER BY U.ID asc [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+					)
+			ORDER BY U.ID asc' at line 26]
+    CDatabaseMysql::Query < CUser::GetList < CustomUsers::isUserActive < include < {closure}
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/user.php:603
+	/home/bitrix/www/local/php_interface/include/lib/classes/CustomUsers.php:118
+	/home/bitrix/www/local/php_interface/include/lib/constants.php:113
+	/home/bitrix/www/local/php_interface/include/lib/handlers_add.php:344
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:475
+----------
+Host: morealti.com:443
+Date: 2018-08-10 15:29:49
+Module: main
+<br>Class: CUser<br>File: /home/bitrix/www/bitrix/modules/main/classes/mysql/user.php<br>Function: GetList<br>Line: 603 MySql Query Error: SELECT U.ID, U.ACTIVE
+			, DATE_FORMAT(BUF.UF_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') UF_ACTIVE_TO
+		
+			FROM
+				b_user U
+				INNER JOIN b_uts_user BUF ON BUF.VALUE_ID = U.ID
+				
+			WHERE
+				(1=1
+					AND
+					(
+						U.ACTIVE='Y'
+					)
+					
+					AND
+					(
+						
+BUF.UF_ACTIVE_TO > 
+					)
+					)
+			ORDER BY U.ID asc [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+					)
+			ORDER BY U.ID asc' at line 19]
+    CDatabaseMysql::Query < CUser::GetList < CustomUsers::isUserActive < include < {closure}
+	/home/bitrix/www/bitrix/modules/main/classes/mysql/user.php:603
+	/home/bitrix/www/local/php_interface/include/lib/classes/CustomUsers.php:118
+	/home/bitrix/www/local/php_interface/include/lib/constants.php:113
+	/home/bitrix/www/local/php_interface/include/lib/handlers_add.php:344
+	/home/bitrix/www/bitrix/modules/main/classes/general/module.php:475
+----------

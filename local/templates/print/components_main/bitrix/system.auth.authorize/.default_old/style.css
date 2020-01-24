@@ -1,0 +1,18 @@
+.auth-block {
+	margin-bottom: 50px;
+    margin-top: 20px;
+    padding-right: 20px;
+    text-align: center;
+    }
+.auth-block .auth-table {width:50%;border: 1px solid #ddd;margin: 0 auto;}
+.auth-block .auth-table tr td:first-child{width:40%;text-align: left;padding-left: 35px;}
+.auth-block .auth-table tr td:last-child{width:60%;}
+.auth-block .auth-table tr {line-height:50px;}
+.auth-block .auth-table tr td input{vertical-align: middle;}
+.auth-block .auth-table tr:first-child td{padding-top: 20px;}
+.auth-block .auth-table tr:last-child td{padding-bottom:20px;}
+.restore-pass label{line-height: 24px;vertical-align: top;}
+.auth-block label,.auth-block b{font-weight: bold;font-size: 14px;letter-spacing: -1px;}
+/*.auth-block .auth-table tr td{padding-top: 20px;padding-bottom:20px;}*/
+
+.auth-table td {border:none !important;}

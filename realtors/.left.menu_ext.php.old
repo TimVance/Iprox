@@ -1,0 +1,25 @@
+<?
+$aMenuLinks = Array(
+	/*Array(
+		"Агенства",
+		"/agents/",
+		Array(),
+		Array(),
+		""
+	),*/
+	Array(
+		"Застройщики",
+		"/builders/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Риэлторы",
+		"/realtors/",
+		Array(),
+		Array(),
+		""
+	),
+);
+?>

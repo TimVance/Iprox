@@ -1,0 +1,62 @@
+<?
+//$aMenuLinks = getSellSections();
+$aMenuLinks = array(
+		
+	Array(
+		"Квартиры",
+		"/sell/flat/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Элитные апартаменты",
+		"/sell/apartamenty/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Дома, коттеджи, таунхаусы",
+		"/sell/houses/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Коттеджные поселки и комплексы таунхаусов ",
+		"/sell/complex/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Земельные участки",
+		"/sell/land/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Коммерческая недвижимость",
+		"/sell/commercial/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Торговые и бизнес-центры",
+		"/sell/markets/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Инвестиционные проекты",
+		"/sell/projects/",
+		Array(),
+		Array(),
+		""
+	),
+);
+?>

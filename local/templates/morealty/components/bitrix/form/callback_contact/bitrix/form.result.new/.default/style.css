@@ -1,0 +1,47 @@
+.block_contact {
+	position:relative;
+	overflow:hidden;
+	
+}
+.callback_contact {
+	
+	width: 50%;
+}
+.callback_contact  textarea{
+	width: 88%;
+	min-height:100px;
+	margin-bottom:20px;
+}
+.callback_contact  input[type="text"]{
+	width: 88%;
+	margin-bottom:20px;
+}
+
+.callback_contact  input[type="submit"] {
+	
+    display: block;
+    width: 214px;
+    height: 59px;
+    padding: 0;
+    border-radius: 3px;
+    border: none;
+    border-top: 1px solid #17a0a7;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'proxima_nova_rgregular';
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.27);
+    background: rgba(25,178,186,1);
+    background: -moz-linear-gradient(top,rgba(25,178,186,1) 0%,rgba(5,143,150,1) 100%);
+    background: -webkit-gradient(left top,left bottom,color-stop(0%,rgba(25,178,186,1)),color-stop(100%,rgba(5,143,150,1)));
+    background: -webkit-linear-gradient(top,rgba(25,178,186,1) 0%,rgba(5,143,150,1) 100%);
+    background: -o-linear-gradient(top,rgba(25,178,186,1) 0%,rgba(5,143,150,1) 100%);
+    background: -ms-linear-gradient(top,rgba(25,178,186,1) 0%,rgba(5,143,150,1) 100%);
+    background: linear-gradient(to bottom,rgba(25,178,186,1) 0%,rgba(5,143,150,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#19b2ba',endColorstr='#058f96',GradientType=0);
+	    
+    margin: 0 auto;
+}
+.callback_contact  table td {
+	border:none;
+}

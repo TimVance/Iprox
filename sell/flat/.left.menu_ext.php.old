@@ -1,0 +1,102 @@
+<?
+$aMenuLinks = array(
+	Array(
+		"1 комнатные",
+		"/sell/flat/1-komnatmie/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"2 комнатные",
+		"/sell/flat/2-komnatmie/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"3 комнатные",
+		"/sell/flat/3-komnatmie/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"4 комнатные",
+		"/sell/flat/4-komnatmie/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"5 комнатные",
+		"/sell/flat/5-komnatmie/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Центральный район",
+		"/sell/flat/centralnij-rajon/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Дизайнерские",
+		"/sell/flat/disajnerskie/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Элитные",
+		"/sell/flat/elitnie-kvartiri/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Возле моря",
+		"/sell/flat/na-more/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"С мебелью",
+		"/sell/flat/s-mebelju/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"С отделкой",
+		"/sell/flat/s-otdelkoj/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"С ремонтом",
+		"/sell/flat/s-remontom/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"С видом на море",
+		"/sell/flat/vid-na-more/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Вторичные",
+		"/sell/flat/vtorichnoe-jiljo/",
+		Array(),
+		Array(),
+		""
+	),
+);
+?>

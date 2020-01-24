@@ -1,0 +1,2 @@
+.agent_employers .list-emploe ul {max-height: 266px;overflow: hidden;}
+.agent_employers .list-emploe.opened ul {max-height: unset; overflow: unset;}

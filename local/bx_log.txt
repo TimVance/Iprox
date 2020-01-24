@@ -1,0 +1,211 @@
+Host: morealty.dev.mnwb.com
+Date: 2016-10-12 14:49:44
+Module: external-login
+error sync with user base Не введено значение обязательного поля Город.<br>Не введено значение обязательного поля Принимаю правила публикации объявлений.<br>
+    weBitrixAuth::OnUserLoginExternal < call_user_func_array < ExecuteModuleEventEx < CAllUser::Login < require_once
+	E:\server\morealty\www\bitrix\modules\main\classes\general\module.php:475
+	E:\server\morealty\www\bitrix\modules\main\classes\general\user.php:756
+	E:\server\morealty\www\bitrix\modules\main\include.php:1
+	E:\server\morealty\www\bitrix\modules\main\include\prolog_admin_before.php:18
+----------
+Host: morealty.dev.mnwb.com
+Date: 2016-12-14 10:42:39
+Module: external-login
+fsockopen CURL ERROR (50X)
+    weBitrixAuth::OnUserLoginExternal < call_user_func_array < ExecuteModuleEventEx < CAllUser::Login < require_once
+	E:\server\morealty\www\bitrix\modules\main\classes\general\module.php:475
+	E:\server\morealty\www\bitrix\modules\main\classes\general\user.php:757
+	E:\server\morealty\www\bitrix\modules\main\include.php:456
+	E:\server\morealty\www\bitrix\modules\main\include\prolog_admin_before.php:18
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:46:19
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 33 MySql Query Error: 
+		SELECT
+		UG.GROUP_ID,
+		UG.USER_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1222] The used SELECT statements have a different number of columns]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:33
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:46:40
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 33 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1222] The used SELECT statements have a different number of columns]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:33
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:46:51
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 33 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1222] The used SELECT statements have a different number of columns]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:33
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:46:52
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 33 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1222] The used SELECT statements have a different number of columns]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:33
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:47:08
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 32 MySql Query Error: 
+		SELECT
+		*,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1222] The used SELECT statements have a different number of columns]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:32
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:47:09
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 32 MySql Query Error: 
+		SELECT
+		*,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1222] The used SELECT statements have a different number of columns]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:32
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:47:58
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 33 MySql Query Error: 
+		SELECT
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO,
+		UG.USER_ID,
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG' at line 6]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:33
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:48:29
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 33 MySql Query Error: 
+		SELECT
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO,
+		UG.USER_ID,
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 2, NULL, NULL  [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG' at line 6]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:33
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-07 12:52:32
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 34 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO,
+		UG.USER_ID,
+		FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG.USER_ID = 44 
+		UNION SELECT 3,NULL, NULL, NULL  [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM
+		b_user_group UG
+		WHERE
+		 UG.USER_ID = 1  OR  UG.USER_ID = 42  OR  UG' at line 7]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:34
+	E:\server\morealty\www\_tests\test_filter.php:5
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-10 15:19:23
+Module: 
+loaded
+    SessionManager::TestLog < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent < CAllMain::IncludeComponent
+	E:\server\morealty\www\local\components\morealty\personal.account\component.php:107
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:548
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:600
+	E:\server\morealty\www\bitrix\modules\main\classes\general\main.php:1035
+	E:\server\morealty\www\personal\index.php:15
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-10 16:30:54
+Module: 
+Test
+    TestEventMananger < call_user_func_array < ExecuteModuleEventEx < require < require_once
+	E:\server\morealty\www\bitrix\modules\main\classes\general\module.php:475
+	E:\server\morealty\www\bitrix\modules\main\include\epilog_after.php:10
+	E:\server\morealty\www\bitrix\modules\main\include\epilog.php:3
+	E:\server\morealty\www\bitrix\footer.php:4
+----------

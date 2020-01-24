@@ -1,0 +1,246 @@
+.table {
+    display: table;
+    width: 100%;
+    max-height: 100px;
+    overflow: hidden;
+}
+.table > .row {
+    display: table-row;
+}
+.table > .row > div {
+    display: table-cell;
+    text-align: center;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: #f3f3f3;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.table > .row > div:first-child {
+    border-width: 0 1px 1px 1px;
+}
+.table > .row .date {
+    white-space: nowrap;
+}
+.table > .row .id {
+    font-weight: bold;
+}
+.row.th {
+    background-color: #18a2ad;
+    color: #fff;
+    table-layout: fixed;
+}
+.row.th > div {
+    padding: 10px;
+    font-family: 'proxima_nova_rgbold';
+    text-align: center;
+}
+.total {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 3px;
+    font-style: italic;
+}
+.comment input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+}
+.table > .row.td:nth-child(odd) > div {
+    background-color: #efefef;
+}
+.table > .row > .address {
+    text-align: left;
+}
+.call-center input.date {
+    display: inline-block;
+    vertical-align: top;
+    height: 25px;
+    padding: 0 15px;
+    background: #edede6;
+    border: none;
+    border-left: 1px solid #d6d6cf;
+    border-top: 1px solid #d6d6cf;
+    font-size: 16px;
+    font-family: 'ProximaNovaLight';
+    outline: none;
+    box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.05);
+    margin-right: 10px;
+}
+.call-center input.date.end {
+    margin-left: 10px;
+}
+.call-center input[type="submit"],
+.add_new_item input[type="submit"] {
+    background-color: #18a2ad;
+    color: #fff;
+    border: none;
+    height: 25px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+.call-center .image-wrap {
+    position: relative;
+    display: inline-block;
+    border: none;
+    vertical-align: middle;
+}
+.image-wrap .delete_photo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #fff;
+    opacity: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    line-height: 14px;
+}
+.image-wrap:hover .delete_photo {
+    opacity: 1;
+}
+.image-wrap .delete_photo:hover {
+    color: red;
+}
+.photos .upload-photo {
+    display: none;
+}
+
+.call-center {
+    overflow-x: scroll;
+}
+
+.comment input {
+    min-width: 260px;
+}
+
+.call-center .image-wrap {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 64px;
+    height: 42px;
+    border: 1px solid #18a2ad;
+    margin: 2px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.photos-wrap {
+    width: 490px;
+    white-space: normal;
+    text-align: left;
+}
+
+button.add-photo {
+    border: none;
+    background-color: #18a2ad;
+    color: #fff;
+    width: 64px;
+    height: 44px;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+button.add-photo:hover {
+    background-color: #222;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    margin: 5px;
+    background-color: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.pagination a.active {
+    background-color: #18a2ad;
+}
+
+.pagination a:hover {
+    background-color: #18a2ad;
+}
+
+.call-center select,
+.add_new_item select,
+.add_new_item input[type="number"] {
+    display: inline-block;
+    vertical-align: top;
+    height: 25px;
+    padding: 0 15px;
+    background: #edede6;
+    border: none;
+    border-left: 1px solid #d6d6cf;
+    border-top: 1px solid #d6d6cf;
+    font-size: 16px;
+    font-family: 'ProximaNovaLight';
+    outline: none;
+    box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.05);
+    margin-right: 10px;
+}
+
+.call-center .table select {
+    height: 38px;
+}
+
+
+.add_new_item input,
+.add_new_item select, 
+.add_new_item textarea {
+    display: block !important;
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    margin-right: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+
+.add_new_item .input-wrap {
+    display: block !important;
+    margin-bottom: 10px;
+    width: calc(100% / 3 - 5px);
+    float: left;
+    box-sizing: border-box;
+    margin-right: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.add_new_item .input-wrap.full {
+    width: 100%;
+}
+
+.add_new_item input,
+.add_new_item input[type="number"],
+.add_new_item select {
+    height: 39px;
+}
+
+.clear {
+    clear: both;
+}
+
+.input-wrap > span {
+    font-size: 14px;
+    color: #20a6ad;
+}
+
+.add_new_item input[type="submit"] {
+    width: 50%;
+    margin: auto !important;
+    display: block;
+    float: none;
+}

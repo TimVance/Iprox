@@ -1,0 +1,74 @@
+<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+	die(); ?>
+<?
+CModule::IncludeModule('iblock');
+
+$arParams["MOTHER_ID"]  = filter_var($arParams["MOTHER_ID"],FILTER_VALIDATE_INT,
+		array(
+			"options" => array(
+						"min_range" => 1,
+					)
+			));
+if (!$arParams["MOTHER_ID"])
+{
+	ShowError("Неверно указана новостройка");
+	return false;
+}
+if ($this->StartResultCache(false)) {
+	
+	//Получаем новостройку
+	$arSelect = Array("ID", "NAME", "IBLOCK_ID", "PROPERTY_*");
+	$arFilter = Array("IBLOCK_ID"=> 19, "ID" => $arParams["MOTHER_ID"], "ACTIVE"=>"Y");
+	$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+	if($ob = $res->GetNextElement())
+	{
+		$arResult["NEWBUILDING"] = $ob->GetFields();
+		$arResult["NEWBUILDING"]["PROPERTIES"] = $ob->GetProperties();
+	}
+	if (!$arResult["NEWBUILDING"])
+	{
+		my_print_r($arFilter);
+		ShowError("Новостройка не найдена");
+		$this->AbortResultCache();
+		return false;
+	}
+	
+	// Получаем схему новостроки
+	$arSelect = Array("ID", "NAME", "IBLOCK_ID", "PROPERTY_*");
+	$arFilter = Array("IBLOCK_ID"=> 20, "PROPERTY_newbuilding" => $arParams["MOTHER_ID"], "ACTIVE"=>"Y");
+	
+	$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+	if($ob = $res->GetNextElement())
+	{
+		$arResult["NEWBUILDING_SCHEME"] = $ob->GetFields();
+		$arResult["NEWBUILDING_SCHEME"]["PROPERTIES"] = $ob->GetProperties();
+	}
+	if (!$arResult["NEWBUILDING_SCHEME"])
+	{
+		ShowError("Не удалось получить схему новостройки");
+		$this->AbortResultCache();
+		return false;
+	}
+	
+	//Получаем элементы новостройки
+	$arSelect = Array("ID", "NAME", "IBLOCK_ID", "PROPERTY_*");
+	$arFilter = Array("IBLOCK_ID"=> 7, "PROPERTY_newbuilding" => $arParams["MOTHER_ID"],"!PROPERTY_IS_ACCEPTED"=>false, "ACTIVE"=>"Y");
+	$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
+	while($ob = $res->GetNextElement())
+	{
+		$item = $ob->GetFields();
+		$item['PROPERTIES'] = $ob->GetProperties();
+		$arResult["PLANS"][ $item['PROPERTIES']['floor']['VALUE'] ][ $item['PROPERTIES']['room_number']['VALUE'] ] = $item;
+		//$arResult["PLANS"][ $item['PROPERTIES']['floor']['VALUE'] ][ $item['PROPERTIES']['room_number']['VALUE'] ] = $item;
+	}
+	
+	if (count($arResult["PLANS"]) > 0)
+	{
+		$this->SetResultCacheKeys(array(
+				"NEWBUILDING","NEWBUILDING_SCHEME","PLANS"
+		));
+	}
+
+	$this->IncludeComponentTemplate();
+}
+?>

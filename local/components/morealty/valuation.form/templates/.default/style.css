@@ -1,0 +1,79 @@
+.sendValuationForm {
+    width: 600px;
+    margin: auto;
+}
+
+.sendValuationForm input {
+    width: 100%;
+}
+
+.sendValuationForm input[type="submit"] {
+    width: auto;
+    margin: auto;
+}
+
+.sendValuationForm .field-wrap {
+    margin-bottom: 10px;
+    display: inline-block;
+    width: calc(50% - 3px);
+}
+
+.sendValuationForm .field-wrap.textarea {
+    width: 100%;
+}
+
+.sendValuationForm select {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    height: 38px;
+    padding: 0 15px;
+    background: #edede6;
+    border: none;
+    border-left: 1px solid #d6d6cf;
+    border-top: 1px solid #d6d6cf;
+    font-size: 16px;
+    font-family: 'ProximaNovaLight';
+    outline: none;
+    box-shadow: inset 1px 1px 1px 0 rgba(0,0,0,0.05);
+}
+
+.sendValuationForm textarea {
+    height: 100px;
+    width: 100%;
+}
+
+.sendValuationForm textarea,
+.sendValuationForm input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.sendValuationForm .success h2 {
+    color: #20a6ad;
+    font-weight: bold;
+}
+
+.sendValuationForm .errors {
+    font-size: 16px;
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center !important;
+    display: block !important;
+}
+
+.bottom-valuation {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.bottom-valuation a {
+    font-size: 24px;
+    margin: 20px;
+    font-weight: bold;
+}

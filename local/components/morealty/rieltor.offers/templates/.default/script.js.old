@@ -1,0 +1,18 @@
+$(document).ready(function(){
+	$(".offers-sort-js ul li a").bind("click.sorting",function(){
+		var sort_field =  $(this).attr("data-type");
+		var sort_direction = $(this).attr("data-direction");
+		if (typeof(sort_field) != "undefined" && typeof(sort_direction) != "undefined")
+		{
+			window.location.href = changeUrlParams(window.location.href,[{key : "SORT", value : sort_field},{key : "ORDER", value : sort_direction}]);
+		}
+
+	});
+	$("select.select-offer-type").bind("change.SelectType",function(){
+		var SelectedOption = $(this).find("option:selected");
+		var Type = SelectedOption.attr("data-type");
+		
+		$arparam = (typeof(Type) == "undefined")? [{key : "SORT"},{key : "ORDER"},{key : "OFFER_TYPE"}] : [{key : "SORT"},{key : "ORDER"},{key : "OFFER_TYPE", value : Type}];
+		window.location.href = changeUrlParams(window.location.href,$arparam);
+	})
+});

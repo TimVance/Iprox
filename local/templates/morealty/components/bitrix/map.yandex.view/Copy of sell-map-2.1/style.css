@@ -1,0 +1,101 @@
+.balloon_layout {
+	    display: block;
+    position: relative;
+    background: #fff;
+    box-sizing: content-box;
+    overflow: hidden;
+    width: 360px;
+    top: 65px;
+}
+.balloon-tail {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -17px;
+    background: #fff;
+    top: 96px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+}
+.balloon_content {
+display: block;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    background: #fff;
+    padding: 10px 12px;
+    min-width: 60px;
+    height: 100%;
+    min-height: 15px;
+    font: 13px/20px Arial,sans-serif;
+}
+
+.balloon_content .ip_top {display: table;width: 100%;padding: 0 0 19px 0;border-bottom: 1px solid #d8d9d6;}
+.balloon_content .ip_top .photo {
+	width: 90px;
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 2px;}
+.balloon_content .ip_top .txt {
+	display: table-cell;
+    vertical-align: top;
+    padding: 0 0 0 12px;
+   	text-align:left;
+    }
+.balloon_content .ip_top .txt .m_title {
+    display: block;
+    margin: 0 0 11px 1px;
+    font-family: 'proxima_nova_rgbold';
+    font-size: 16px;
+    line-height: 18px;
+    color: #20a6ad;
+    max-width:205px;
+    }
+.balloon_content .ip_top .txt .m_address {
+	display: block;
+    font-family: 'ProximaNovaLight';
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: normal;
+    color: #000;
+}
+.balloon_content  .ip_info_t {
+	    margin: 6px 0 0 0;
+}
+.balloon_content  .ip_info_t td {
+	text-align:left;
+	    border: 0;
+    padding: 4px 0 0 1px;
+    line-height: 23px;
+}
+.balloon_content  .info_t_type {
+	    font-family: 'ProximaNovaSemibold';
+    width: 143px;
+
+ }
+.balloon_content  .ip_info_t .info_t_square {
+	width: 50px;
+	font-size: 12px;
+}
+.balloon_content .close
+{
+	display:block;
+	top:5px;
+	right:5px;
+}
+.balloon_content .ip_info_t  .info_t_price{
+	    font-family: 'proxima_nova_rgbold';
+    color: #000;
+    text-align: right;
+}
+.inner-balloon .table-wrapper
+{
+	    max-height: 196px;
+    overflow-y: auto;
+}

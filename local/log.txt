@@ -1,0 +1,200 @@
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:13:56
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 39 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:39
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:14:01
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 39 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:39
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:14:14
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 39 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:39
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:15:19
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 39 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:39
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:15:53
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 39 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:39
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:19:22
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 47 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:47
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:19:38
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 47 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:47
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:20:08
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 48 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:48
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:20:24
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 49 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:49
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------
+Host: morealty.dev.mnwb.com
+Date: 2017-08-22 16:20:29
+Module: main
+FILE: E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php<br> LINE: 49 MySql Query Error: 
+		SELECT
+		UG.USER_ID,
+		UG.GROUP_ID,
+		DATE_FORMAT(UG.DATE_ACTIVE_FROM, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_FROM,
+		DATE_FORMAT(UG.DATE_ACTIVE_TO, '%d.%m.%Y %H:%i:%s') as DATE_ACTIVE_TO
+		FROM
+		b_user_group UG
+		WHERE
+		 [[1064] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 8]
+    CDatabaseMysql::Query < CustomUsers::GetUsersGourps < include < CBitrixComponentTemplate::__IncludeMutatorFile < CBitrixComponentTemplate::IncludeTemplate
+	E:\server\morealty\www\local\php_interface\include\lib\classes\CustomUsers.php:49
+	E:\server\morealty\www\local\templates\morealty\components\wexpert\iblock.list\apartaments_at_newbuildings\result_modifier.php:9
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:868
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component_template.php:775
+	E:\server\morealty\www\bitrix\modules\main\classes\general\component.php:681
+----------

@@ -1,0 +1,8 @@
+<? 
+namespace MorealtySale;
+
+class Apartament 
+{
+	
+}
+?>

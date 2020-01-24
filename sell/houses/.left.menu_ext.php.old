@@ -1,0 +1,11 @@
+<?
+$aMenuLinks = array(
+	Array(
+		"Коттеджи",
+		"/sell/houses/kottedj/",
+		Array(),
+		Array(),
+		""
+	),
+);
+?>

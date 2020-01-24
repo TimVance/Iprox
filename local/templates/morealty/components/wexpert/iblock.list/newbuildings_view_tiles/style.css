@@ -1,0 +1,11 @@
+.t-propos p.fix-props{
+display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    margin: 0 auto;
+	padding:0;
+    line-height: 40px;
+    width: 100%;
+text-align: left;
+padding-left: 10px;
+}

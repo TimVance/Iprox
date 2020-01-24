@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.gif
+Disallow: /index
+Disallow: /search
+Disallow: /*index
+Disallow: /*?PRINT
+Disallow: /*add?
+Disallow: /*register
+Disallow: /*auth
+Sitemap: http://morealti.com/sitemap.xml
