@@ -32,22 +32,30 @@ function saveFormFields($iblock_id) {
     $PROP       = array();
     $array_prop = getFormFields($iblock_id);
 
-    //print_r($post);
-    //print_r($_FILES);
-    //exit();
     foreach ($array_prop as $item) {
         if($item["PROPERTY_TYPE"] == "S") $PROP[$item["CODE"]] = $post[$item["CODE"]];
         elseif($item["PROPERTY_TYPE"] == "L") $PROP[$item["CODE"]] = array("VALUE" => $post[$item["CODE"]]);
-        elseif($item["PROPERTY_TYPE"] == "F") $PROP[$item["CODE"]] = CFile::MakeFileArray($post[$item["CODE"]]);
+        elseif($item["PROPERTY_TYPE"] == "F") {
+            $files = array();
+            foreach ($_FILES["files"]["tmp_name"] as $i => $file) {
+                $file = array(
+                    'name' => $_FILES["files"]["name"][$i],
+                    'size' => $_FILES["files"]["size"][$i],
+                    'tmp_name' => $_FILES["files"]["tmp_name"][$i],
+                    'type' => '',
+                    'old_file' => '',
+                    'del' => '',
+                    'MODULE_ID' => 'iblock'
+                );
+                $files[$i] = CFile::MakeFileArray(CFile::SaveFile($file, 'iblock'));
+                $files[$i]["MODULE_ID"] = 'iblock';
+            }
+        }
     }
-//    $arr_file=Array(
-//        "name" => $_FILES[IMAGE_ID][name],
-//        "size" => $_FILES[IMAGE_ID][size],
-//        "tmp_name" => $_FILES[IMAGE_ID][tmp_name],
-//        "type" => "",
-//        "old_file" => "",
-//        "del" => "Y",
-//        "MODULE_ID" => "iblock");
+    if(isset($files)) {
+        $PROP['files'] = $files;
+    }
+
     $arLoadProductArray = Array(
         "MODIFIED_BY"       => $USER->GetID(),
         "IBLOCK_SECTION_ID" => false,
@@ -74,5 +82,5 @@ if (!empty($_POST["name"])) {
     else sendMail();
 }
 else $arResult["form"] = getFormFields($iblock_id);
-//print_r($arResult);
+
 $this->includeComponentTemplate();
