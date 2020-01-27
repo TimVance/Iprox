@@ -1,0 +1,106 @@
+2016-Aug-11 15:15:12 Наличие необходимых модулей php (check_php_modules): Ok
+Все необходимые модули установлены
+2016-Aug-11 15:15:13 Обязательные параметры PHP (check_php_settings): Ok
+Настройки правильные
+2016-Aug-11 15:15:13 Модули веб-сервера (check_security): Ok
+Конфликтов не выявлено
+2016-Aug-11 15:15:13 Значения переменных сервера (check_server_vars): Ok
+Корректные
+2016-Aug-11 15:15:14 Сохранение сессии (check_session): Ok
+50% done
+2016-Aug-11 15:15:14 Сохранение сессии (check_session): Ok
+Успешно
+2016-Aug-11 15:15:15 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+Правильные. Сайт работает в UTF кодировке
+2016-Aug-11 15:15:15 Служебные скрипты в корне сайта (check_install_scripts): Ok
+Отсутствуют
+2016-Aug-11 15:15:15 Работа с сокетами (check_socket): Fail
+Connection to morealty.dev.mnwb.com:80	Success
+== Request ==
+GET /bitrix/admin/site_checker.php?test_type=socket_test&unique_id=49dca24cf714ca810d193ccdf66745b5 HTTP/1.1
+Host: morealty.dev.mnwb.com
+
+
+== Response ==
+HTTP/1.1 401 Unauthorized
+Date: Thu, 11 Aug 2016 12:15:15 GMT
+Server: Microsoft-IIS/666.0
+WWW-Authenticate: Basic realm="Private wexpert company zone. Only for co-workers!"
+Content-Length: 381
+Content-Type: text/html; charset=iso-8859-1
+
+== Body ==
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>401 Unauthorized</title>
+</head><body>
+<h1>Unauthorized</h1>
+<p>This server could not verify that you
+are authorized to access the document
+requested.  Either you supplied the wrong
+credentials (e.g., bad password), or your
+browser doesn't understand how to supply
+the credentials required.</p>
+</body></html>
+
+==========
+
+Ошибка! Не работает
+2016-Aug-11 15:15:16 Параметры подключения к базе данных (check_dbconn_settings): Ok
+Успешно
+2016-Aug-11 15:15:16 Лишний вывод в файлах конфигурации (check_dbconn): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:16 Выполнение агентов на cron (check_bx_crontab): Warning
+Замечание. Агенты выполняются на хитах, рекомендуется перевести выполнение агентов на cron
+2016-Aug-11 15:15:16 Сохранение сессии без UserAgent (check_session_ua): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:17 Настройки сайтов (check_sites): Ok
+Правильные
+2016-Aug-11 15:15:17 Передача объектов по ссылке (check_clone): Ok
+Успешно
+2016-Aug-11 15:15:17 Размер стека и pcre.recursion_limit (check_pcre_recursion): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:18 Вызов method_exists на строке (check_method_exists): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:18 Загрузка файла (check_upload): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:18 Загрузка файла больше 4Мб (check_upload_big): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:19 Загрузка файла через php://input (check_upload_raw): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:19 Передача POST запроса с большим числом параметров (check_post): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:20 Отправка почты (check_mail): Ok
+Успешно
+2016-Aug-11 15:15:20 Отправка почтового сообщения больше 64Кб (check_mail_big): Ok
+Успешно
+2016-Aug-11 15:15:20 Проверка на наличие неотправленных сообщений (check_mail_b_event): Ok
+Успешно
+2016-Aug-11 15:15:21 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:21 Фактическое ограничение памяти (check_memory_limit): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:22 Работа с файлами кеша (check_cache): Ok
+Успешно
+2016-Aug-11 15:15:22 Доступ к серверу обновлений (check_update): Ok
+Успешно
+2016-Aug-11 15:15:22 HTTP авторизация (check_http_auth): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:23 Создание и запуск файла (check_exec): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Aug-11 15:15:23 Функция getimagesize для swf (check_getimagesize): Ok
+Успешно
+2016-Aug-11 15:15:24 Версия MySQL-сервера (check_mysql_bug_version): Ok
+Успешно
+2016-Aug-11 15:15:25 Время на БД и веб-сервере (check_mysql_time): Ok
+Успешно
+2016-Aug-11 15:15:25 Режим работы MySQL (check_mysql_mode): Ok
+Успешно
+2016-Aug-11 15:15:25 Кодировка соединения (check_mysql_connection_charset): Ok
+character_set_connection=utf8, collation_connection=utf8_unicode_ci, character_set_results=utf8
+Успешно
+2016-Aug-11 15:15:25 Кодировка базы данных (check_mysql_db_charset): Ok
+CHARSET=utf8, COLLATION=utf8_unicode_ci
+Успешно
+2016-Aug-11 15:15:26 Кодировки таблиц в БД (check_mysql_table_charset): Ok
+Успешно

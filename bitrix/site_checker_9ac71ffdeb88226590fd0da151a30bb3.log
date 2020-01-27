@@ -1,0 +1,251 @@
+2019-Jul-16 11:19:41 Наличие необходимых модулей php (check_php_modules): Ok
+Все необходимые модули установлены
+2019-Jul-16 11:19:41 Обязательные параметры PHP (check_php_settings): Ok
+Настройки правильные
+2019-Jul-16 11:19:41 Модули веб-сервера (check_security): Ok
+Конфликтов не выявлено
+2019-Jul-16 11:19:41 Значения переменных сервера (check_server_vars): Ok
+Корректные
+2019-Jul-16 11:19:41 Сохранение сессии (check_session): Ok
+50% done
+2019-Jul-16 11:19:41 Сохранение сессии (check_session): Ok
+Успешно
+2019-Jul-16 11:19:41 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+Правильные. Сайт работает в UTF кодировке
+2019-Jul-16 11:19:41 Служебные скрипты в корне сайта (check_install_scripts): Ok
+Отсутствуют
+2019-Jul-16 11:19:41 Работа с сокетами (check_socket): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:41 Выполнение агентов на cron (check_bx_crontab): Ok
+Успешно
+2019-Jul-16 11:19:41 Параметры подключения к базе данных (check_dbconn_settings): Ok
+Успешно
+2019-Jul-16 11:19:41 Лишний вывод в файлах конфигурации (check_dbconn): Fail
+Connection to ssl://morealti.com:443	Success
+== Request ==
+GET /bitrix/admin/site_checker.php?test_type=dbconn_test&unique_id=b0adbe0e1dcd7dadda9f04a8042361a7 HTTP/1.1
+Host: morealti.com
+
+
+== Response ==
+HTTP/1.1 200 OK
+Server: nginx/1.10.2
+Date: Tue, 16 Jul 2019 08:19:41 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 14
+Connection: keep-alive
+Vary: HTTPS
+X-Powered-By: PHP/7.0.32
+P3P: policyref="/bitrix/p3p.xml", CP="NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA"
+X-Powered-CMS: Bitrix Site Manager (87b3da443649d1d5511998bf29d8bdf5)
+Set-Cookie: PHPSESSID=Qo5RctpJUqMK6KHiHofavgIi01X6JRnn; path=/; HttpOnly
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+
+== Body ==
+Length: 2 (
+	)
+==========
+
+Ошибка! Не работает
+2019-Jul-16 11:19:41 Сохранение сессии без UserAgent (check_session_ua): Ok
+50% done
+Connection to ssl://morealti.com:443	Success
+
+2019-Jul-16 11:19:41 Сохранение сессии без UserAgent (check_session_ua): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:41 Настройки сайтов (check_sites): Ok
+Правильные
+2019-Jul-16 11:19:42 Передача объектов по ссылке (check_clone): Ok
+Успешно
+2019-Jul-16 11:19:42 Размер стека и pcre.recursion_limit (check_pcre_recursion): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:42 Загрузка файла (check_upload): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:42 Загрузка файла больше 4Мб (check_upload_big): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:42 Загрузка файла через php://input (check_upload_raw): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:42 Передача POST запроса с большим числом параметров (check_post): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:42 Отправка почты (check_mail): Ok
+Успешно
+2019-Jul-16 11:19:42 Отправка почтового сообщения больше 64Кб (check_mail_big): Ok
+Успешно
+2019-Jul-16 11:19:42 Проверка на наличие неотправленных сообщений (check_mail_b_event): Ok
+Успешно
+2019-Jul-16 11:19:42 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Ok
+50% done
+Connection to ssl://morealti.com:443	Success
+
+2019-Jul-16 11:19:42 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:42 Фактическое ограничение памяти (check_memory_limit): Ok
+20% done
+Connection to ssl://morealti.com:443	Success
+
+2019-Jul-16 11:19:42 Фактическое ограничение памяти (check_memory_limit): Ok
+40% done
+Connection to ssl://morealti.com:443	Success
+
+2019-Jul-16 11:19:43 Фактическое ограничение памяти (check_memory_limit): Ok
+60% done
+Connection to ssl://morealti.com:443	Success
+
+2019-Jul-16 11:19:43 Фактическое ограничение памяти (check_memory_limit): Ok
+80% done
+Connection to ssl://morealti.com:443	Success
+
+2019-Jul-16 11:19:43 Фактическое ограничение памяти (check_memory_limit): Ok
+Connection to ssl://morealti.com:443	Success
+
+Не менее 256 М
+2019-Jul-16 11:19:43 Работа с файлами кеша (check_cache): Ok
+Успешно
+2019-Jul-16 11:19:43 Доступ к серверу обновлений (check_update): Ok
+Успешно
+2019-Jul-16 11:19:43 HTTP авторизация (check_http_auth): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:43 Создание и запуск файла (check_exec): Ok
+Connection to ssl://morealti.com:443	Success
+
+Успешно
+2019-Jul-16 11:19:43 Функция getimagesize для swf (check_getimagesize): Ok
+Успешно
+2019-Jul-16 11:19:44 Версия MySQL-сервера (check_mysql_bug_version): Ok
+Успешно
+2019-Jul-16 11:19:45 Время на БД и веб-сервере (check_mysql_time): Ok
+Успешно
+2019-Jul-16 11:19:45 Режим работы MySQL (check_mysql_mode): Ok
+Успешно
+2019-Jul-16 11:19:45 Кодировка соединения (check_mysql_connection_charset): Ok
+character_set_connection=utf8, collation_connection=utf8_unicode_ci, character_set_results=utf8
+Успешно
+2019-Jul-16 11:19:45 Кодировка базы данных (check_mysql_db_charset): Ok
+CHARSET=utf8, COLLATION=utf8_unicode_ci
+Успешно
+2019-Jul-16 11:19:45 Кодировки таблиц в БД (check_mysql_table_charset): Ok
+Успешно
+2019-Jul-16 11:19:45 Структура базы данных (check_mysql_table_structure): Ok
+0% done
+2019-Jul-16 11:19:45 Структура базы данных (check_mysql_table_structure): Ok
+2% done
+2019-Jul-16 11:19:45 Структура базы данных (check_mysql_table_structure): Ok
+4% done
+2019-Jul-16 11:19:50 Структура базы данных (check_mysql_table_structure): Ok
+6% done
+2019-Jul-16 11:19:50 Структура базы данных (check_mysql_table_structure): Ok
+8% done
+2019-Jul-16 11:19:50 Структура базы данных (check_mysql_table_structure): Ok
+10% done
+2019-Jul-16 11:19:50 Структура базы данных (check_mysql_table_structure): Ok
+12% done
+2019-Jul-16 11:19:50 Структура базы данных (check_mysql_table_structure): Ok
+14% done
+2019-Jul-16 11:19:50 Структура базы данных (check_mysql_table_structure): Ok
+16% done
+2019-Jul-16 11:19:51 Структура базы данных (check_mysql_table_structure): Ok
+18% done
+2019-Jul-16 11:19:51 Структура базы данных (check_mysql_table_structure): Ok
+20% done
+2019-Jul-16 11:19:51 Структура базы данных (check_mysql_table_structure): Ok
+22% done
+2019-Jul-16 11:19:51 Структура базы данных (check_mysql_table_structure): Ok
+24% done
+2019-Jul-16 11:19:53 Структура базы данных (check_mysql_table_structure): Ok
+26% done
+2019-Jul-16 11:19:53 Структура базы данных (check_mysql_table_structure): Ok
+28% done
+2019-Jul-16 11:19:56 Структура базы данных (check_mysql_table_structure): Ok
+30% done
+2019-Jul-16 11:19:57 Структура базы данных (check_mysql_table_structure): Ok
+32% done
+2019-Jul-16 11:19:57 Структура базы данных (check_mysql_table_structure): Ok
+34% done
+2019-Jul-16 11:19:57 Структура базы данных (check_mysql_table_structure): Ok
+36% done
+2019-Jul-16 11:19:57 Структура базы данных (check_mysql_table_structure): Ok
+38% done
+2019-Jul-16 11:19:58 Структура базы данных (check_mysql_table_structure): Ok
+40% done
+2019-Jul-16 11:19:58 Структура базы данных (check_mysql_table_structure): Ok
+42% done
+2019-Jul-16 11:19:58 Структура базы данных (check_mysql_table_structure): Ok
+44% done
+2019-Jul-16 11:19:58 Структура базы данных (check_mysql_table_structure): Ok
+46% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+48% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+50% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+52% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+54% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+56% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+57% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+60% done
+2019-Jul-16 11:19:59 Структура базы данных (check_mysql_table_structure): Ok
+62% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+64% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+66% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+68% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+70% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+72% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+74% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+76% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+78% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+80% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+82% done
+2019-Jul-16 11:20:00 Структура базы данных (check_mysql_table_structure): Ok
+84% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+86% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+88% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+90% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+92% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+94% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+96% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+98% done
+2019-Jul-16 11:20:01 Структура базы данных (check_mysql_table_structure): Ok
+Успешно

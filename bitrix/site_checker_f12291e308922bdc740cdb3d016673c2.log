@@ -1,0 +1,184 @@
+2016-Oct-07 00:43:05 Наличие необходимых модулей php (check_php_modules): Ok
+Все необходимые модули установлены
+2016-Oct-07 00:43:05 Обязательные параметры PHP (check_php_settings): Ok
+Настройки правильные
+2016-Oct-07 00:43:06 Модули веб-сервера (check_security): Ok
+Конфликтов не выявлено
+2016-Oct-07 00:43:06 Значения переменных сервера (check_server_vars): Ok
+Корректные
+2016-Oct-07 00:43:06 Сохранение сессии (check_session): Ok
+50% done
+2016-Oct-07 00:43:07 Сохранение сессии (check_session): Ok
+Успешно
+2016-Oct-07 00:43:07 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+Правильные. Сайт работает в UTF кодировке
+2016-Oct-07 00:43:07 Служебные скрипты в корне сайта (check_install_scripts): Ok
+Отсутствуют
+2016-Oct-07 00:43:08 Работа с сокетами (check_socket): Fail
+Connection to morealty.dev.mnwb.com:80	Success
+== Request ==
+GET /bitrix/admin/site_checker.php?test_type=socket_test&unique_id=0adf8c999a2b5f53de5ec502e6b447af HTTP/1.1
+Host: morealty.dev.mnwb.com
+
+
+== Response ==
+HTTP/1.1 401 Unauthorized
+Date: Thu, 06 Oct 2016 21:43:08 GMT
+Server: Microsoft-IIS/666.0
+WWW-Authenticate: Basic realm="Private wexpert company zone. Only for co-workers!"
+Content-Length: 381
+Content-Type: text/html; charset=iso-8859-1
+
+== Body ==
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>401 Unauthorized</title>
+</head><body>
+<h1>Unauthorized</h1>
+<p>This server could not verify that you
+are authorized to access the document
+requested.  Either you supplied the wrong
+credentials (e.g., bad password), or your
+browser doesn't understand how to supply
+the credentials required.</p>
+</body></html>
+
+==========
+
+Ошибка! Не работает
+2016-Oct-07 00:43:08 Параметры подключения к базе данных (check_dbconn_settings): Ok
+Успешно
+2016-Oct-07 00:43:08 Лишний вывод в файлах конфигурации (check_dbconn): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:09 Выполнение агентов на cron (check_bx_crontab): Warning
+Замечание. Агенты выполняются на хитах, рекомендуется перевести выполнение агентов на cron
+2016-Oct-07 00:43:09 Сохранение сессии без UserAgent (check_session_ua): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:09 Настройки сайтов (check_sites): Ok
+Правильные
+2016-Oct-07 00:43:10 Передача объектов по ссылке (check_clone): Ok
+Успешно
+2016-Oct-07 00:43:10 Размер стека и pcre.recursion_limit (check_pcre_recursion): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:10 Вызов method_exists на строке (check_method_exists): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:10 Загрузка файла (check_upload): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:11 Загрузка файла больше 4Мб (check_upload_big): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:11 Загрузка файла через php://input (check_upload_raw): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:11 Передача POST запроса с большим числом параметров (check_post): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:12 Отправка почты (check_mail): Ok
+Успешно
+2016-Oct-07 00:43:12 Отправка почтового сообщения больше 64Кб (check_mail_big): Ok
+Успешно
+2016-Oct-07 00:43:13 Проверка на наличие неотправленных сообщений (check_mail_b_event): Ok
+Успешно
+2016-Oct-07 00:43:13 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:13 Фактическое ограничение памяти (check_memory_limit): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:14 Работа с файлами кеша (check_cache): Ok
+Успешно
+2016-Oct-07 00:43:14 Доступ к серверу обновлений (check_update): Ok
+Успешно
+2016-Oct-07 00:43:14 HTTP авторизация (check_http_auth): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:15 Создание и запуск файла (check_exec): Warning
+Замечание. Не удалось проверить из-за ошибки в работе с сокетами
+2016-Oct-07 00:43:15 Функция getimagesize для swf (check_getimagesize): Ok
+Успешно
+2016-Oct-07 00:43:15 Версия MySQL-сервера (check_mysql_bug_version): Ok
+Успешно
+2016-Oct-07 00:43:17 Время на БД и веб-сервере (check_mysql_time): Ok
+Успешно
+2016-Oct-07 00:43:17 Режим работы MySQL (check_mysql_mode): Ok
+Успешно
+2016-Oct-07 00:43:17 Кодировка соединения (check_mysql_connection_charset): Ok
+character_set_connection=utf8, collation_connection=utf8_unicode_ci, character_set_results=utf8
+Успешно
+2016-Oct-07 00:43:17 Кодировка базы данных (check_mysql_db_charset): Ok
+CHARSET=utf8, COLLATION=utf8_unicode_ci
+Успешно
+2016-Oct-07 00:43:18 Кодировки таблиц в БД (check_mysql_table_charset): Ok
+Успешно
+2016-Oct-07 00:43:19 Структура базы данных (check_mysql_table_structure): Ok
+0% done
+2016-Oct-07 00:43:19 Структура базы данных (check_mysql_table_structure): Ok
+2% done
+2016-Oct-07 00:43:20 Структура базы данных (check_mysql_table_structure): Ok
+5% done
+2016-Oct-07 00:43:20 Структура базы данных (check_mysql_table_structure): Ok
+7% done
+2016-Oct-07 00:43:20 Структура базы данных (check_mysql_table_structure): Ok
+10% done
+2016-Oct-07 00:43:20 Структура базы данных (check_mysql_table_structure): Ok
+13% done
+2016-Oct-07 00:43:21 Структура базы данных (check_mysql_table_structure): Ok
+15% done
+2016-Oct-07 00:43:21 Структура базы данных (check_mysql_table_structure): Ok
+18% done
+2016-Oct-07 00:43:21 Структура базы данных (check_mysql_table_structure): Ok
+21% done
+2016-Oct-07 00:43:22 Структура базы данных (check_mysql_table_structure): Ok
+23% done
+2016-Oct-07 00:43:22 Структура базы данных (check_mysql_table_structure): Ok
+26% done
+2016-Oct-07 00:43:23 Структура базы данных (check_mysql_table_structure): Ok
+28% done
+2016-Oct-07 00:43:23 Структура базы данных (check_mysql_table_structure): Ok
+31% done
+2016-Oct-07 00:43:24 Структура базы данных (check_mysql_table_structure): Ok
+34% done
+2016-Oct-07 00:43:25 Структура базы данных (check_mysql_table_structure): Ok
+36% done
+2016-Oct-07 00:43:25 Структура базы данных (check_mysql_table_structure): Ok
+39% done
+2016-Oct-07 00:43:25 Структура базы данных (check_mysql_table_structure): Ok
+42% done
+2016-Oct-07 00:43:26 Структура базы данных (check_mysql_table_structure): Ok
+44% done
+2016-Oct-07 00:43:26 Структура базы данных (check_mysql_table_structure): Ok
+47% done
+2016-Oct-07 00:43:28 Структура базы данных (check_mysql_table_structure): Ok
+50% done
+2016-Oct-07 00:43:29 Структура базы данных (check_mysql_table_structure): Ok
+52% done
+2016-Oct-07 00:43:29 Структура базы данных (check_mysql_table_structure): Ok
+55% done
+2016-Oct-07 00:43:29 Структура базы данных (check_mysql_table_structure): Ok
+57% done
+2016-Oct-07 00:43:30 Структура базы данных (check_mysql_table_structure): Ok
+60% done
+2016-Oct-07 00:43:30 Структура базы данных (check_mysql_table_structure): Ok
+63% done
+2016-Oct-07 00:43:30 Структура базы данных (check_mysql_table_structure): Ok
+65% done
+2016-Oct-07 00:43:31 Структура базы данных (check_mysql_table_structure): Ok
+68% done
+2016-Oct-07 00:43:31 Структура базы данных (check_mysql_table_structure): Ok
+71% done
+2016-Oct-07 00:43:32 Структура базы данных (check_mysql_table_structure): Ok
+73% done
+2016-Oct-07 00:43:32 Структура базы данных (check_mysql_table_structure): Ok
+76% done
+2016-Oct-07 00:43:33 Структура базы данных (check_mysql_table_structure): Ok
+78% done
+2016-Oct-07 00:43:33 Структура базы данных (check_mysql_table_structure): Ok
+81% done
+2016-Oct-07 00:43:33 Структура базы данных (check_mysql_table_structure): Ok
+84% done
+2016-Oct-07 00:43:34 Структура базы данных (check_mysql_table_structure): Ok
+86% done
+2016-Oct-07 00:43:34 Структура базы данных (check_mysql_table_structure): Ok
+89% done
+2016-Oct-07 00:43:34 Структура базы данных (check_mysql_table_structure): Ok
+92% done
+2016-Oct-07 00:43:35 Структура базы данных (check_mysql_table_structure): Ok
+94% done
+2016-Oct-07 00:43:35 Структура базы данных (check_mysql_table_structure): Ok
+97% done
+2016-Oct-07 00:43:35 Структура базы данных (check_mysql_table_structure): Ok
+Успешно
