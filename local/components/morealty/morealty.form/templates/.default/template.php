@@ -12,7 +12,7 @@ else {
 echo '<div class="errors">'.$arResult["add"].'</div>';
 ?>
 <form class="sendValuationForm" name="sendValuationForm" method="post" enctype="multipart/form-data">
-<?
+    <?
     foreach ($arResult["form"] as $item):
         if ($item["PROPERTY_TYPE"] == "S"):
             if ($item["CODE"] == "email"): ?>

@@ -23,7 +23,7 @@ function getPropertyEnum($iblock_id, $code) {
     return $list_fields;
 }
 
-function saveFormFields($iblock_id) {
+function saveFormFields($iblock_id, $template) {
     $request = Context::getCurrent()->getRequest();
     $post = $request->getPostList()->toArray();
     $el = new CIBlockElement;
@@ -65,22 +65,51 @@ function saveFormFields($iblock_id) {
         "ACTIVE"            => "Y",
     );
 
-    if ($PRODUCT_ID = $el->Add($arLoadProductArray))
+    if ($PRODUCT_ID = $el->Add($arLoadProductArray)) {
+        sendMail($template, $array_prop, $post);
         return 'success';
+    }
     else return $el->LAST_ERROR;
 }
 
-function sendMail() {
-    CEvent::Send("NEW_VALUATION", 's1', array());
+function sendMail($template, $array_prop, $post) {
+    $text = '';
+    foreach ($array_prop as $item) {
+        if($item["PROPERTY_TYPE"] == "S") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
+        elseif($item["PROPERTY_TYPE"] == "L") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
+        elseif($item["PROPERTY_TYPE"] == "F") {
+            $files = array();
+            foreach ($_FILES["files"]["tmp_name"] as $i => $file) {
+                $file = array(
+                    'name' => $_FILES["files"]["name"][$i],
+                    'size' => $_FILES["files"]["size"][$i],
+                    'tmp_name' => $_FILES["files"]["tmp_name"][$i],
+                    'type' => '',
+                    'old_file' => '',
+                    'del' => '',
+                    'MODULE_ID' => 'iblock'
+                );
+                $files[$i] = CFile::MakeFileArray(CFile::SaveFile($file, 'iblock'));
+                $files[$i]["MODULE_ID"] = 'iblock';
+            }
+        }
+    }
+    $arEventField = array("TEXT" => $text);
+    CEvent::Send($template, 's1', $arEventField);
 }
 
-$iblock_id = 34;
+$iblock_id = $arParams["IBLOCK_ID"];
+$template = $arParams["mail_template"];
 
 if (!empty($_POST["name"])) {
-    $arResult["add"] = saveFormFields($iblock_id);
+    $arResult["add"] = saveFormFields($iblock_id, $template);
     if ($arResult["add"] != "success") $arResult["form"] = getFormFields($iblock_id);
-    else sendMail();
 }
 else $arResult["form"] = getFormFields($iblock_id);
+
+
+
+
+
 
 $this->includeComponentTemplate();
