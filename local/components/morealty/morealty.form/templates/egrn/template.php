@@ -39,11 +39,13 @@ echo '<div class="errors">'.$arResult["add"].'</div>';
             <? else : ?>
                 <?
                 $first_tab = false;
+                $second_tab = false;
                 if ($item["CODE"] == "cadastral") $first_tab = true;
                 if ($item["CODE"] == "name") $first_tab = true;
                 if ($item["CODE"] == "phone") $first_tab = true;
+                if ($item["CODE"] == "cadastral") $second_tab = true;
                 ?>
-                <div class="field-wrap <? echo ($first_tab  ? '' : 'first-tab'); ?>">
+                <div class="field-wrap <? echo ($first_tab  ? '' : 'first-tab'); ?><? echo ($second_tab  ? ' second-tab' : ''); ?>">
                     <input required type="text" placeholder="<?=$item["NAME"]?>*" name="<?=$item["CODE"]?>">
                 </div>
             <? endif;

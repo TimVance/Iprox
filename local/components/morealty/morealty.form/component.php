@@ -66,13 +66,13 @@ function saveFormFields($iblock_id, $template) {
     );
 
     if ($PRODUCT_ID = $el->Add($arLoadProductArray)) {
-        sendMail($template, $array_prop, $post);
+        sendMail($template, $array_prop, $post, $iblock_id);
         return 'success';
     }
     else return $el->LAST_ERROR;
 }
 
-function sendMail($template, $array_prop, $post) {
+function sendMail($template, $array_prop, $post, $iblock_id) {
     $text = '';
     foreach ($array_prop as $item) {
         if($item["PROPERTY_TYPE"] == "S") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
@@ -94,7 +94,9 @@ function sendMail($template, $array_prop, $post) {
             }
         }
     }
-    $arEventField = array("TEXT" => $text);
+    $name = '';
+    if ($iblock_id == 35) $name = 'ЕГРН выписка';
+    $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
     CEvent::Send($template, 's1', $arEventField);
 }
 
