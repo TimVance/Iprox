@@ -5,6 +5,7 @@ $APPLICATION->SetTitle("Панель колл-центра");
 
 <?php
 
+
 /* Обработка формы */
 
 if (!empty($_POST)) {
@@ -148,9 +149,11 @@ $Select_filter[] = array(
     "<=DATE_CREATE" => ConvertTimeStamp(strtotime($end), 'FULL'),
 );
 
+$Sort_filter = array("TIMESTAMP_X" => "ASC");
+
 // ID ля формирования form
 $arResultId = CIBlockElement::GetList(
-    Array(),
+    $Sort_filter,
     $Select_filter,
     false,
     Array("nPageSize" => $count, "iNumPage" => $page),
@@ -160,7 +163,7 @@ $arResultId = CIBlockElement::GetList(
 
 // Получаем объекты
 $arResult = CIBlockElement::GetList(
-    Array(),
+    $Sort_filter,
     $Select_filter,
     false,
     Array("nPageSize" => $count, "iNumPage" => $page)
@@ -169,7 +172,7 @@ $arResult = CIBlockElement::GetList(
 
 //Сколько всего товаров
 $all_count = CIBlockElement::GetList(
-    Array(),
+    $Sort_filter,
     $Select_filter,
     Array(),
     false,
@@ -188,8 +191,8 @@ endif;
 //Формируем таблицу
 echo '<div id="horizontal-scroller" class="call-center">';
 echo '<form method="get">';
-echo '<input type="date" class="date start" name="start" value="' . substr($start, 0, 10) . '">-';
-echo '<input type="date" class="date end" name="end" value="' . substr($end, 0, 10) . '">';
+echo '<div>Дата создания</div><span><input type="date" class="date start" name="start" value="' . substr($start, 0, 10) . '">-';
+echo '<input type="date" class="date end" name="end" value="' . substr($end, 0, 10) . '"></span>';
 
 echo '<select style="width:140px" name="block_id">';
 echo '<option ' . ($block_id == 7 ? 'selected ' : '') . 'value="7">Квартиры</option>';
@@ -225,11 +228,11 @@ echo '
         </form>
     ';
 
-
 echo '<div class="table">';
 echo '<div class="row th">';
 echo '<div>Фото</div>';
-echo '<div>Дата</div>';
+echo '<div>Дата создания</div>';
+echo '<div>Дата изменения</div>';
 echo '<div>Лот</div>';
 echo '<div>Наименование</div>';
 if ($block_id != 19) echo '<div>Телефон</div>';
@@ -243,6 +246,7 @@ echo '<div>Отправить</div>';
 echo '</div>';
 $total = 0;
 while ($item = $arResult->GetNext()) {
+
     $properties = [];
     $arProperty = CIBlockElement::GetProperty($block_id, $item["ID"], "sort", "asc", array());
     while ($property_item = $arProperty->GetNext()) {
@@ -268,6 +272,7 @@ while ($item = $arResult->GetNext()) {
                 <!--<input form="form_product' . $item["ID"] . '" type="text" name="date" value="' . date("d-m-Y", $item["DATE_CREATE_UNIX"]) . '">-->
                 ' . date("d-m-Y", $item["DATE_CREATE_UNIX"]) . '
             </div>';
+    echo '<div class="date">' . $item["TIMESTAMP_X"] . '</div>';
     echo '<div class="id">' . $item["ID"] . '</div>';
     echo '<div class="name">' . $item["NAME"] . '</div>';
     if ($block_id != 19) echo '<div class="phone">

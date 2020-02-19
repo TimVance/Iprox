@@ -48,7 +48,10 @@
     width: 100%;
 }
 .table > .row.td:nth-child(odd) > div {
-    background-color: #efefef;
+    background-color: #e8e8e8;
+}
+.table > .row > div.name {
+    white-space: normal;
 }
 .table > .row > .address {
     text-align: left;
@@ -130,7 +133,7 @@
 }
 
 .photos-wrap {
-    width: 490px;
+    width: 390px;
     white-space: normal;
     text-align: left;
 }
