@@ -19,7 +19,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.ph
 
 CModule::IncludeModule("iblock");
 $arSelect = Array("ID", "IBLOCK_ID", "NAME", "DETAIL_TEXT", "TIMESTAMP_X", "DETAIL_PAGE_URL");
-$arFilter = Array("IBLOCK_ID"=>7, "ACTIVE"=>"Y");
+$arFilter =     Array(
+    "IBLOCK_ID" => "7",
+    "ACTIVE" => "Y",
+    "=PROPERTY_IS_ACCEPTED" => "417",
+    "=PROPERTY_watermark_avito_delete" => "1",
+);
 $res = CIBlockElement::GetList(Array("ID" => "DESC"), $arFilter, false, Array("nTopCount" => 1000, "iNumPage" =>1), $arSelect);
 $propertyes_value = [];
 
