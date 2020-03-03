@@ -7,6 +7,7 @@ namespace Artamonov\Api\Controllers;
 use Artamonov\Api\Request;
 use Artamonov\Api\Response;
 use Bitrix\Main\Loader;
+use Bitrix\Main\Context;
 use CIBlockElement;
 use CUser;
 use CFile;
@@ -36,6 +37,18 @@ class iValuation
         $data = $this->getFormFields(34);
         if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         else Response::iNoResultProfile($data);
+    }
+
+    public function insert() {
+        $iblock_id = 34;
+        $template = 'NEW_VALUATION';
+        $data = '';
+        if (!empty($_REQUEST["name"])) {
+            $data = $this->saveFormFields($iblock_id, $template);
+        }
+        else Response::BadRequest();
+        if ($data == "success") Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::iShowError($data);
     }
 
     // Get current request
@@ -76,10 +89,7 @@ class iValuation
                 if ($prop_fields["PROPERTY_TYPE"] == "L") {
                     $prop_fields["SELECT"] = $this->getPropertyEnum($iblock_id, $prop_fields["CODE"]);
                 }
-                $data = array(
-                  'id' => $prop_fields['CODE'],
-                  'name' => $prop_fields['NAME'],
-                );
+                $data = $prop_fields;
                 if(!empty($prop_fields['SELECT'][0]['ID'])) {
                     foreach ($prop_fields['SELECT'] as $select) {
                         $data['select'][] = array(
@@ -106,48 +116,54 @@ class iValuation
     private function saveFormFields($iblock_id) {
         $request = Context::getCurrent()->getRequest();
         $post = $request->getPostList()->toArray();
-        $el = new CIBlockElement;
-        GLOBAL $USER;
+        if (Loader::includeModule('iblock')) {
+            $el = new CIBlockElement;
+            GLOBAL $USER;
 
-        $PROP       = array();
-        $array_prop = getFormFields($iblock_id);
+            $PROP       = array();
+            $array_prop = $this->getFormFields($iblock_id);
 
-        foreach ($array_prop as $item) {
-            if($item["PROPERTY_TYPE"] == "S") $PROP[$item["CODE"]] = $post[$item["CODE"]];
-            elseif($item["PROPERTY_TYPE"] == "L") $PROP[$item["CODE"]] = array("VALUE" => $post[$item["CODE"]]);
-            elseif($item["PROPERTY_TYPE"] == "F") {
-                $files = array();
-                foreach ($_FILES["files"]["tmp_name"] as $i => $file) {
-                    $file = array(
-                        'name' => $_FILES["files"]["name"][$i],
-                        'size' => $_FILES["files"]["size"][$i],
-                        'tmp_name' => $_FILES["files"]["tmp_name"][$i],
-                        'type' => '',
-                        'old_file' => '',
-                        'del' => '',
-                        'MODULE_ID' => 'iblock'
-                    );
-                    $files[$i] = CFile::MakeFileArray(CFile::SaveFile($file, 'iblock'));
-                    $files[$i]["MODULE_ID"] = 'iblock';
+            foreach ($array_prop as $item) {
+                if ($item["PROPERTY_TYPE"] == "S") $PROP[$item["CODE"]] = $post[$item["CODE"]];
+                elseif ($item["PROPERTY_TYPE"] == "L") $PROP[$item["CODE"]] = array("VALUE" => $post[$item["CODE"]]);
+                elseif ($item["PROPERTY_TYPE"] == "F") {
+                    $files = array();
+                    foreach ($_FILES["files"]["tmp_name"] as $i => $file) {
+                        $file                   = array(
+                            'name'      => $_FILES["files"]["name"][$i],
+                            'size'      => $_FILES["files"]["size"][$i],
+                            'tmp_name'  => $_FILES["files"]["tmp_name"][$i],
+                            'type'      => '',
+                            'old_file'  => '',
+                            'del'       => '',
+                            'MODULE_ID' => 'iblock'
+                        );
+                        $files[$i]              = CFile::MakeFileArray(CFile::SaveFile($file, 'iblock'));
+                        $files[$i]["MODULE_ID"] = 'iblock';
+                    }
                 }
             }
-        }
-        if(isset($files)) {
-            $PROP['files'] = $files;
-        }
+            if (isset($files)) {
+                $PROP['files'] = $files;
+            }
 
-        $arLoadProductArray = Array(
-            "MODIFIED_BY"       => $USER->GetID(),
-            "IBLOCK_SECTION_ID" => false,
-            "IBLOCK_ID"         => $iblock_id,
-            "PROPERTY_VALUES"   => $PROP,
-            "NAME"              => $PROP["phone"],
-            "ACTIVE"            => "Y",
-        );
+            if(!$USER)
+            {
+                $USER = new CUser;
+            }
+            $arLoadProductArray = Array(
+                "MODIFIED_BY"       => $USER->GetID(),
+                "IBLOCK_SECTION_ID" => false,
+                "IBLOCK_ID"         => $iblock_id,
+                "PROPERTY_VALUES"   => $PROP,
+                "NAME"              => $PROP["phone"],
+                "ACTIVE"            => "Y",
+            );
 
-        if ($PRODUCT_ID = $el->Add($arLoadProductArray))
-            return 'success';
-        else return $el->LAST_ERROR;
+            if ($PRODUCT_ID = $el->Add($arLoadProductArray))
+                return 'success';
+            else return $el->LAST_ERROR;
+        }
     }
 
     private function sendMail() {

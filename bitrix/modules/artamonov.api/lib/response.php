@@ -48,6 +48,26 @@ class Response
         die();
     }
 
+    public static function ShowError($message = 'Product not found', $code = '200')
+    {
+        self::setHeaders();
+        $error["message"] = $message;
+        $error["code"] = $code;
+        header('HTTP/1.1 200');
+        echo json_encode(['isSuccess' => "true", 'auth' => $_SESSION["auth"], 'auth_message' => $_SESSION["auth_message"], 'auth_user_id' => $_SESSION["userId"], "data" => array(), 'error' => $error], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
+    public static function iShowError($message = 'Product not found', $code = '200')
+    {
+        self::setHeaders();
+        $error["message"] = $message;
+        $error["code"] = $code;
+        header('HTTP/1.1 200');
+        echo json_encode(['isSuccess' => "true", "data" => array(), 'error' => $error], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
     public static function NoResult($message = 'Product not found', $code = '200')
     {
         self::setHeaders();
