@@ -198,6 +198,7 @@ echo '<select style="width:140px" name="block_id">';
 echo '<option ' . ($block_id == 7 ? 'selected ' : '') . 'value="7">Квартиры</option>';
 echo '<option ' . ($block_id == 8 ? 'selected ' : '') . 'value="8">Дома, коттеджи, таунхаусы</option>';
 echo '<option ' . ($block_id == 19 ? 'selected ' : '') . 'value="19">Новостройки</option>';
+echo '<option ' . ($block_id == 19 ? 'selected ' : '') . 'value="19">Участки</option>';
 echo '</select>';
 
 if (!empty($block_id)) {

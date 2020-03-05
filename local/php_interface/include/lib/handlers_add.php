@@ -946,7 +946,7 @@ function SetNameByPropBeforeElement(&$arFields)
 	}
 	else if ($arFields["IBLOCK_ID"] == 10)
 	{
-		
+		/*
 		$PropsToId = array(
 				"plot_dimension",
 				"sector_square",
@@ -983,10 +983,10 @@ function SetNameByPropBeforeElement(&$arFields)
 
 		$arFields["NAME"] = $name;
 		$arFields["CODE"] = CUtil::translit($name, "ru");
-		
+		*/
 	}
 	else if ($arFields["IBLOCK_ID"] == 11)
-	{
+	{/*
 		$PropsToId = array(
 			"commerc_type",
 			"square",
@@ -1013,5 +1013,6 @@ function SetNameByPropBeforeElement(&$arFields)
 		
 		$arFields["NAME"] = $name;
 		$arFields["CODE"] = CUtil::translit($name, "ru");
+        */
 	}
 }
