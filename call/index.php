@@ -135,6 +135,21 @@ $status   = (!empty($_GET["status"]) ? $_GET["status"] : "");
 $public   = (!empty($_GET["only_active"]) ? "Y" : "");
 $accept   = (!empty($_GET["only_active"]) ? "Да" : "");
 
+switch ($block_id) {
+    case 7:
+        $APPLICATION->SetTitle("Работа с вторичкой");
+        break;
+    case 8:
+        $APPLICATION->SetTitle("Работа с домами");
+        break;
+    case 19:
+        $APPLICATION->SetTitle("Работа с новостройками");
+        break;
+    case 10:
+        $APPLICATION->SetTitle("Работа с участками");
+        break;
+}
+
 $Select_filter["IBLOCK_ID"] = $block_id;
 if($public == "Y") {
     $Select_filter["ACTIVE"] = "Y";
