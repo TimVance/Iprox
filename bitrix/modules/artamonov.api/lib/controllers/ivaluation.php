@@ -34,7 +34,7 @@ class iValuation
 
     public function fields()
     {
-        $data = $this->getFormFields(34);
+        $data = $this->getFormFieldsForApp(34);
         if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         else Response::iNoResultProfile($data);
     }
@@ -81,6 +81,33 @@ class iValuation
         return $new_array;
     }
 
+    private function getFormFieldsForApp($iblock_id)
+    {
+        if (Loader::includeModule('iblock')) {
+            $properties = CIBlockProperty::GetList(Array("sort" => "asc", "name" => "asc"), Array("ACTIVE" => "Y", "IBLOCK_ID" => $iblock_id));
+            while ($prop_fields = $properties->GetNext()) {
+                if ($prop_fields["PROPERTY_TYPE"] == "L") {
+                    $prop_fields["SELECT"] = $this->getPropertyEnum($iblock_id, $prop_fields["CODE"]);
+                }
+                //print_r($prop_fields);
+                $data = array(
+                    "name" => $prop_fields["CODE"],
+                    "title" => $prop_fields["NAME"]
+                );
+                if(!empty($prop_fields['SELECT'][0]['ID'])) {
+                    foreach ($prop_fields['SELECT'] as $select) {
+                        $data['select'][] = array(
+                            'id' => $select["ID"],
+                            'title' => $select["VALUE"],
+                        );
+                    }
+                }
+                $arrData[] = $data;
+            }
+            return $arrData;
+        }
+    }
+
     private function getFormFields($iblock_id)
     {
         if (Loader::includeModule('iblock')) {
@@ -94,7 +121,7 @@ class iValuation
                     foreach ($prop_fields['SELECT'] as $select) {
                         $data['select'][] = array(
                             'id' => $select["ID"],
-                            'name' => $select["VALUE"],
+                            'title' => $select["VALUE"],
                         );
                     }
                 }
@@ -156,10 +183,10 @@ class iValuation
                 "IBLOCK_SECTION_ID" => false,
                 "IBLOCK_ID"         => $iblock_id,
                 "PROPERTY_VALUES"   => $PROP,
-                "NAME"              => $PROP["phone"],
+                "NAME"              => $PROP["name"],
                 "ACTIVE"            => "Y",
             );
-
+            //print_r($item);
             if ($PRODUCT_ID = $el->Add($arLoadProductArray))
                 return 'success';
             else return $el->LAST_ERROR;
