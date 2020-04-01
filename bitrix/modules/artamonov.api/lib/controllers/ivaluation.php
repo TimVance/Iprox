@@ -186,7 +186,7 @@ class iValuation
                 "NAME"              => $PROP["name"],
                 "ACTIVE"            => "Y",
             );
-            //print_r($item);
+
             if ($PRODUCT_ID = $el->Add($arLoadProductArray))
                 return 'success';
             else return $el->LAST_ERROR;

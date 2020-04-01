@@ -7,6 +7,7 @@ $APPLICATION->SetTitle("Обрезка фотографий авито");
 //$iblock = 7; // Квартиры
 $iblock = 8; // Дома
 
+
 $page = (!empty($_GET["page"]) ? $_GET["page"] : 1);
 $arOrder  = Array("ID" => 'DESC');
 
