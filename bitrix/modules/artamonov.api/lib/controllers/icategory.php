@@ -17,29 +17,7 @@ class iCategory
 {
     public function get()
     {
-        /*
-        global $USER;
-        if(!is_object($USER)) $USER = new CUser;
-        $rsUser = CUser::GetByID($USER->GetID());
-        $arUser = $rsUser->Fetch();
-        if($arUser) {
-            echo "<pre>"; print_r($arUser); echo "</pre>";
-        }
-        else echo 'Авторизация не удалась';
-        if ($USER->IsAuthorized()) echo "Вы авторизованы!";
-        print_r($_SESSION);
-        print_r($_COOKIE);
-        */
-
-
-
-
-
-
-
-
         $arResult = $this->getRequest();
-        //print_r($_GET);
         if(!empty($_GET)) {
             if (!empty($arResult["PARAMETERS"]["get-parameter-0"]))
                 $iblock_id = $arResult["PARAMETERS"]["get-parameter-0"]; // Получаем id товара из адреса
@@ -305,45 +283,17 @@ class iCategory
                 if($arend == "sell") $arFilter["PROPERTY_advert_type"] = $arend_array["Продажа"];
             }
 
-            //(!is_array($district) ? "=PROPERTY_district" : '1') => $district,
-            //(!is_array($microdistrict) ? "=PROPERTY_microdistrict" : '2') => $microdistrict,
-            //(!is_array($price) ? "=PROPERTY_price" : '3') => $price,
-            //(!is_array($square) ? "=PROPERTY_square" : '4') => $square,
-            //(!is_array($room) ? "=PROPERTY_room_number" : '5') => $room,
-            //(!is_array($remont) ? "=PROPERTY_decoration" : '6') => $remont,
-            //(!is_array($sector_square) ? "=PROPERTY_sector_square" : '7') => $sector_square,
-
-            //print_r($arFilter);
-
             $res = CIBlockElement::GetList($arSort, $arFilter, false, Array("nPageSize" => $count, "iNumPage" => $iNumPage, 'checkOutOfRange' => true), $arSelect);
             while ($ob = $res->GetNextElement()) {
                 $item = $this->array_change_keys(array_change_key_case($ob->GetFields(), CASE_LOWER));
-                //print_r($item);
                 $items[] = array(
                     "id"    => $item["id"],
-                    "name" => $item["name"],
-                    //"detailText"  => $item["detailText"],
-                    //"shortInfo"  => $item["previewText"],
-                    //"createdBy"  => $item["createdBy"],
+                    "name" => html_entity_decode($item["name"]),
                     "iblockId"  => $item["iblockId"],
                 );
             }
 
             foreach ($items as $key => $value) {
-
-                // createdBy
-                //$creadted_id = $value["createdBy"];
-                //unset($items[$key]["createdBy"]);
-                //$items[$key]["createdBy"] = $this->getUser($creadted_id);
-                // createdBy
-
-                //modifiedBy
-                //$modified_id = $value["modifiedBy"];
-                //unset($items[$key]["modifiedBy"]);
-                //$items[$key]["modifiedBy"] = $this->getUser($modified_id);
-                //modifiedBy
-
-
                 $product_properties = CIBlockElement::GetProperty($value["iblockId"], $value["id"], array("sort" => "asc"), Array());
                 $prop_array = array();
                 while ($prop = $product_properties->Fetch())
@@ -355,7 +305,6 @@ class iCategory
                             if ($ar_res = $prop_item["value"]->GetNext()) {
                                 $prop_item["value"] = $ar_res["NAME"];
                             }
-                            //print_r($orgName);
                         }
                         if ($prop_item["multiple"] == "N") $prop_array[$prop_item["code"]] = $prop_item["value"];
                             else {
@@ -385,25 +334,14 @@ class iCategory
                 }
                 $items[$key]["address"] = ''
                     .(!empty($prop_array["city"]) ? $prop_array["city"].', ' : '')
-                    //.(!empty($prop_array["district"]) ? $prop_array["district"].', ' : '')
                     .(!empty($prop_array["microdistrict"]) ? $prop_array["microdistrict"].', ' : '')
                     .(!empty($prop_array["street"]) ? $prop_array["street"] : '');
-                /*
-                echo '<pre>';
-                    print_r($prop_array);
-                echo '</pre>';
-                */
             }
 
 
             $arIBlock = GetIBlock($id);
             $data["id"] = $arIBlock["ID"];
-            //$data["timestampX"] = $this->formatDateISO8601($arIBlock["TIMESTAMP_X"]);
-            //$data["iblockTypeId"] = $arIBlock["IBLOCK_TYPE_ID"];
-            //$data["lid"] = $arIBlock["LID"];
-            ///$data["code"] = $arIBlock["CODE"];
             $data["name"] = $arIBlock["NAME"];
-            //$data["listPageUrl"] = $arIBlock["LIST_PAGE_URL"];
             $data["iNumPage"] = $iNumPage;
             $data["nPageSize"] = $count;
             $data["totalSize"] = CIBlockElement::GetList(Array(), $arFilter, array(), Array("nPageSize" => $count, "iNumPage" => $iNumPage, 'checkOutOfRange' => true), $arSelect);
@@ -463,19 +401,6 @@ class iCategory
             "fullName" => trim($array_user["NAME"].' '.$array_user["LAST_NAME"]),
             "photo"       => $array_user["PERSONAL_PHOTO"],
             "phone"      => $array_user["PERSONAL_MOBILE"],
-//            "login"       => $array_user["LOGIN"],
-//            "active"      => $array_user["ACTIVE"],
-//            "name"        => $array_user["NAME"],
-//            "lastName"    => $array_user["LAST_NAME"],
-//            "email"       => $array_user["EMAIL"],
-//            "profession"  => $array_user["PERSONAL_PROFESSION"],
-//            "city"        => $array_user["UF_CITY"],
-//            "private"     => $array_user["UF_DISPLAY_PRIVATE"],
-//            "acceptRules" => $array_user["UF_ACCEPT_RULES"],
-//            "skype"       => $array_user["UF_SKYPE"],
-//            "aboutMe"     => $array_user["UF_ABOUT_ME"],
-//            "post"        => $array_user["UF_PERSON_POST"],
-//            "agentName"   => $array_user["UF_AGENT_NAME"],
         );
         return $data;
     }

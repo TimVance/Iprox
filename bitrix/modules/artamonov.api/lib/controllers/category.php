@@ -17,29 +17,8 @@ class Category
 {
     public function get()
     {
-        /*
-        global $USER;
-        if(!is_object($USER)) $USER = new CUser;
-        $rsUser = CUser::GetByID($USER->GetID());
-        $arUser = $rsUser->Fetch();
-        if($arUser) {
-            echo "<pre>"; print_r($arUser); echo "</pre>";
-        }
-        else echo 'Авторизация не удалась';
-        if ($USER->IsAuthorized()) echo "Вы авторизованы!";
-        print_r($_SESSION);
-        print_r($_COOKIE);
-        */
-
-
-
-
-
-
-
 
         $arResult = $this->getRequest();
-        //print_r($_GET);
         if(!empty($_GET)) {
             if (!empty($arResult["PARAMETERS"]["get-parameter-0"]))
                 $iblock_id = $arResult["PARAMETERS"]["get-parameter-0"]; // Получаем id товара из адреса
@@ -305,15 +284,6 @@ class Category
                 if($arend == "sell") $arFilter["PROPERTY_advert_type"] = $arend_array["Продажа"];
             }
 
-            //(!is_array($district) ? "=PROPERTY_district" : '1') => $district,
-            //(!is_array($microdistrict) ? "=PROPERTY_microdistrict" : '2') => $microdistrict,
-            //(!is_array($price) ? "=PROPERTY_price" : '3') => $price,
-            //(!is_array($square) ? "=PROPERTY_square" : '4') => $square,
-            //(!is_array($room) ? "=PROPERTY_room_number" : '5') => $room,
-            //(!is_array($remont) ? "=PROPERTY_decoration" : '6') => $remont,
-            //(!is_array($sector_square) ? "=PROPERTY_sector_square" : '7') => $sector_square,
-
-            //print_r($arFilter);
 
             $res = CIBlockElement::GetList($arSort, $arFilter, false, Array("nPageSize" => $count, "iNumPage" => $iNumPage, 'checkOutOfRange' => true), $arSelect);
             while ($ob = $res->GetNextElement()) {
@@ -321,7 +291,7 @@ class Category
                 //print_r($item);
                 $items[] = array(
                     "id"    => $item["id"],
-                    "name" => $item["name"],
+                    "name" => html_entity_decode($item["name"]),
                     //"detailText"  => $item["detailText"],
                     //"shortInfo"  => $item["previewText"],
                     //"createdBy"  => $item["createdBy"],
