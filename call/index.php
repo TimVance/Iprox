@@ -98,7 +98,9 @@ if (!empty($_POST)) {
                     array(
                         'comment'     => $comment,
                         'street'      => $street,
-                        'call_status' => $status
+                        'call_status' => $status,
+                        'rieltor_phone' => $tel,
+                        'price_flat_min' => $system_price_from
                     )
                 );
             }
@@ -165,25 +167,15 @@ $Select_filter[] = array(
 );
 
 $Sort_filter = array("TIMESTAMP_X" => "ASC");
-
-// ID ля формирования form
-$arResultId = CIBlockElement::GetList(
-    $Sort_filter,
-    $Select_filter,
-    false,
-    Array("nPageSize" => $count, "iNumPage" => $page),
-    Array('ID')
-);
-
+if($block_id == 19) $Sort_filter = array("PROPERTY_price_flat_min" => "ASC");
 
 // Получаем объекты
-$arResult = CIBlockElement::GetList(
+$arResults = CIBlockElement::GetList(
     $Sort_filter,
     $Select_filter,
     false,
     Array("nPageSize" => $count, "iNumPage" => $page)
 );
-
 
 //Сколько всего товаров
 $all_count = CIBlockElement::GetList(
@@ -230,8 +222,9 @@ echo '<div style="margin-right: 10px;display: inline-block;"><input type="checkb
 echo '<input type="submit" value="Получить"><br /><br />';
 echo '</form>';
 
-
-while ($item = $arResultId->GetNext()) {
+$arResult = array();
+while ($item = $arResults->GetNext()) {
+    $arResult[] = $item;
     echo '<form enctype="multipart/form-data" name="product_' . $item["ID"] . '" method="post" id="form_product' . $item["ID"] . '"></form>';
 }
 
@@ -251,9 +244,10 @@ echo '<div>Дата создания</div>';
 echo '<div>Дата изменения</div>';
 echo '<div>Лот</div>';
 echo '<div>Наименование</div>';
-if ($block_id != 19) echo '<div>Телефон</div>';
+echo '<div>Телефон</div>';
 echo '<div>Адрес</div>';
 if ($block_id != 19) echo '<div>Цена</div>';
+else echo '<div>Мин стоимость квартиры</div>';
 echo '<div>Комментарий</div>';
 echo '<div>Статус</div>';
 echo '<div style="display:none">Удалить объект</div>';
@@ -261,8 +255,8 @@ echo '<div>Активен</div>';
 echo '<div>Отправить</div>';
 echo '</div>';
 $total = 0;
-while ($item = $arResult->GetNext()) {
 
+foreach ($arResult as $item) {
     $properties = [];
     $arProperty = CIBlockElement::GetProperty($block_id, $item["ID"], "sort", "asc", array());
     while ($property_item = $arProperty->GetNext()) {
@@ -291,15 +285,17 @@ while ($item = $arResult->GetNext()) {
     echo '<div class="date">' . $item["TIMESTAMP_X"] . '</div>';
     echo '<div class="id">' . $item["ID"] . '</div>';
     echo '<div class="name">' . $item["NAME"] . '</div>';
-    if ($block_id != 19) echo '<div class="phone">
-                <input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">
-            </div>';
+    echo '<div class="phone">';
+                if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">';
+                else echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["rieltor_phone"][0]["VALUE"] . '">';
+            echo '</div>';
     echo '<div class="address">
                 <input form="form_product' . $item["ID"] . '" type="text" name="street" value="' . $properties["street"][0]["VALUE"] . '">
             </div>';
-    if ($block_id != 19) echo '<div class="price">
-                <input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price"][0]["VALUE"] . '">
-            </div>';
+    echo '<div class="price">';
+                if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price"][0]["VALUE"] . '">';
+                else echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price_flat_min"][0]["VALUE"] . '">';
+          echo '</div>';
     echo '<div class="comment">
                 <input form="form_product' . $item["ID"] . '" type="text" name="comment" placeholder="Комметарий к объекту" value="' . $properties["comment"][0]["VALUE"] . '">
             </div>';
