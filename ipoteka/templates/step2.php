@@ -1,39 +1,6 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Ипотечный калькулятор");
-?>
-
-<?php
-
-include_once("lib/getOptions.php");
-use Bitrix\Main\Context;
-
-$options         = new getOptions();
-$sex         = $options->getList("sex");
-
-// Обработки запроса
-$request = Context::getCurrent()->getRequest();
-$request_program = intval($request["program"]);
-$request_type = intval($request["type"]);
-$request_sum = intval(str_replace(' ', "", $request["sum"]));
-$request_first_pay = intval(str_replace(' ', "", $request["first_pay"]));
-$request_time = intval(str_replace(' ', "", $request["time"]));
-$request_comment = $request["comment"];
-$request_bank = $request["bank"];
-
-?>
-
 <div class="page ipoteka-wrap">
 
     <form class="container" method="post" action="step3.php">
-
-        <input type="hidden" value="<?=$request_program?>" name="program">
-        <input type="hidden" value="<?=$request_type?>" name="type">
-        <input type="hidden" value="<?=$request_sum?>" name="sum">
-        <input type="hidden" value="<?=$request_first_pay?>" name="first_pay">
-        <input type="hidden" value="<?=$request_time?>" name="time">
-        <input type="hidden" value="<?=$request_comment?>" name="comment">
-        <input type="hidden" value="<?=$request_bank?>" name="bank">
 
         <div class="white-box">
             <div class="title-h2">Общие сведения</div>
@@ -42,20 +9,8 @@ $request_bank = $request["bank"];
                 <div class="row">
                     <div class="col-12">
                         <div class="text-field">
-                            <div class="text-field__label">Фамилия</div>
-                            <input required name="second_name" type="text" value="" />
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="text-field">
                             <div class="text-field__label">Имя</div>
-                            <input required name="first_name" type="text" value="" />
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="text-field">
-                            <div class="text-field__label">Отчество</div>
-                            <input required name="patronymic" type="text" value="" />
+                            <input required name="fio" type="text" value="" />
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -87,7 +42,7 @@ $request_bank = $request["bank"];
                         Пол
                         <select name="sex" class="js-select2">
                             <?
-                            foreach ($sex as $item) {
+                            foreach ($arrOptions["sex"] as $item) {
                                 echo '<option value="'.$item["ID"].'">'.$item["VALUE"].'</option>';
                             }
                             ?>
@@ -130,6 +85,12 @@ $request_bank = $request["bank"];
                         <div class="text-field">
                             <div class="text-field__label">Место рождения</div>
                             <input required name="born_place" type="text" value="" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="text-field">
+                            <div class="text-field__label">Адрес постоянной регистрации</div>
+                            <input required name="address" type="text" value="" />
                         </div>
                     </div>
 
@@ -242,21 +203,3 @@ $request_bank = $request["bank"];
     </form>
 
 </div>
-
-
-<link rel="stylesheet" href="css/style.css?v=1">
-<link rel="stylesheet" href="css/select2.min.css?v=1">
-<script src="js/common.js?v=1"></script>
-<script src="js/jquery.maskedinput.min.js?v=1"></script>
-<script src="js/select2.min.js?v=1"></script>
-<script>
-    $('input[name="born_date"], input[name="date_of_issue"]').mask('99.99.9999');
-    $('input[name="serial_number"]').mask('99-99 999999');
-    $('input[name="code_subdivision"]').mask('999-999');
-    $('input[name="inn"]').mask('999999999999');
-    $('input[name="snils"]').mask('999-999-999 99');
-    $(".js-select2").select2();
-</script>
-
-
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
