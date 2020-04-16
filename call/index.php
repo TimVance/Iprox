@@ -20,7 +20,7 @@ if (!empty($_POST)) {
         $arFile["MODULE_ID"] = "iblock";
         $arFile["del"]       = "Y";
 
-        CIBlockElement::SetPropertyValueCode($ELEMENT_ID, "photo_gallery", Array($_POST["delete_photo"] => Array("VALUE" => $arFile)));
+        CIBlockElement::SetPropertyValueCode($ELEMENT_ID, "photo_gallery", array($_POST["delete_photo"] => array("VALUE" => $arFile)));
         CFile::Delete($file);
     }
 
@@ -48,6 +48,11 @@ if (!empty($_POST)) {
             $comment           = htmlspecialchars($_POST["comment"]);
             $active            = (!empty($_POST["active"]) ? 'Y' : 'N');
             $status            = $_POST["status"];
+
+            if ($block_id == 19) {
+                $price_m2_ot = $_POST["price_m2_ot"];
+                $square_ot   = $_POST["square_ot"];
+            }
 
             $el = new CIBlockElement;
 
@@ -96,11 +101,13 @@ if (!empty($_POST)) {
                     $id, //ID обновляемого элемента
                     $block_id, //ID инфоблока
                     array(
-                        'comment'     => $comment,
-                        'street'      => $street,
-                        'call_status' => $status,
-                        'rieltor_phone' => $tel,
-                        'price_flat_min' => $system_price_from
+                        'comment'        => $comment,
+                        'street'         => $street,
+                        'call_status'    => $status,
+                        'rieltor_phone'  => $tel,
+                        'price_flat_min' => $system_price_from,
+                        'price_m2_ot'    => $price_m2_ot,
+                        'square_ot'      => $square_ot
                     )
                 );
             }
@@ -108,7 +115,7 @@ if (!empty($_POST)) {
 
             CIBlockElement::SetPropertyValueCode($id, "photo_gallery", $images);
 
-            $arLoadProductArray = Array(
+            $arLoadProductArray = array(
                 "MODIFIED_BY" => $USER->GetID(), // элемент изменен текущим пользователем
                 "ACTIVE"      => $active,
             );
@@ -153,42 +160,42 @@ switch ($block_id) {
 }
 
 $Select_filter["IBLOCK_ID"] = $block_id;
-if($public == "Y") {
-    $Select_filter["ACTIVE"] = "Y";
+if ($public == "Y") {
+    $Select_filter["ACTIVE"]                     = "Y";
     $Select_filter["PROPERTY_IS_ACCEPTED_VALUE"] = "Да";
 }
 
 $Select_filter["PROPERTY_call_status"] = $status;
-$Select_filter["!IBLOCK_SECTION_ID"] = array("2", "155");
-$Select_filter[] = array(
+$Select_filter["!IBLOCK_SECTION_ID"]   = array("2", "155");
+$Select_filter[]                       = array(
     "LOGIC"         => "AND",
     ">=DATE_CREATE" => ConvertTimeStamp(strtotime($start), 'FULL'),
     "<=DATE_CREATE" => ConvertTimeStamp(strtotime($end), 'FULL'),
 );
 
 $Sort_filter = array("TIMESTAMP_X" => "ASC");
-if($block_id == 19) $Sort_filter = array("PROPERTY_price_flat_min" => "ASC");
+if ($block_id == 19) $Sort_filter = array("PROPERTY_price_flat_min" => "ASC");
 
 // Получаем объекты
 $arResults = CIBlockElement::GetList(
     $Sort_filter,
     $Select_filter,
     false,
-    Array("nPageSize" => $count, "iNumPage" => $page)
+    array("nPageSize" => $count, "iNumPage" => $page)
 );
 
 //Сколько всего товаров
 $all_count = CIBlockElement::GetList(
     $Sort_filter,
     $Select_filter,
-    Array(),
+    array(),
     false,
-    Array()
+    array()
 );
 
 // Собираем статусы
 if (CModule::IncludeModule("iblock")):
-    $property_enums = CIBlockPropertyEnum::GetList(Array("ID" => "ASC", "SORT" => "ASC"), Array("IBLOCK_ID" => $block_id, "CODE" => "call_status"));
+    $property_enums = CIBlockPropertyEnum::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => $block_id, "CODE" => "call_status"));
     while ($enum_fields = $property_enums->GetNext()) {
         $status_content[$enum_fields["ID"]] = $enum_fields["VALUE"];
     }
@@ -217,7 +224,7 @@ if (!empty($block_id)) {
     echo '</select>';
 }
 
-echo '<div style="margin-right: 10px;display: inline-block;"><input type="checkbox" '.(!empty($public)  ? "checked" : '').' value="ACTIVE" name="only_active"> Опубликованные</div>';
+echo '<div style="margin-right: 10px;display: inline-block;"><input type="checkbox" ' . (!empty($public) ? "checked" : '') . ' value="ACTIVE" name="only_active"> Опубликованные</div>';
 
 echo '<input type="submit" value="Получить"><br /><br />';
 echo '</form>';
@@ -248,6 +255,8 @@ echo '<div>Телефон</div>';
 echo '<div>Адрес</div>';
 if ($block_id != 19) echo '<div>Цена</div>';
 else echo '<div>Мин стоимость квартиры</div>';
+if ($block_id == 19) echo '<div>Цена м² от</div>';
+if ($block_id == 19) echo '<div>Площадь квартир от</div>';
 echo '<div>Комментарий</div>';
 echo '<div>Статус</div>';
 echo '<div style="display:none">Удалить объект</div>';
@@ -286,16 +295,30 @@ foreach ($arResult as $item) {
     echo '<div class="id">' . $item["ID"] . '</div>';
     echo '<div class="name">' . $item["NAME"] . '</div>';
     echo '<div class="phone">';
-                if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">';
-                else echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["rieltor_phone"][0]["VALUE"] . '">';
-            echo '</div>';
+    if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">';
+    else echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["rieltor_phone"][0]["VALUE"] . '">';
+    echo '</div>';
     echo '<div class="address">
                 <input form="form_product' . $item["ID"] . '" type="text" name="street" value="' . $properties["street"][0]["VALUE"] . '">
             </div>';
     echo '<div class="price">';
-                if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price"][0]["VALUE"] . '">';
-                else echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price_flat_min"][0]["VALUE"] . '">';
-          echo '</div>';
+    if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price"][0]["VALUE"] . '">';
+    else echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price_flat_min"][0]["VALUE"] . '">';
+    echo '</div>';
+
+    // Параметры для Новостроек
+    if ($block_id == 19) {
+
+        echo '<div class="price_m2_ot">';
+        echo '<input form="form_product' . $item["ID"] . '" type="text" name="price_m2_ot" value="' . $properties["price_m2_ot"][0]["VALUE"] . '">';;
+        echo '</div>';
+
+        echo '<div class="square_ot">';
+        echo '<input form="form_product' . $item["ID"] . '" type="text" name="square_ot" value="' . $properties["square_ot"][0]["VALUE"] . '">';;
+        echo '</div>';
+
+    }
+
     echo '<div class="comment">
                 <input form="form_product' . $item["ID"] . '" type="text" name="comment" placeholder="Комметарий к объекту" value="' . $properties["comment"][0]["VALUE"] . '">
             </div>';
@@ -339,7 +362,7 @@ if ($block_id == 7) {
     $parametrs_for_select = array("type_building", "decoration");
     if (CModule::IncludeModule("iblock")):
         foreach ($parametrs_for_select as $paramter_code) {
-            $property_enums = CIBlockPropertyEnum::GetList(Array("ID" => "ASC", "SORT" => "ASC"), Array("IBLOCK_ID" => $block_id, "CODE" => $paramter_code));
+            $property_enums = CIBlockPropertyEnum::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => $block_id, "CODE" => $paramter_code));
             while ($enum_fields = $property_enums->GetNext()) {
                 $param_for_addform[$enum_fields["PROPERTY_CODE"]][$enum_fields["ID"]] = $enum_fields["VALUE"];
                 //print_r($enum_fields);
@@ -370,7 +393,7 @@ if ($block_id == 7) {
         $PROP["price_1m"]      = $_POST["price_1m"];
 
 
-        $arLoadProductArray = Array(
+        $arLoadProductArray = array(
             "MODIFIED_BY"       => $USER->GetID(),
             "IBLOCK_SECTION_ID" => false,
             "IBLOCK_ID"         => $block_id,
@@ -464,24 +487,24 @@ if ($block_id == 19) {
 
     // Получаем список свойств для новостроек
     if (CModule::IncludeModule("iblock")):
-        $property_enums = CIBlockElement::GetList(Array("ID" => "ASC", "SORT" => "ASC"), Array("IBLOCK_ID" => 5));
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 5));
         while ($enum_fields = $property_enums->GetNext()) {
             $param_for_addform["city"][$enum_fields["ID"]] = $enum_fields["NAME"];
             //print_r($enum_fields);
         }
-        $property_enums = CIBlockElement::GetList(Array("ID" => "ASC", "SORT" => "ASC"), Array("IBLOCK_ID" => 14));
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 14));
         while ($enum_fields = $property_enums->GetNext()) {
             $param_for_addform["district"][$enum_fields["ID"]] = $enum_fields["NAME"];
             //print_r($enum_fields);
         }
-        $property_enums = CIBlockElement::GetList(Array("ID" => "ASC", "SORT" => "ASC"), Array("IBLOCK_ID" => 15));
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 15));
         while ($enum_fields = $property_enums->GetNext()) {
             $param_for_addform["microdistrict"][$enum_fields["ID"]] = $enum_fields["NAME"];
             //print_r($enum_fields);
         }
         $parametrs_for_select = array("lift", "class", "type", "parking");
         foreach ($parametrs_for_select as $paramter_code) {
-            $property_enums = CIBlockPropertyEnum::GetList(Array("ID" => "ASC", "SORT" => "ASC"), Array("IBLOCK_ID" => $block_id, "CODE" => $paramter_code));
+            $property_enums = CIBlockPropertyEnum::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => $block_id, "CODE" => $paramter_code));
             while ($enum_fields = $property_enums->GetNext()) {
                 $param_for_addform[$enum_fields["PROPERTY_CODE"]][$enum_fields["ID"]] = $enum_fields["VALUE"];
                 //print_r($enum_fields);
@@ -518,7 +541,7 @@ if ($block_id == 19) {
         $PROP["rieltor_phone"]   = $_POST["rieltor_phone"];
 
 
-        $arLoadProductArray = Array(
+        $arLoadProductArray = array(
             "MODIFIED_BY"       => $USER->GetID(),
             "IBLOCK_SECTION_ID" => false,
             "IBLOCK_ID"         => $block_id,
