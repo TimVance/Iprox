@@ -1,5 +1,5 @@
 <div class="page ipoteka-wrap main-wrap step1">
-
+    <h2>Шаг 1 из 3</h2>
     <div class="white-box">
 
         <div class="forms">

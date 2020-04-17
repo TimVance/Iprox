@@ -1,4 +1,4 @@
-<div class="page ipoteka-wrap">
+<div class="page ipoteka-wrap" style="display: none">
 
     <form class="container" method="post" action="step4.php">
 

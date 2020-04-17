@@ -1,4 +1,4 @@
-<div class="page ipoteka-wrap">
+<div class="page ipoteka-wrap" style="display: none">
 
     <form class="container" method="post" action="step3.php">
 
@@ -30,12 +30,6 @@
                         <div class="text-field">
                             <div class="text-field__label">Email (необязательно)</div>
                             <input name="email" type="email" value="" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-field">
-                            <div class="text-field__label">Доп. мобильный телефон</div>
-                            <input required name="additional_phone" type="text" value="" class="phone-mask" />
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -85,12 +79,6 @@
                         <div class="text-field">
                             <div class="text-field__label">Место рождения</div>
                             <input required name="born_place" type="text" value="" />
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="text-field">
-                            <div class="text-field__label">Адрес постоянной регистрации</div>
-                            <input required name="address" type="text" value="" />
                         </div>
                     </div>
 
@@ -187,6 +175,12 @@
                         <div class="text-field">
                             <div class="text-field__label">ИНН</div>
                             <input required name="inn" type="text" value="" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="text-field">
+                            <div class="text-field__label">Адрес постоянной регистрации</div>
+                            <input required name="address" type="text" value="" />
                         </div>
                     </div>
                 </div>
