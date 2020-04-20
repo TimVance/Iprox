@@ -8,6 +8,7 @@ class writeInfo
 
     function writeBase($post)
     {
+        CModule::IncludeModule("iblock");
         $el = new CIBlockElement;
         global $USER;
 
