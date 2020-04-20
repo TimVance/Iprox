@@ -4,8 +4,8 @@ $APPLICATION->SetTitle("Обрезка фотографий авито");
 
 
 //exit;
-//$iblock = 7; // Квартиры
-$iblock = 8; // Дома
+$iblock = 7; // Квартиры
+//$iblock = 8; // Дома
 
 
 $page = (!empty($_GET["page"]) ? $_GET["page"] : 1);

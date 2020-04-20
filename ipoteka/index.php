@@ -5,7 +5,6 @@ $APPLICATION->SetTitle("Ипотечный калькулятор");
 
 
 include_once("lib/getOptions.php");
-include_once("lib/writeInfo.php");
 
 // Get Options
 $options         = new getOptions();

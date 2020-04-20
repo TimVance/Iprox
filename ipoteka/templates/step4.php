@@ -1,4 +1,4 @@
-<div class="page ipoteka-wrap" style="display: none">
+<div class="page ipoteka-wrap step4" style="display: none">
 
     <div class="container">
 

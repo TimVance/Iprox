@@ -21,9 +21,9 @@
 	
     body {height: 100%; position: relative;}
 	body, td, input, textarea, button {margin: 0px; padding: 0px;}
-    .ipoteka-wrap * {box-sizing: border-box;}
+    .ipoteka-wrap * {-webkit-box-sizing: border-box;box-sizing: border-box;}
     
-    a {text-decoration: none; transition: 0.2s;}
+    a {text-decoration: none; -webkit-transition: 0.2s; transition: 0.2s;}
     a:hover {text-decoration: none !important;}
     
 	a, a:active, a:focus {outline: none;}
@@ -54,4 +54,4 @@
 	input[type="password"] {-webkit-appearance: none; outline: none;}
 
 	body, td, input, textarea, button {}
-	.ipoteka-wrap input[type=text], .ipoteka-wrap input[type=password] {box-shadow: none !important;}
+	.ipoteka-wrap input[type=text], .ipoteka-wrap input[type=password] {-webkit-box-shadow: none !important;box-shadow: none !important;}

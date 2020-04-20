@@ -1,3 +1,4 @@
+<form method="post" class="ipoteka-form">
 <div class="page ipoteka-wrap main-wrap step1">
     <h2>Шаг 1 из 3</h2>
     <div class="white-box">
@@ -5,7 +6,7 @@
         <div class="forms">
             <div class="row">
                 <div class="col-md-6">
-                    Программа
+                    Программа*
                     <select name="program" class="js-select2">
                         <?
                         foreach ($arrOptions["program"] as $item) {
@@ -15,7 +16,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    Тип клиента и потверждение дохода
+                    Тип клиента и потверждение дохода*
                     <select name="type" class="js-select2">
                         <?
                         foreach ($arrOptions["type"] as $item) {
@@ -238,14 +239,14 @@
                     <div class="forms__row">
                         <div class="forms__field w25p">
                             <div class="text-field active">
-                                <div class="text-field__label">Сумма кредита</div>
+                                <div class="text-field__label">Сумма кредита*</div>
                                 <input name="sum" type="text" value="6 000 000" class="format-money credit-sum"/>
                             </div>
                             <div class="field-hint">max 50 000 000</div>
                         </div>
                         <div class="forms__field w25p">
                             <div class="text-field active">
-                                <div class="text-field__label">ПВ</div>
+                                <div class="text-field__label">ПВ*</div>
                                 <div class="text-field__info">13.97%</div>
                                 <input name="first_pay" type="text" value="1 501 000" class="format-money credit-pv"/>
                             </div>
@@ -253,21 +254,21 @@
                         </div>
                         <div class="forms__field w15p">
                             <div class="text-field active">
-                                <div class="text-field__label">Срок, мес</div>
+                                <div class="text-field__label">Срок, мес*</div>
                                 <input name="time" type="text" class="credit-time" max="360" value="360"/>
                             </div>
                             <div class="field-hint">max 360</div>
                         </div>
                         <div class="forms__field w15p">
                             <div class="text-field active lock">
-                                <div class="text-field__label">Платеж в мес</div>
-                                <input name="price_per_month" type="text" class="format-money credit-pay" value="51 549" disabled/>
+                                <div class="text-field__label">Платеж в мес*</div>
+                                <input name="price_per_month" type="text" class="format-money credit-pay" value="51 549"/>
                             </div>
                         </div>
                         <div class="forms__field w20p">
                             <div class="text-field active lock">
-                                <div class="text-field__label">Стоимость объекта</div>
-                                <input name="price" type="text" class="format-money credit-amount" value="7 500 000" disabled/>
+                                <div class="text-field__label">Стоимость объекта*</div>
+                                <input name="price" type="text" class="format-money credit-amount" value="7 500 000"/>
                             </div>
                         </div>
                     </div>
@@ -302,7 +303,7 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-6">
-            <input type="submit" class="button button--next w100p" value="Далее">
+            <input type="button" class="button button--next w100p" value="Далее">
         </div>
     </div>
 

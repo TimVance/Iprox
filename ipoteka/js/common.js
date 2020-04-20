@@ -189,6 +189,36 @@ $(document).ready(function() {
         return true;
     }
 
+    function valid_step2() {
+        let step2 = true;
+        $(".ipoteka-wrap.step2 input:required").each(function() {
+            let el = $(this);
+            if(el.val() === '') {
+                el.parent().addClass("active focus");
+                el.focus();
+                step2 = false;
+                return false;
+            }
+        });
+        if (step2) return true;
+        else return false;
+    }
+
+    function valid_step3() {
+        let step3 = true;
+        $(".ipoteka-wrap.step3 input:required").each(function() {
+            let el = $(this);
+            if(el.val() === '') {
+                el.parent().addClass("active focus");
+                el.focus();
+                step3 = false;
+                return false;
+            }
+        });
+        if (step3) return true;
+        else return false;
+    }
+
     // Подсчет стоимость объекта
     $.merge(sum, pv).change(function () {
         if (!valid()) return false;
@@ -213,7 +243,6 @@ $(document).ready(function() {
         var procent = delSpaces(pv.val()) / (delSpaces(sum.val()) * 0.01);
         procent = procent.toFixed(2);
         pv.parent().find(".text-field__info").text(procent + "%");
-        console.log(procent);
         amount.val( numFormat(amount.val(), 'digit') );
     });
 
@@ -224,8 +253,35 @@ $(document).ready(function() {
         else bank.slideUp();
     });
 
-    $(".ipoteka-wrap.main-wrap").submit(function(e) {
-        return valid();
+    // Нажатие кнопки первый шаг
+    $(".ipoteka-wrap.step1 .button--next").click(function() {
+        if (!valid()) return false;
+        $(".ipoteka-wrap.step1").slideUp();
+        $(".ipoteka-wrap.step2").slideDown();
+    });
+
+    $(".ipoteka-wrap.step2 .button--next").click(function() {
+        if (!valid_step2()) return false;
+        $(".ipoteka-wrap.step2").slideUp();
+        $(".ipoteka-wrap.step3").slideDown();
+    });
+
+    $(".ipoteka-wrap.step3 .button--next").click(function() {
+        if (!valid_step3()) return false;
+        $.ajax({
+            method: "post",
+            url: 'lib/ajax.php',
+            data: $(".ipoteka-form").serializeJSON(),
+            success: function(result) {
+                if(result == "success") {
+                    $(".ipoteka-wrap.step3").slideUp();
+                    $(".ipoteka-wrap.step4").slideDown();
+                }
+                else {
+                    alert(result);
+                }
+            }
+        });
     });
 
 });

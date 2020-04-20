@@ -94,7 +94,8 @@ class iIpoteka
                     "name" => $prop_fields["CODE"],
                     "title" => $prop_fields["NAME"],
                     "default" => $prop_fields["DEFAULT_VALUE"],
-                    "hint" => $prop_fields["HINT"]
+                    "hint" => $prop_fields["HINT"],
+                    "require" => ($prop_fields["IS_REQUIRED"] == "Y" ? true : false)
                 );
 
                 //print_r($prop_fields);

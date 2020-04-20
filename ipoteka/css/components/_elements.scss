@@ -69,6 +69,7 @@
 	line-height: 58px;
 	text-align: center;
 	text-decoration: none;
+	-webkit-transition: none;
 	transition: none;
 	cursor: pointer;
 	font-size: 18px;
@@ -77,6 +78,7 @@
 	color: $white;
 	background: $blue;
 	border: 1px solid $blue;
+	-webkit-transition: 0.3s;
 	transition: 0.3s;
 
 	&:hover {
@@ -128,7 +130,8 @@
 	padding: 40px 70px;
 	border-radius: 8px;
 	background-color: $white;
-	box-shadow: 0 10px 20px 0 rgba(128,128,128,0.2);
+	-webkit-box-shadow: 0 10px 20px 0 rgba(128,128,128,0.2);
+	        box-shadow: 0 10px 20px 0 rgba(128,128,128,0.2);
 	margin-bottom: 40px;
 
 	@media (max-width: 568px) {
@@ -343,11 +346,15 @@
 
 
 .tabs-header {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin-bottom: 40px;
 
 	@media (max-width: 992px) {
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 	}
 
 	@media (max-width: 767px) {
@@ -355,6 +362,8 @@
 	}
 
 	&__item {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		color: $blue;
 		margin-right: 60px;
@@ -422,9 +431,15 @@
 }
 
 .counter {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	width: 125px;
 	height: 40px;
 	border-radius: 30px;
