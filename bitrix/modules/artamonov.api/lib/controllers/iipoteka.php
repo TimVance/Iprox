@@ -40,10 +40,10 @@ class iIpoteka
     }
 
     public function insert() {
-        $iblock_id = 34;
+        $iblock_id = 33;
         $template = 'NEW_VALUATION';
         $data = '';
-        if (!empty($_REQUEST["name"])) {
+        if (!empty($_REQUEST["program"])) {
             $data = $this->saveFormFields($iblock_id, $template);
         }
         else Response::BadRequest();
@@ -189,7 +189,7 @@ class iIpoteka
                 "IBLOCK_SECTION_ID" => false,
                 "IBLOCK_ID"         => $iblock_id,
                 "PROPERTY_VALUES"   => $PROP,
-                "NAME"              => $PROP["name"],
+                "NAME"              => $PROP["phone"],
                 "ACTIVE"            => "Y",
             );
 

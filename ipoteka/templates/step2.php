@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text-field">
-                        <div class="text-field__label">Имя*</div>
+                        <div class="text-field__label">ФИО*</div>
                         <input required name="fio" type="text" value="" />
                     </div>
                 </div>
