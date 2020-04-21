@@ -158,8 +158,6 @@ class iIpoteka
         $time = $this->replace($post["time"]);
         $percent = 9.75;
 
-        echo $sum;
-
         return $data = array(
             "amount" => $this->calcAmount($sum, $pv),
             "pay" => $this->calcPay($sum, $time, $percent),
