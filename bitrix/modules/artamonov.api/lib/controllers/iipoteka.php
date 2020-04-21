@@ -17,6 +17,9 @@ use CIBlockProperty;
 
 class iIpoteka
 {
+
+    var $block_id = 33;
+
     public function get()
     {
         $arResult = $this->getRequest();
@@ -34,20 +37,29 @@ class iIpoteka
 
     public function fields()
     {
-        $data = $this->getFormFieldsForApp(33);
+        $data = $this->getFormFieldsForApp($this->block_id);
         if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         else Response::iNoResultProfile($data);
     }
 
     public function insert() {
-        $iblock_id = 33;
         $template = 'NEW_VALUATION';
         $data = '';
         if (!empty($_REQUEST["program"])) {
-            $data = $this->saveFormFields($iblock_id, $template);
+            $data = $this->saveFormFields($this->iblock_id, $template);
         }
         else Response::BadRequest();
         if ($data == "success") Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::iShowError($data);
+    }
+
+    public function calc() {
+        $data = '';
+        if (!empty($_REQUEST)) {
+            $data = $this->calcIpoteka();
+        }
+        else Response::BadRequest();
+        if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         else Response::iShowError($data);
     }
 
@@ -135,6 +147,53 @@ class iIpoteka
             }
             return $arrData;
         }
+    }
+
+    private function calcIpoteka() {
+        $request = Context::getCurrent()->getRequest();
+        $post = $request->getPostList()->toArray();
+
+        $sum = $this->replace($post["sum"]);
+        $pv = $this->replace($post["pv"]);
+        $time = $this->replace($post["time"]);
+        $percent = 9.75;
+
+        echo $sum;
+
+        return $data = array(
+            "amount" => $this->calcAmount($sum, $pv),
+            "pay" => $this->calcPay($sum, $time, $percent),
+            "procent" => $this->calcProcent($sum, $pv)
+        );
+    }
+
+    private function calcAmount($sum, $pv) {
+        return $this->format($sum + $pv);
+    }
+
+    private function replace($str) {
+        return preg_replace('/\s/', '', $str);
+    }
+
+    private function calcPay($sum, $time, $percent) {
+        $i = $percent / 100 / 12;
+        $num = $i * pow((1 + $i), $time);
+        $den = pow((1 + $i), $time - 1);
+        $itog = $sum * ($num / $den);
+        return $this->format(round($itog));
+    }
+
+    private function calcProcent($sum, $pv) {
+        $procent = $pv / ($sum * 0.01);
+        return $this->formatProcent($procent)."%";
+    }
+
+    private function format($number) {
+        return number_format($number, "0", "", " ");
+    }
+
+    private function formatProcent($number) {
+        return number_format($number, "2", ".", " ");
     }
 
     private  function getPropertyEnum($iblock_id, $code) {

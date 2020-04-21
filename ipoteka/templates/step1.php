@@ -250,7 +250,7 @@
                                 <div class="text-field__info">13.97%</div>
                                 <input name="first_pay" type="text" value="1 501 000" class="format-money credit-pv"/>
                             </div>
-                            <div class="field-hint">min 20.01%</div>
+                            <div class="field-hint">min 10%</div>
                         </div>
                         <div class="forms__field w15p">
                             <div class="text-field active">
