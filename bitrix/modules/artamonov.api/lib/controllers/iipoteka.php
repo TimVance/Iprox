@@ -153,10 +153,10 @@ class iIpoteka
         $request = Context::getCurrent()->getRequest();
         $post = $request->getPostList()->toArray();
 
-        $sum = $this->replace($post["sum"]);
-        $pv = $this->replace($post["pv"]);
-        $time = $this->replace($post["time"]);
-        $percent = 9.75;
+        $sum = intval($this->replace($post["sum"]));
+        $pv = intval($this->replace($post["pv"]));
+        $time = intval($this->replace($post["time"]));
+        $percent = intval(9.75);
 
         return $data = array(
             "amount" => $this->calcAmount($sum, $pv),
@@ -166,7 +166,7 @@ class iIpoteka
     }
 
     private function calcAmount($sum, $pv) {
-        return $this->format($sum + $pv);
+        return $this->format(intval($sum + $pv));
     }
 
     private function replace($str) {
@@ -177,13 +177,15 @@ class iIpoteka
         $i = $percent / 100 / 12;
         $num = $i * pow((1 + $i), $time);
         $den = pow((1 + $i), $time - 1);
-        $itog = $sum * ($num / $den);
+        $itog = intval($sum * ($num / $den));
         return $this->format(round($itog));
     }
 
     private function calcProcent($sum, $pv) {
         $procent = $pv / ($sum * 0.01);
-        return $this->formatProcent($procent)."%";
+        if(is_numeric($procent)) $procent = $this->formatProcent($procent)."%";
+        else $procent = "0%";
+        return $procent;
     }
 
     private function format($number) {
