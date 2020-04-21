@@ -578,6 +578,7 @@ if ($block_id == 19) {
             <div class="input-wrap">
                 <span>Район</span>
                 <select name="district">';
+                    echo '<option value="">-</option>';
     foreach ($param_for_addform["district"] as $key => $value) {
         echo '<option value="' . $key . '">' . $value . '</option>';
     }
@@ -587,6 +588,7 @@ if ($block_id == 19) {
              <div class="input-wrap">
                 <span>Микрорайон</span>
                 <select name="microdistrict">';
+                    echo '<option value="">-</option>';
     foreach ($param_for_addform["microdistrict"] as $key => $value) {
         echo '<option value="' . $key . '">' . $value . '</option>';
     }
