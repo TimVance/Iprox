@@ -121,8 +121,8 @@ class iCategory
             if(isset($_GET["price_from"]) && isset($_GET["price_to"])) {
                 $price = array(
                     "LOGIC" => "AND",
-                    array("<=PROPERTY_price" => $_GET["price_to"]),
-                    array(">=PROPERTY_price" => $_GET["price_from"]),
+                    array("<=PROPERTY_price" => preg_replace('/\s/', '', $_GET["price_to"])),
+                    array(">=PROPERTY_price" => preg_replace('/\s/', '', $_GET["price_from"])),
                 );
             }
             else {
@@ -314,11 +314,11 @@ class iCategory
                                     else $prop_array[$prop_item["code"]] = $prop_item["value"];
                             }
                     }
-                $items[$key]["price"] = (!empty($prop_array["price"]) ? $prop_array["price"] : "0");
-                $items[$key]["price_1m"] = (!empty($prop_array["price_1m"]) ? $prop_array["price_1m"] : "0");
+                $items[$key]["price"] = (!empty($prop_array["price"]) ? $this->format($prop_array["price"]) : "0");
+                $items[$key]["price_1m"] = (!empty($prop_array["price_1m"]) ? $this->format($prop_array["price_1m"]) : "0");
                 if ($value["iblockId"] == 19) {
-                    $items[$key]["price"] = (!empty($prop_array["price_flat_min"]) ? $prop_array["price_flat_min"] : 0);
-                    $items[$key]["price_1m"] = (!empty($prop_array["price_m2_ot"]) ? $prop_array["price_m2_ot"] : 0);
+                    $items[$key]["price"] = (!empty($prop_array["price_flat_min"]) ? $this->format($prop_array["price_flat_min"]) : 0);
+                    $items[$key]["price_1m"] = (!empty($prop_array["price_m2_ot"]) ? $this->format($prop_array["price_m2_ot"]) : 0);
                 }
 
                 $items[$key]["photo"] = (!empty($prop_array["photo"]) ? $prop_array["photo"] : "");
@@ -350,6 +350,10 @@ class iCategory
             else $data["items"] = array();
         }
         return $this->changeFormatDate($data);
+    }
+
+    private function format($price) {
+        return number_format($price, 0, ",", " ");
     }
 
     private function changeFormatDate($data)

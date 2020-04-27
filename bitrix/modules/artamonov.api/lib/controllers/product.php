@@ -102,13 +102,13 @@ class Product
                     $product_data["link"] = 'https://iprox.ru'.str_replace("#ID#", $product_info["id"], $product_info["detailPageUrl"]);
                     $product_data["description"] = $product_info["detailText"];
                     $product_data["photo"] = $product_prop["photo_gallery"];
-                    $product_data["price"] = $product_prop["price"];
+                    $product_data["price"] = $this->format($product_prop["price"]);
                     if ($product["IBLOCK_ID"] == 19) {
-                        $product_data["price"] = $product_prop["price_flat_min"];
+                        $product_data["price"] = $this->format($product_prop["price_flat_min"]);
                     }
-                    $product_data["price_1m"] = $product_prop["price_1m"];
+                    $product_data["price_1m"] = $this->format($product_prop["price_1m"]);
                     if ($product["IBLOCK_ID"] == 19) {
-                        $product_data["price_1m"] = $product_prop["price_m2_ot"];
+                        $product_data["price_1m"] = $this->format($product_prop["price_m2_ot"]);
                     }
                     $product_data["address"] = ''
                         .(!empty($product_prop["city"]) ? $product_prop["city"].', ' : '')
@@ -174,8 +174,8 @@ class Product
                                 "!ID" => $product["ID"],
                                 "room_number" => $product_data["room_number"],
                                 "floor" => $product_data["floor"],
-                                "price" => $product_data["price"],
-                                "price_1m" => $product_data["price_1m"],
+                                "price" => $this->format($product_data["price"]),
+                                "price_1m" => $this->format($product_data["price_1m"]),
                                 "square" => $product_data["square"],
                                 "summary_buildings_square" => $product_data["summary_buildings_square"],
                                 "summary_apartment_square" => $product_data["summary_apartment_square"],
@@ -188,8 +188,8 @@ class Product
                         $product_data["similar"][] = array(
                             "id" => $similar["ID"],
                             "name" => $similar["NAME"],
-                            "price" => ($product["IBLOCK_ID"] == 19 ? $similar_props["price_flat_min"]["VALUE"] : $similar_props["price"]["VALUE"]),
-                            "price_1m" => ($product["IBLOCK_ID"] == 19 ? $similar_props["price_m2_ot"]["VALUE"] : $similar_props["price_1m"]["VALUE"]),
+                            "price" => ($product["IBLOCK_ID"] == 19 ? $this->format($similar_props["price_flat_min"]["VALUE"]) : $this->format($similar_props["price"]["VALUE"])),
+                            "price_1m" => ($product["IBLOCK_ID"] == 19 ? $this->format($similar_props["price_m2_ot"]["VALUE"]) : $this->format($similar_props["price_1m"]["VALUE"])),
                             "address" => ''
                                 .(!empty($similar_props["city"]["VALUE"]) ? $this->getPropertyName($similar_props["city"]["VALUE"]).', ' : '')
                                 //.(!empty($prop_array["district"]) ? $prop_array["district"].', ' : '')
@@ -234,6 +234,10 @@ class Product
             }
         }
         return $this->changeFormatDate($product_data);
+    }
+
+    private function format($price) {
+        return number_format($price, 0, ",", " ");
     }
 
     private function formatPhone($phone)

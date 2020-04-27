@@ -122,8 +122,8 @@ class Category
             if(isset($_GET["price_from"]) && isset($_GET["price_to"])) {
                 $price = array(
                     "LOGIC" => "AND",
-                    array("<=PROPERTY_price" => $_GET["price_to"]),
-                    array(">=PROPERTY_price" => $_GET["price_from"]),
+                    array("<=PROPERTY_price" => preg_replace('/\s/', '', $_GET["price_to"])),
+                    array(">=PROPERTY_price" => preg_replace('/\s/', '', $_GET["price_from"])),
                 );
             }
             else {
@@ -300,24 +300,9 @@ class Category
             }
 
             foreach ($items as $key => $value) {
-
-                // createdBy
-                //$creadted_id = $value["createdBy"];
-                //unset($items[$key]["createdBy"]);
-                //$items[$key]["createdBy"] = $this->getUser($creadted_id);
-                // createdBy
-
-                //modifiedBy
-                //$modified_id = $value["modifiedBy"];
-                //unset($items[$key]["modifiedBy"]);
-                //$items[$key]["modifiedBy"] = $this->getUser($modified_id);
-                //modifiedBy
-
-
                 $product_properties = CIBlockElement::GetProperty($value["iblockId"], $value["id"], array("sort" => "asc"), Array());
                 $prop_array = array();
-                while ($prop = $product_properties->Fetch()) {
-                    //echo '<pre>'; print_r($prop);
+                while ($prop = $product_properties->Fetch())
                     if (!empty($prop["VALUE"])) {
                         if (in_array($prop["CODE"], $prop_ignore)) continue;
                         $prop_item = $this->array_change_keys(array_change_key_case($prop, CASE_LOWER));
@@ -329,17 +314,17 @@ class Category
                         }
                         if ($prop_item["multiple"] == "N") $prop_array[$prop_item["code"]] = $prop_item["value"];
                         else {
-                            if ($prop_item["code"] == "photo_gallery") {
+                            if($prop_item["code"] == "photo_gallery") {
                                 if (empty($items[$key]["photo"])) $prop_array["photo"] = CFile::GetPath($prop_item["value"]);
-                            } else $prop_array[$prop_item["code"]] = $prop_item["value"];
+                            }
+                            else $prop_array[$prop_item["code"]] = $prop_item["value"];
                         }
                     }
-                }
-                $items[$key]["price"] = (!empty($prop_array["price"]) ? $prop_array["price"] : "0");
-                $items[$key]["price_1m"] = (!empty($prop_array["price_1m"]) ? $prop_array["price_1m"] : "0");
+                $items[$key]["price"] = (!empty($prop_array["price"]) ? $this->format($prop_array["price"]) : "0");
+                $items[$key]["price_1m"] = (!empty($prop_array["price_1m"]) ? $this->format($prop_array["price_1m"]) : "0");
                 if ($value["iblockId"] == 19) {
-                    $items[$key]["price"] = (!empty($prop_array["price_flat_min"]) ? $prop_array["price_flat_min"] : 0);
-                    $items[$key]["price_1m"] = (!empty($prop_array["price_m2_ot"]) ? $prop_array["price_m2_ot"] : 0);
+                    $items[$key]["price"] = (!empty($prop_array["price_flat_min"]) ? $this->format($prop_array["price_flat_min"]) : 0);
+                    $items[$key]["price_1m"] = (!empty($prop_array["price_m2_ot"]) ? $this->format($prop_array["price_m2_ot"]) : 0);
                 }
 
                 $items[$key]["photo"] = (!empty($prop_array["photo"]) ? $prop_array["photo"] : "");
@@ -355,14 +340,8 @@ class Category
                 }
                 $items[$key]["address"] = ''
                     .(!empty($prop_array["city"]) ? $prop_array["city"].', ' : '')
-                    //.(!empty($prop_array["district"]) ? $prop_array["district"].', ' : '')
                     .(!empty($prop_array["microdistrict"]) ? $prop_array["microdistrict"].', ' : '')
                     .(!empty($prop_array["street"]) ? $prop_array["street"] : '');
-                /*
-                echo '<pre>';
-                    print_r($prop_array);
-                echo '</pre>';
-                */
             }
 
 
@@ -382,6 +361,10 @@ class Category
             else $data["items"] = array();
         }
         return $this->changeFormatDate($data);
+    }
+
+    private function format($price) {
+        return number_format($price, 0, ",", " ");
     }
 
     private function changeFormatDate($data)
