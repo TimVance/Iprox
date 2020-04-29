@@ -2,7 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("GeoCode");
 
-include_once("lib/ApiYandexMap.php");
+include_once("./lib/ApiYandexMap.php");
 
 $api = new ApiYandexMap();
 
@@ -14,11 +14,11 @@ exit;
 
 
 //$pos = $api->getPos("бульвар зеленые аллеи 3");
-//$pos = $api->getPos("Тверская 6");
+//$pos = $api->getPos("40 Лет Победы ул");
 //print_r($pos);
 
 
-
+//exit;
 
 
 
@@ -30,6 +30,7 @@ $arResult = CIBlockElement::GetList (
         "IBLOCK_ID" => "19",
         "ACTIVE" => "Y",
         "!PROPERTY_geo_generate" => "2",
+        "PROPERTY_city" => "13",
     ),
     array("ID", "IBLOCK_ID", "NAME"),
     Array("nPageSize" => 100, "iNumPage" => $page)
@@ -40,7 +41,8 @@ $all_count = CIBlockElement::GetList (
     Array(
         "IBLOCK_ID" => "19",
         "ACTIVE" => "Y",
-        "!=PROPERTY_geo_generate" => "2",
+        "!PROPERTY_geo_generate" => "2",
+        "PROPERTY_city" => "13",
     ),
     Array(),
     false,
@@ -62,12 +64,14 @@ while($item = $arResult->GetNext()) {
 
     //print_r($property);
 
-
-    $pos = $api->getPos('Сочи '.$property["street"]);
+    $city = 'Сочи';
+    $pos = $api->getPos($city.' '.$property["street"]);
     $geo = $pos[1].','.$pos[0];
-    echo '<div>'.$item["ID"].') '.$property["street"].' ('.$property["yandex_map"].' => '.$geo.')</div>';
-    CIBlockElement::SetPropertyValuesEx($arFields["ID"], false, array("geo_generate" => "2"));
-    CIBlockElement::SetPropertyValuesEx($arFields["ID"], false, array("yandex_map" => $geo));
+    echo '<div>'.$item["ID"].') '.$city.' '.$property["street"].' ('.$property["yandex_map"].' => '.$geo.')</div>';
+    if(!empty($geo)) {
+        CIBlockElement::SetPropertyValuesEx($arFields["ID"], false, array("geo_generate" => "2"));
+        CIBlockElement::SetPropertyValuesEx($arFields["ID"], false, array("yandex_map" => $geo));
+    }
 
 }
 
