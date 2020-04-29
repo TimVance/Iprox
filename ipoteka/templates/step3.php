@@ -37,12 +37,12 @@
     </div>
 
     <div class="white-box">
-        <div class="title-h2">Основная работа</div>
+        <div class="title-h2">Основная работа <span>(Необязательно)</span> </div>
 
         <div class="forms">
             <div class="row">
                 <div class="col-md-6">
-                    Форма занятости*
+                    Форма занятости
                     <select name="employment_form" class="js-select2">
                         <?
                         foreach ($arrOptions["employment_form"] as $item) {
@@ -52,7 +52,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    Стаж на текущем месте*
+                    Стаж на текущем месте
                     <select name="experience" class="js-select2">
                         <?
                         foreach ($arrOptions["experience"] as $item) {
@@ -63,20 +63,20 @@
                 </div>
                 <div class="col-12">
                     <div class="text-field">
-                        <div class="text-field__label">Работодатель (Название, ИНН)*</div>
-                        <input required name="company" type="text" value="" />
+                        <div class="text-field__label">Работодатель (Название, ИНН)</div>
+                        <input name="company" type="text" value="" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="text-field">
-                        <div class="text-field__label">Должность*</div>
-                        <input required name="position" type="text" value="" />
+                        <div class="text-field__label">Должность</div>
+                        <input name="position" type="text" value="" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="text-field">
-                        <div class="text-field__label">Доход в месяц, руб.*</div>
-                        <input required name="income" type="text" value="" />
+                        <div class="text-field__label">Доход в месяц, руб.</div>
+                        <input name="income" type="text" value="" />
                     </div>
                 </div>
             </div>
