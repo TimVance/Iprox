@@ -51,11 +51,11 @@ IncludeTemplateLangFile(__FILE__);
 				<br><?$APPLICATION->IncludeFile('/include_areas/footer_copy_slogan_'.LANGUAGE_ID.'.php', false, array('MODE' => 'text'))?></div>
 				<div class="info-f"><? if($CD !="/contacts/"){?><a href="/contacts/"><?}?>Контактная информация<? if($CD !="/contacts/"){?></a><?}?></div>
 			</div><!--foot-l-->
-
 			<div class="menu-bf">
 				<ul>
 					<li><span>О проекте</span></li>
-					<li><? if($CD !="/agreement/"){?><a href="/agreement/"><?}?>Пользовательское соглашение<? if($CD !="/agreement/"){?></a><?}?></li>
+					<li><? if($APPLICATION->GetCurUri() !="/agreement/"){?><a href="/agreement/"><?}?>Политика конфиденциальности<? if($APPLICATION->GetCurUri() !="/agreement/"){?></a><?}?></li>
+					<li><? if($APPLICATION->GetCurUri() !="/agreement/terms.php"){?><a href="/agreement/terms.php"><?}?>Пользовательское соглашение<? if($APPLICATION->GetCurUri() !="/agreement/terms.php"){?></a><?}?></li>
 					<li><? if($CD !="/sitemap/"){?><a href="/sitemap/"><?}?>Карта сайта<? if($CD !="/sitemap/"){?></a><?}?></li>
 				</ul>
 			</div><!--menu-bf-->
