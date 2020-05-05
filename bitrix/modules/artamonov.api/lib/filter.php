@@ -33,8 +33,6 @@ class Filter
             'checkHttps'
         ];
         foreach ($ar as $filter) {
-            //print_r($filter);
-            //echo '='.$this->access.';';
             if ($this->access) {
                 $this->$filter();
             } else {
@@ -59,8 +57,6 @@ class Filter
                 $first_double = mb_substr($login, 6, 2);
                 $second_double = mb_substr($login, 8, 2);
                 $login = '+7('.$operator.')'.$code_country.'-'.$first_double.'-'.$second_double;
-
-                //print_r($this->DB()->getSqlHelper()->forSql($login, 60));
 
                 $sql = '
                     SELECT
