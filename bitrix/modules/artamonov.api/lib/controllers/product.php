@@ -133,13 +133,10 @@ class Product
                     //$product_data["sector_square"] = $product_prop["sector_square"];
                     $product_data["room_number"] = $product_prop["room_number"];
                     $product_data["realtor"] = $this->getUser($product_prop["realtor"]);
-                    if ($_SESSION["auth"] == "success") {
-                        $product_data["tel"] = $this->formatPhone($product_prop["tel"]);
-                        if ($product["IBLOCK_ID"] == 19) {
-                            $product_data["tel"] = $this->formatPhone($product_prop["rieltor_phone"]);
-                        }
+                    $product_data["tel"] = $this->formatPhone($product_prop["tel"]);
+                    if ($product["IBLOCK_ID"] == 19) {
+                        $product_data["tel"] = $this->formatPhone($product_prop["rieltor_phone"]);
                     }
-                    else $product_data["tel"] = "Необходима авторизация";
                     $product_data["floor"] = $product_prop["floor"];
                     //$product_data["number_of_storeys"] = $product_prop["number_of_storeys"];
                     $product_data["decoration"] = $product_prop["decoration"];
