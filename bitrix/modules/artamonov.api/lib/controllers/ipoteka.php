@@ -101,7 +101,7 @@ class Ipoteka
                 if ($prop_fields["PROPERTY_TYPE"] == "L") {
                     $prop_fields["SELECT"] = $this->getPropertyEnum($iblock_id, $prop_fields["CODE"]);
                 }
-                //print_r($prop_fields);
+
                 $data = array(
                     "name" => $prop_fields["CODE"],
                     "title" => $prop_fields["NAME"],
@@ -109,8 +109,6 @@ class Ipoteka
                     "hint" => $prop_fields["HINT"],
                     "require" => ($prop_fields["IS_REQUIRED"] == "Y" ? true : false)
                 );
-
-                //print_r($prop_fields);
 
                 if(!empty($prop_fields['SELECT'][0]['ID'])) {
                     foreach ($prop_fields['SELECT'] as $select) {
@@ -176,7 +174,7 @@ class Ipoteka
     private function calcPay($sum, $time, $percent) {
         $i = $percent / 100 / 12;
         $num = $i * pow((1 + $i), $time);
-        $den = pow((1 + $i), $time - 1);
+        $den = pow((1 + $i), $time) - 1;
         $itog = intval($sum * ($num / $den));
         return $this->format(round($itog));
     }
