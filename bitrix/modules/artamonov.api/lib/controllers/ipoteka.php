@@ -19,6 +19,8 @@ class Ipoteka
 {
 
     var $block_id = 33;
+    var $iblock = 33;
+    var $template = "NEW_VALUATION";
 
     public function get()
     {
@@ -38,19 +40,19 @@ class Ipoteka
     public function fields()
     {
         $data = $this->getFormFieldsForApp($this->block_id);
-        if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        else Response::iNoResultProfile($data);
+        if (!empty($data)) Response::ShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::NoResultProfile($data);
     }
 
     public function insert() {
         $template = 'NEW_VALUATION';
         $data = '';
         if (!empty($_REQUEST["program"])) {
-            $data = $this->saveFormFields($this->iblock_id, $template);
+            $data = $this->saveFormFields($this->block_id, $template);
         }
         else Response::BadRequest();
-        if ($data == "success") Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        else Response::iShowError($data);
+        if ($data == "success") Response::ShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::ShowError($data);
     }
 
     public function calc() {
@@ -59,8 +61,8 @@ class Ipoteka
             $data = $this->calcIpoteka();
         }
         else Response::BadRequest();
-        if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        else Response::iShowError($data);
+        if (!empty($data)) Response::ShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::ShowError($data);
     }
 
     // Get current request
@@ -250,14 +252,45 @@ class Ipoteka
                 "ACTIVE"            => "Y",
             );
 
-            if ($PRODUCT_ID = $el->Add($arLoadProductArray))
+            if ($PRODUCT_ID = $el->Add($arLoadProductArray)) {
+                $this->sendMail($array_prop, $post, $PRODUCT_ID);
                 return 'success';
+            }
             else return $el->LAST_ERROR;
         }
     }
 
-    private function sendMail() {
-        CEvent::Send("NEW_VALUATION", 's1', array());
+    private function sendMail($array_prop, $post, $id) {
+        $text = '';
+        $iblock_id = $this->iblock;
+        $template = $this->template;
+
+        foreach ($array_prop as $item) {
+            if($item["PROPERTY_TYPE"] == "S") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
+            elseif($item["PROPERTY_TYPE"] == "L") {
+                foreach ($item["SELECT"] as $select) {
+                    if($select["ID"] == $post[$item["CODE"]]) {
+                        $text .= $item["NAME"].': '.$select["VALUE"].'<br />';
+                        continue;
+                    }
+                }
+            }
+        }
+
+        $files = array();
+        $filesResult = CIBlockElement::GetProperty($iblock_id, $id, array("sort" => "asc"), Array("CODE"=>"files"));
+        while ($ob = $filesResult->GetNext()) {
+            $files[] = $ob["VALUE"];
+        }
+
+        $name = 'Заявка на Ипотеку';
+        $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
+        \Bitrix\Main\Mail\Event::sendImmediate(array(
+            'EVENT_NAME' => $template,
+            'LID' => 's1',
+            'C_FIELDS' => $arEventField,
+            'FILE' => $files
+        ));
     }
 
 }
