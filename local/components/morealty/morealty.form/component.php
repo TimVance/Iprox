@@ -66,38 +66,31 @@ function saveFormFields($iblock_id, $template) {
     );
 
     if ($PRODUCT_ID = $el->Add($arLoadProductArray)) {
-        sendMail($template, $array_prop, $post, $iblock_id);
+        sendMail($template, $array_prop, $post, $iblock_id, $PROP);
         return 'success';
     }
     else return $el->LAST_ERROR;
 }
 
-function sendMail($template, $array_prop, $post, $iblock_id) {
+function sendMail($template, $array_prop, $post, $iblock_id, $PROP) {
     $text = '';
     foreach ($array_prop as $item) {
         if($item["PROPERTY_TYPE"] == "S") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
-        elseif($item["PROPERTY_TYPE"] == "L") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
-        elseif($item["PROPERTY_TYPE"] == "F") {
-            $files = array();
-            foreach ($_FILES["files"]["tmp_name"] as $i => $file) {
-                $file = array(
-                    'name' => $_FILES["files"]["name"][$i],
-                    'size' => $_FILES["files"]["size"][$i],
-                    'tmp_name' => $_FILES["files"]["tmp_name"][$i],
-                    'type' => '',
-                    'old_file' => '',
-                    'del' => '',
-                    'MODULE_ID' => 'iblock'
-                );
-                $files[$i] = CFile::MakeFileArray(CFile::SaveFile($file, 'iblock'));
-                $files[$i]["MODULE_ID"] = 'iblock';
+        elseif($item["PROPERTY_TYPE"] == "L") {
+            foreach ($item["SELECT"] as $select) {
+                if($select["ID"] == $post[$item["CODE"]]) {
+                    $text .= $item["NAME"].': '.$select["VALUE"].'<br />';
+                    continue;
+                }
             }
         }
     }
+
     $name = '';
     if ($iblock_id == 35) $name = 'ЕГРН выписка';
+    elseif ($iblock_id == 34) $name = 'Оценка объекта';
     $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
-    CEvent::Send($template, 's1', $arEventField);
+    CEvent::Send($template, 's1', $arEventField, "N", $PROP["files"]);
 }
 
 $iblock_id = $arParams["IBLOCK_ID"];
@@ -108,7 +101,6 @@ if (!empty($_POST["name"])) {
     if ($arResult["add"] != "success") $arResult["form"] = getFormFields($iblock_id);
 }
 else $arResult["form"] = getFormFields($iblock_id);
-
 
 
 
