@@ -97,7 +97,7 @@ function sendMail($template, $array_prop, $post, $iblock_id, $id) {
     if ($iblock_id == 35) $name = 'ЕГРН выписка';
     elseif ($iblock_id == 34) $name = 'Оценка объекта';
     $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
-    CEvent::Send($template, 's1', $arEventField, "N", $files);
+    CEvent::Send($template, 's1', $arEventField, "N", "", $files);
 }
 
 $iblock_id = $arParams["IBLOCK_ID"];

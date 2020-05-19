@@ -13,12 +13,13 @@ use CUser;
 use CFile;
 use CIBlockPropertyEnum;
 use CIBlockProperty;
+use Bitrix\Main\Mail\Event;
 
 
 class Egrn
 {
 
-    var $iblock = 33;
+    var $iblock = 35;
     var $template = "NEW_VALUATION";
 
     public function get()
@@ -39,8 +40,8 @@ class Egrn
     public function fields()
     {
         $data = $this->getFormFieldsForApp(35);
-        if (!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        else Response::iNoResultProfile($data);
+        if (!empty($data)) Response::ShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::NoResultProfile($data);
     }
 
     public function insert() {
@@ -51,8 +52,8 @@ class Egrn
             $data = $this->saveFormFields($iblock_id, $template);
         }
         else Response::BadRequest();
-        if ($data == "success") Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        else Response::iShowError($data);
+        if ($data == "success") Response::ShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        else Response::ShowError($data);
     }
 
     // Get current request
@@ -224,7 +225,12 @@ class Egrn
 
         $name = 'ЕГРН выписка';
         $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
-        CEvent::Send($template, 's1', $arEventField, "N", $files);
+        \Bitrix\Main\Mail\Event::sendImmediate(array(
+            'EVENT_NAME' => $template,
+            'LID' => 's1',
+            'C_FIELDS' => $arEventField,
+            'FILE' => $files
+        ));
     }
 
 }

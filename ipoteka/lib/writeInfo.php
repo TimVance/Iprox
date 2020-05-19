@@ -77,7 +77,7 @@ class writeInfo
         $name = '';
         $name = 'Заявка на Ипотеку';
         $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
-        CEvent::Send($template, 's1', $arEventField, "N", $PROP["files"]);
+        CEvent::Send($template, 's1', $arEventField, "N", "", $PROP["files"]);
     }
 
     function getFormFields() {
