@@ -66,13 +66,13 @@ function saveFormFields($iblock_id, $template) {
     );
 
     if ($PRODUCT_ID = $el->Add($arLoadProductArray)) {
-        sendMail($template, $array_prop, $post, $iblock_id, $PROP);
+        sendMail($template, $array_prop, $post, $iblock_id, $PRODUCT_ID);
         return 'success';
     }
     else return $el->LAST_ERROR;
 }
 
-function sendMail($template, $array_prop, $post, $iblock_id, $PROP) {
+function sendMail($template, $array_prop, $post, $iblock_id, $id) {
     $text = '';
     foreach ($array_prop as $item) {
         if($item["PROPERTY_TYPE"] == "S") $text .= $item["NAME"].': '.$post[$item["CODE"]].'<br />';
@@ -86,11 +86,18 @@ function sendMail($template, $array_prop, $post, $iblock_id, $PROP) {
         }
     }
 
+    $files = array();
+    $filesResult = CIBlockElement::GetProperty($iblock_id, $id, array("sort" => "asc"), Array("CODE"=>"files"));
+    while ($ob = $filesResult->GetNext()) {
+        $files[] = $ob["VALUE"];
+    }
+
+
     $name = '';
     if ($iblock_id == 35) $name = 'ЕГРН выписка';
     elseif ($iblock_id == 34) $name = 'Оценка объекта';
     $arEventField = array("TEXT" => $text, "NAME_FORM" => $name);
-    CEvent::Send($template, 's1', $arEventField, "N", $PROP["files"]);
+    CEvent::Send($template, 's1', $arEventField, "N", $files);
 }
 
 $iblock_id = $arParams["IBLOCK_ID"];
@@ -101,9 +108,6 @@ if (!empty($_POST["name"])) {
     if ($arResult["add"] != "success") $arResult["form"] = getFormFields($iblock_id);
 }
 else $arResult["form"] = getFormFields($iblock_id);
-
-
-
 
 
 $this->includeComponentTemplate();
