@@ -202,6 +202,19 @@ if (CModule::IncludeModule("iblock")):
 endif;
 
 
+// Города
+$cityes_content = array();
+if (CModule::IncludeModule("iblock")):
+    $arFilter = array(
+        'IBLOCK_ID' => 5,
+    );
+    $res = CIBlockElement::GetList(false, $arFilter, array('IBLOCK_ID','ID','NAME'));
+    while($el = $res->GetNext()):
+        $cityes_content[$el['ID']] = $el['NAME'];
+    endwhile;
+endif;
+
+
 //Формируем таблицу
 echo '<div id="horizontal-scroller" class="call-center">';
 echo '<form method="get">';
@@ -252,6 +265,7 @@ echo '<div>Дата изменения</div>';
 echo '<div>Лот</div>';
 echo '<div>Наименование</div>';
 echo '<div>Телефон</div>';
+if ($block_id != 19) echo '<div class="city">Город</div>';
 echo '<div>Адрес</div>';
 if ($block_id != 19) echo '<div>Цена</div>';
 else echo '<div>Мин стоимость квартиры</div>';
@@ -298,6 +312,8 @@ foreach ($arResult as $item) {
     if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">';
     else echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["rieltor_phone"][0]["VALUE"] . '">';
     echo '</div>';
+    if ($block_id != 19)
+        echo '<div class="city">'.$cityes_content[$properties["city"][0]["VALUE"]].'</div>';
     echo '<div class="address">
                 <input form="form_product' . $item["ID"] . '" type="text" name="street" value="' . $properties["street"][0]["VALUE"] . '">
             </div>';
