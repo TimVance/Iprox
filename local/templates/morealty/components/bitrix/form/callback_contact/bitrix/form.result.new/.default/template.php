@@ -78,7 +78,6 @@ if($arResult["isUseCaptcha"] == "Y")
 			<img src="/bitrix/tools/captcha.php?captcha_sid=<?=htmlspecialcharsbx($arResult["CAPTCHACode"]);?>" width="180" height="40" />
 		</div>
 		<div>
-			<?=GetMessage("FORM_CAPTCHA_FIELD_TITLE")?><?=$arResult["REQUIRED_SIGN"];?>
 			<input  type="text" name="captcha_word" size="30" maxlength="50" value="" class="inputtext" />
 		</div>
 <?
@@ -86,7 +85,7 @@ if($arResult["isUseCaptcha"] == "Y")
 ?>
 	
 	
-		
+		        <br>
 				<div class="butt">
 				<input <?=(intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : "");?> type="submit" name="web_form_submit" value="<?=htmlspecialcharsbx(strlen(trim($arResult["arForm"]["BUTTON"])) <= 0 ? GetMessage("FORM_ADD") : $arResult["arForm"]["BUTTON"]);?>" /></div>
 				

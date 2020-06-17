@@ -460,6 +460,9 @@ line-height:normal;background:none;font-size:18px;font-family:'proxima_nova_rgbo
 .but-pop2 button{width:247px}
 .pop2{padding-bottom:45px}
 .t-pop2{text-align:center;margin-bottom:24px}
+.property-pop.fixed-height {
+    min-height: 20px;
+}
 .price-pop{margin-bottom:33px;text-align:center;font-size:18px}
 .price-pop span{font-size:24px;font-family:'proxima_nova_rgbold'}
 .score-pop{margin:0 0 19px;line-height:23px;text-align:center;font-size:16px}
@@ -476,6 +479,7 @@ line-height:normal;background:none;font-size:18px;font-family:'proxima_nova_rgbo
 .property-pop ul{list-style-type:none;margin:0;padding:0}
 .property-pop li{margin:0;padding:0;line-height:normal;background:none;font-size:16px}
 .property-pop li span{font-family:'proxima_nova_rgbold'}
+.property-pop a { display: block }
 .big-price{margin:0 0 23px;font-size:36px;font-family:'proxima_nova_rgbold';text-align:center}
 .acts{margin:0 0 38px;font-size:11px;color:#888;text-align:center}
 .pop4{width:900px;background:#fff;padding-bottom:35px}
@@ -652,7 +656,7 @@ line-height:normal;background:none;font-size:18px;font-family:'proxima_nova_rgbo
 .buy-pakets{position:relative;float:right;font-size:18px;font-family:'proxima_nova_rgbold';padding:0 0 0 30px}
 .buy-pakets a:before{position:absolute;top:50%;left:0;margin:-10px 0 0;content:'';display:block;width:26px;height:22px;background:url(images/sprite.png) -300px -55px no-repeat}
 .list-pakets{margin:0 0 30px}
-.list-pakets > ul{list-style-type:none;margin:0 0 0 -15px;padding:0}
+.list-pakets > ul{list-style-type:none;margin:0 0 0 -15px;padding:0;text-align: center}
 .list-pakets > ul > li{display:inline-block;vertical-align:top;margin:0 0 20px 15px;text-align:center;border:1px solid #ddd;padding:0;width:233px;min-height:300px;line-height:normal;background:none}
 .list-pakets > ul > li:hover{border:1px solid #20a6ad}
 .tit-pakets{display:block;margin:0 0 12px;width:235px;height:75px;text-align:center;margin-top:-1px;margin-left:-1px;background:#20a6ad;color:#fff;font-family:'proxima_nova_rgbold';font-size:18px}

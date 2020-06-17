@@ -7,7 +7,6 @@ if (count($arResult['ITEMS']) <= 0) {
 	return;
 }
 
-//my_print_r($arResult['ITEMS']);
 ?>
 <div class="list-pakets">
 	<ul>
@@ -40,7 +39,7 @@ if (count($arResult['ITEMS']) <= 0) {
 				</div>
 				<div class="condit-tarif">
 					<div class="shelf">Действует
-						<?=$item['PROPERTIES']['long_days']['VALUE']?> <?=Suffix($item['PROPERTIES']['long_days']['VALUE'], 'день|дня|дней')?>
+						<?=$item['PROPERTIES']['long_days']['VALUE']?> <?=Suffix($item['PROPERTIES']['long_days']['VALUE'], 'месяц|месяца|месяцев')?>
 						с момента покупки
 					</div>
 				</div>
@@ -51,7 +50,7 @@ if (count($arResult['ITEMS']) <= 0) {
 				<div id="pop<?=$item['ID']?>" class="pop pop3">
 					<div class="close"></div>
 					<div class="t-pop t-pop2">Пакет «<?=$item['NAME']?>»</div>
-					<div class="property-pop">
+					<div class="property-pop fixed-height">
 						<ul>
 							<?
 							$k = 0;

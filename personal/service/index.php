@@ -210,7 +210,7 @@ if ($USER->GetLogin() == "vadim")
     )
 );*/?>
 
-<?/*$APPLICATION->IncludeComponent('wexpert:iblock.list', 'pay_packets', array(
+<?$APPLICATION->IncludeComponent('wexpert:iblock.list', 'pay_packets', array(
 	'IBLOCK_ID'     => 6,
 	'PAGESIZE'      => 8,
 	'ORDER'         => array('SORT' => 'ASC', 'NAME' => 'ASC'),
@@ -218,7 +218,7 @@ if ($USER->GetLogin() == "vadim")
 	'GET_PROPERTY'  => 'Y',
 	'CACHE_TIME'    => 0,
 	'SET_404'       => 'N'
-));*/?>
+));?>
 
 
 

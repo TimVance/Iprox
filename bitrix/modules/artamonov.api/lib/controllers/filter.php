@@ -46,7 +46,7 @@ class Filter
     private function getProductData($iblock_id)
     {
         $data = [];
-        $accept_cityes = array("Сочи", "Адлер", "Краснодар");// Разрешенные города
+        $accept_cityes = array("Сочи", "Адлер", "Краснодар", "Геленджик", "Анапа");// Разрешенные города
 
 
         if (Loader::includeModule('iblock')) {
