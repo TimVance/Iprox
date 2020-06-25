@@ -56,14 +56,6 @@ if (!empty($_POST)) {
 
             $el = new CIBlockElement;
 
-            /*        $PROP = array();
-                    $PROP["price"] = $system_price_from;
-                    $PROP["tel"] = $tel;
-                    $PROP["comment"] = $comment;
-                    $PROP["street"] = $street;
-                    $PROP["call_status"] = array("VALUE" => $status);*/
-            //print_r($PROP);
-
             $images = [];
 
             // Запись файлов
@@ -157,6 +149,9 @@ switch ($block_id) {
     case 10:
         $APPLICATION->SetTitle("Работа с участками");
         break;
+    case 9:
+        $APPLICATION->SetTitle("Коттеджные поселки и комплексы таунхаусов");
+        break;
 }
 
 $Select_filter["IBLOCK_ID"] = $block_id;
@@ -208,8 +203,8 @@ if (CModule::IncludeModule("iblock")):
     $arFilter = array(
         'IBLOCK_ID' => 5,
     );
-    $res = CIBlockElement::GetList(false, $arFilter, array('IBLOCK_ID','ID','NAME'));
-    while($el = $res->GetNext()):
+    $res      = CIBlockElement::GetList(false, $arFilter, array('IBLOCK_ID', 'ID', 'NAME'));
+    while ($el = $res->GetNext()):
         $cityes_content[$el['ID']] = $el['NAME'];
     endwhile;
 endif;
@@ -226,6 +221,7 @@ echo '<option ' . ($block_id == 7 ? 'selected ' : '') . 'value="7">Кварти�
 echo '<option ' . ($block_id == 8 ? 'selected ' : '') . 'value="8">Дома, коттеджи, таунхаусы</option>';
 echo '<option ' . ($block_id == 19 ? 'selected ' : '') . 'value="19">Новостройки</option>';
 echo '<option ' . ($block_id == 10 ? 'selected ' : '') . 'value="10">Участки</option>';
+echo '<option ' . ($block_id == 9 ? 'selected ' : '') . 'value="9">Коттеджные поселки и комплексы таунхаусов</option>';
 echo '</select>';
 
 if (!empty($block_id)) {
@@ -279,7 +275,9 @@ echo '<div>Отправить</div>';
 echo '</div>';
 $total = 0;
 
+
 foreach ($arResult as $item) {
+
     $properties = [];
     $arProperty = CIBlockElement::GetProperty($block_id, $item["ID"], "sort", "asc", array());
     while ($property_item = $arProperty->GetNext()) {
@@ -313,7 +311,7 @@ foreach ($arResult as $item) {
     else echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["rieltor_phone"][0]["VALUE"] . '">';
     echo '</div>';
     if ($block_id != 19)
-        echo '<div class="city">'.$cityes_content[$properties["city"][0]["VALUE"]].'</div>';
+        echo '<div class="city">' . $cityes_content[$properties["city"][0]["VALUE"]] . '</div>';
     echo '<div class="address">
                 <input form="form_product' . $item["ID"] . '" type="text" name="street" value="' . $properties["street"][0]["VALUE"] . '">
             </div>';
@@ -381,7 +379,6 @@ if ($block_id == 7) {
             $property_enums = CIBlockPropertyEnum::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => $block_id, "CODE" => $paramter_code));
             while ($enum_fields = $property_enums->GetNext()) {
                 $param_for_addform[$enum_fields["PROPERTY_CODE"]][$enum_fields["ID"]] = $enum_fields["VALUE"];
-                //print_r($enum_fields);
             }
         }
     endif;
@@ -389,8 +386,6 @@ if ($block_id == 7) {
 
     // Добавить новый объект
     if ($_POST["action"] == "add_new_item") {
-
-        //print_r($_POST);
 
 
         $el = new CIBlockElement;
@@ -532,8 +527,6 @@ if ($block_id == 19) {
     // Добавить новый объект
     if ($_POST["action"] == "add_new_novostroyka") {
 
-        //print_r($_POST);
-
 
         $el = new CIBlockElement;
 
@@ -594,7 +587,7 @@ if ($block_id == 19) {
             <div class="input-wrap">
                 <span>Район</span>
                 <select name="district">';
-                    echo '<option value="">-</option>';
+    echo '<option value="">-</option>';
     foreach ($param_for_addform["district"] as $key => $value) {
         echo '<option value="' . $key . '">' . $value . '</option>';
     }
@@ -604,7 +597,7 @@ if ($block_id == 19) {
              <div class="input-wrap">
                 <span>Микрорайон</span>
                 <select name="microdistrict">';
-                    echo '<option value="">-</option>';
+    echo '<option value="">-</option>';
     foreach ($param_for_addform["microdistrict"] as $key => $value) {
         echo '<option value="' . $key . '">' . $value . '</option>';
     }
@@ -686,6 +679,125 @@ if ($block_id == 19) {
             <div class="input-wrap">
                 <span>Телефон риелтора</span>
                 <input type="text" name="rieltor_phone">
+            </div>
+            <div class="input-wrap full">
+                <span>Детальное описание</span>
+                <textarea name="text" cols="30" rows="10"></textarea>
+            </div>
+            <div class="clear"></div>
+            <input type="submit" value="Добавить новый объект">
+        </form>
+    </div>
+    ';
+}
+if ($block_id == 9) {
+
+
+    // Получаем список свойств для новостроек
+    if (CModule::IncludeModule("iblock")):
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 5));
+        while ($enum_fields = $property_enums->GetNext()) {
+            $param_for_addform["city"][$enum_fields["ID"]] = $enum_fields["NAME"];
+            //print_r($enum_fields);
+        }
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 14));
+        while ($enum_fields = $property_enums->GetNext()) {
+            $param_for_addform["district"][$enum_fields["ID"]] = $enum_fields["NAME"];
+            //print_r($enum_fields);
+        }
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 15));
+        while ($enum_fields = $property_enums->GetNext()) {
+            $param_for_addform["microdistrict"][$enum_fields["ID"]] = $enum_fields["NAME"];
+            //print_r($enum_fields);
+        }
+    endif;
+
+
+    // Добавить новый объект
+    if ($_POST["action"] == "add_new_kottedzh") {
+
+
+        $el = new CIBlockElement;
+
+        $PROP                  = array();
+        $PROP["city"]          = $_POST["city"];
+        $PROP["district"]      = $_POST["district"];
+        $PROP["microdistrict"] = $_POST["microdistrict"];
+        $PROP["price"]         = $_POST["price"];
+        $PROP["sector_square"] = $_POST["sector_square"];
+        $PROP["square"]        = $_POST["square"];
+        $PROP["street"]        = $_POST["street"];
+
+
+        $arLoadProductArray = array(
+            "MODIFIED_BY"       => $USER->GetID(),
+            "IBLOCK_SECTION_ID" => false,
+            "IBLOCK_ID"         => $block_id,
+            "PROPERTY_VALUES"   => $PROP,
+            "NAME"              => $_POST["name"],
+            "ACTIVE"            => "N",
+            "DETAIL_TEXT"       => $_POST["text"],
+        );
+
+        if ($PRODUCT_ID = $el->Add($arLoadProductArray))
+            echo "Объект успешно добавлен, ему присвоин номер: " . $PRODUCT_ID;
+        else
+            echo "Error: " . $el->LAST_ERROR;
+    }
+
+    echo '<div class="add_new_item">
+        <h2>Добавить коттеджные поселки и комплексы таунхаусов</h2>';
+    echo '
+        <form name="add_new_kottedzh" method="post">
+            <input type="hidden" name="action" value="add_new_kottedzh">
+            <div class="input-wrap">
+                <span>Наименование объекта</span>
+                <input type="text" name="name" required>
+            </div>
+            <div class="input-wrap">
+                <span>Город</span>
+                <select name="city">';
+    foreach ($param_for_addform["city"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
+            </div>
+            <div class="input-wrap">
+                <span>Район</span>
+                <select name="district">';
+    echo '<option value="">-</option>';
+    foreach ($param_for_addform["district"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
+             </div>
+             <div class="input-wrap">
+                <span>Микрорайон</span>
+                <select name="microdistrict">';
+    echo '<option value="">-</option>';
+    foreach ($param_for_addform["microdistrict"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
+            </div>
+            <div class="input-wrap">
+                <span>Стоимость объекта</span>
+                <input type="number" name="price">
+            </div>
+            <div class="input-wrap">
+                <span>Площадь участка</span>
+                <input type="text" name="sector_square">
+            </div>
+            <div class="input-wrap">
+                <span>Площадь</span>
+                <input type="text" name="square">
+            </div>
+            <div class="input-wrap">
+                <span>Улица</span>
+                <input type="text" name="street">
             </div>
             <div class="input-wrap full">
                 <span>Детальное описание</span>
