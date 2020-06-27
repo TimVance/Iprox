@@ -710,6 +710,14 @@ if ($block_id == 9) {
             $param_for_addform["microdistrict"][$enum_fields["ID"]] = $enum_fields["NAME"];
             //print_r($enum_fields);
         }
+        $parametrs_for_select = array("class", "type", "parking", "territory");
+        foreach ($parametrs_for_select as $paramter_code) {
+            $property_enums = CIBlockPropertyEnum::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => $block_id, "CODE" => $paramter_code));
+            while ($enum_fields = $property_enums->GetNext()) {
+                $param_for_addform[$enum_fields["PROPERTY_CODE"]][$enum_fields["ID"]] = $enum_fields["VALUE"];
+                //print_r($enum_fields);
+            }
+        }
     endif;
 
 
@@ -719,14 +727,23 @@ if ($block_id == 9) {
 
         $el = new CIBlockElement;
 
-        $PROP                  = array();
-        $PROP["city"]          = $_POST["city"];
-        $PROP["district"]      = $_POST["district"];
-        $PROP["microdistrict"] = $_POST["microdistrict"];
-        $PROP["price"]         = $_POST["price"];
-        $PROP["sector_square"] = $_POST["sector_square"];
-        $PROP["square"]        = $_POST["square"];
-        $PROP["street"]        = $_POST["street"];
+        $PROP                    = array();
+        $PROP["city"]            = $_POST["city"];
+        $PROP["district"]        = $_POST["district"];
+        $PROP["microdistrict"]   = $_POST["microdistrict"];
+        $PROP["class"]           = $_POST["class"];
+        $PROP["type"]            = $_POST["type"];
+        $PROP["parking"]         = $_POST["parking"];
+        $PROP["territory"]       = $_POST["territory"];
+        $PROP["distance_to_sea"] = $_POST["distance_to_sea"];
+        $PROP["price_m2_ot"]     = $_POST["price_m2_ot"];
+        $PROP["price_m2_do"]     = $_POST["price_m2_do"];
+        $PROP["price_flat_min"]  = $_POST["price_flat_min"];
+        $PROP["square_ot"]       = $_POST["square_ot"];
+        $PROP["square_do"]       = $_POST["square_do"];
+        $PROP["deadline"]        = $_POST["deadline"];
+        $PROP["rieltor_phone"]   = $_POST["rieltor_phone"];
+        $PROP["street"]          = $_POST["street"];
 
 
         $arLoadProductArray = array(
@@ -784,16 +801,72 @@ if ($block_id == 9) {
                 </select>
             </div>
             <div class="input-wrap">
-                <span>Стоимость объекта</span>
-                <input type="number" name="price">
+                <span>Класс</span>
+                <select name="class">';
+    foreach ($param_for_addform["class"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
+             </div>
+                        <div class="input-wrap">
+                <span>Тип здания</span>
+                <select name="type">';
+    foreach ($param_for_addform["type"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
             </div>
             <div class="input-wrap">
-                <span>Площадь участка</span>
-                <input type="text" name="sector_square">
+                <span>Парковка</span>
+                <select name="parking">';
+    foreach ($param_for_addform["parking"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
+            </div>
+                        <div class="input-wrap">
+                <span>Территория</span>
+                <select name="territory">';
+    foreach ($param_for_addform["territory"] as $key => $value) {
+        echo '<option value="' . $key . '">' . $value . '</option>';
+    }
+    echo '
+                </select>
             </div>
             <div class="input-wrap">
-                <span>Площадь</span>
-                <input type="text" name="square">
+                <span>Расстояние до моря</span>
+                <input type="text" name="distance_to_sea">
+            </div>
+            <div class="input-wrap">
+                <span>Цена м2 от</span>
+                <input type="number" name="price_m2_ot">
+            </div>
+            <div class="input-wrap">
+                <span>Цена м2 до</span>
+                <input type="number" name="price_m2_do">
+            </div>
+            <div class="input-wrap">
+                <span>Мин. стоимость за квартиру</span>
+                <input type="number" name="price_flat_min">
+            </div>
+            <div class="input-wrap">
+                <span>Площадь квартир от</span>
+                <input type="text" name="square_ot">
+            </div>
+            <div class="input-wrap">
+                <span>Площадь квартир до</span>
+                <input type="text" name="square_do">
+            </div>
+            <div class="input-wrap">
+                <span>Срок сдачи</span>
+                <input type="text" name="deadline">
+            </div>
+            <div class="input-wrap">
+                <span>Телефон риелтора</span>
+                <input type="text" name="rieltor_phone">
             </div>
             <div class="input-wrap">
                 <span>Улица</span>
