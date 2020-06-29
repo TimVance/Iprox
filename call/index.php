@@ -49,7 +49,7 @@ if (!empty($_POST)) {
             $active            = (!empty($_POST["active"]) ? 'Y' : 'N');
             $status            = $_POST["status"];
 
-            if ($block_id == 19) {
+            if ($block_id == 19 || $block_id == 9) {
                 $price_m2_ot = $_POST["price_m2_ot"];
                 $square_ot   = $_POST["square_ot"];
             }
@@ -76,7 +76,7 @@ if (!empty($_POST)) {
                 }
             }
 
-            if ($block_id != 19) {
+            if ($block_id != 19 && $block_id != 9) {
                 CIBlockElement::SetPropertyValuesEx(
                     $id, //ID обновляемого элемента
                     $block_id, //ID инфоблока
@@ -261,12 +261,12 @@ echo '<div>Дата изменения</div>';
 echo '<div>Лот</div>';
 echo '<div>Наименование</div>';
 echo '<div>Телефон</div>';
-if ($block_id != 19) echo '<div class="city">Город</div>';
+echo '<div class="city">Город</div>';
 echo '<div>Адрес</div>';
-if ($block_id != 19) echo '<div>Цена</div>';
+if ($block_id != 19 && $block_id != 9) echo '<div>Цена</div>';
 else echo '<div>Мин стоимость квартиры</div>';
-if ($block_id == 19) echo '<div>Цена м² от</div>';
-if ($block_id == 19) echo '<div>Площадь квартир от</div>';
+if ($block_id == 19 || $block_id == 9) echo '<div>Цена м² от</div>';
+if ($block_id == 19 || $block_id == 9) echo '<div>Площадь квартир от</div>';
 echo '<div>Комментарий</div>';
 echo '<div>Статус</div>';
 echo '<div style="display:none">Удалить объект</div>';
@@ -307,21 +307,20 @@ foreach ($arResult as $item) {
     echo '<div class="id">' . $item["ID"] . '</div>';
     echo '<div class="name">' . $item["NAME"] . '</div>';
     echo '<div class="phone">';
-    if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">';
+    if ($block_id != 19 && $block_id != 9) echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["tel"][0]["VALUE"] . '">';
     else echo '<input form="form_product' . $item["ID"] . '" type="text" name="tel" value="' . $properties["rieltor_phone"][0]["VALUE"] . '">';
     echo '</div>';
-    if ($block_id != 19)
-        echo '<div class="city">' . $cityes_content[$properties["city"][0]["VALUE"]] . '</div>';
+    echo '<div class="city">' . $cityes_content[$properties["city"][0]["VALUE"]] . '</div>';
     echo '<div class="address">
                 <input form="form_product' . $item["ID"] . '" type="text" name="street" value="' . $properties["street"][0]["VALUE"] . '">
             </div>';
     echo '<div class="price">';
-    if ($block_id != 19) echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price"][0]["VALUE"] . '">';
+    if ($block_id != 19 && $block_id != 9) echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price"][0]["VALUE"] . '">';
     else echo '<input form="form_product' . $item["ID"] . '" type="text" name="system_price_from" value="' . $properties["price_flat_min"][0]["VALUE"] . '">';
     echo '</div>';
 
     // Параметры для Новостроек
-    if ($block_id == 19) {
+    if ($block_id == 19 || $block_id == 9) {
 
         echo '<div class="price_m2_ot">';
         echo '<input form="form_product' . $item["ID"] . '" type="text" name="price_m2_ot" value="' . $properties["price_m2_ot"][0]["VALUE"] . '">';;
