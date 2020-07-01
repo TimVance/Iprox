@@ -864,7 +864,7 @@ if ($block_id == 9) {
                 <input type="text" name="deadline">
             </div>
             <div class="input-wrap">
-                <span>Телефон риелтора</span>
+                <span>Телефон</span>
                 <input type="text" name="rieltor_phone">
             </div>
             <div class="input-wrap">
