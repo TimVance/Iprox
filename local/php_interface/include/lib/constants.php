@@ -107,6 +107,11 @@ if (constant('IS_USER_OWNER_ONE_REALTY') === true) {
 
 if (constant('IS_USER_REALTOR') === true) {
 	$GLOBALS['USER_ACCOUNT'] = \UserAccount::getAccount( $USER->GetID() );
+
+    CModule::IncludeModule('sale');
+    if ($arUsBUDGET = CSaleUserAccount::GetByUserID($USER->GetID(), "RUB")) {
+        $GLOBALS['USER_ACCOUNT']["BUDGET"] = $arUsBUDGET;
+    }
 }
 
 

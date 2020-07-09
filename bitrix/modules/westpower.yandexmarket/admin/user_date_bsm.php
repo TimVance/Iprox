@@ -1,0 +1,1 @@
+<?define("westpower_yandexmarket_TEMPORARY_CACHE", "cGNUASw3AglvU3AwAjACLAt2");?>

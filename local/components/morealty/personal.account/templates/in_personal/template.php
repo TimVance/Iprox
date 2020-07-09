@@ -4,6 +4,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 //my_print_r( $GLOBALS['USER_ACCOUNT'] );
 
 /* @var $this CBitrixComponentTemplate */
+
 ?>
 
 <div class="b-balans">

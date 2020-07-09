@@ -19,7 +19,7 @@ if (intval($_REQUEST['gid']) > 0) {
 
 	if (! $package['ID']) {
 		$errors[] = 'Не найден план.';
-	} else if ((float)$GLOBALS['USER_ACCOUNT']['SUMM'] < (float)$package['PROPERTIES']['price']['VALUE']) {
+	} else if ((float)$GLOBALS['USER_ACCOUNT']["BUDGET"]["CURRENT_BUDGET"] < (float)$package['PROPERTIES']['price']['VALUE']) {
 		$errors[] = 'Не достаточно денег на счету. <a href="/personal/">Пополнить счет.</a>';
 	} else {
 		$arUsP = \UserAccount::addPayedPackage($package, $GLOBALS['USER_ACCOUNT']);
