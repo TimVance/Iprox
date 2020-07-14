@@ -42,14 +42,15 @@ if (!$bAuthorized)
 <div class="but-input-z new_start_login"><a href="#wr-pop-inp2" id="start_login" class="inline">Вход и регистрация</a></div>
 <?
 //$template = $_SERVER["REMOTE_ADDR"] == "31.31.24.204" ? "header_new_new" : "header_new";
-$template = "header_new_new";
+$template = "header_new";
 ?>
 <div class="wr-pop-inp">
 	<?$APPLICATION->IncludeComponent("bitrix:system.auth.form",$template,Array(
 			"REGISTER_URL"			=> "/register/",
 			"FORGOT_PASSWORD_URL"	=> "/auth/",
 			"PROFILE_URL" => "/personal/",
-			"SHOW_ERRORS" => "n"
+			"AJAX_MODE" => "Y",
+			"SHOW_ERRORS" => "Y"
 		),
 		$component
 	);?>

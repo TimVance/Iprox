@@ -135,7 +135,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	<div class="field-pop field-pop3 sel-pr select-type-order">
 		<label>Способ оплаты</label>
 		<select name="type-order" id="type-order">
-			<option value="bnk">Банк</option>
 			<option value="poo">PayOnline</option>
 		</select>
 	</div>
@@ -209,10 +208,11 @@ $bActive = $arResult['ACCOUNT']["ACTIVE_TO"] && $DateActiveTo->getTimestamp() > 
 $text = ($bActive)? "Активен до ".$DateActiveTo->toString() : "Аккаунт не активен";
 ?>
 <div class="b-pakets">
-	<div class="t-paket"><?=$text?></div>
+	<div class="t-paket"><?//$text?></div>
 </div>
 
 <?
+
 if ($arResult["PACKETS"] && count($arResult["PACKETS"]) > 0)
 {
 	?>

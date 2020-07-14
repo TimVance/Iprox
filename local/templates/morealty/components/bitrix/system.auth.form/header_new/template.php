@@ -22,16 +22,16 @@
 			<input type="hidden" name="AUTH_FORM" value="Y" />
 			<input type="hidden" name="TYPE" value="AUTH" />
 		<div class="field-pop"  id="email-field">
-		<? /*?>	<input type="text" name="USER_EMAIL" placeholder="Электронная почта" /><?*/?>
-			<input type="text" name="USER_LOGIN"  placeholder="Ваш логин"/>
+		    <input required type="text" name="USER_EMAIL" placeholder="Электронная почта" />
+			<? /* <input required type="text" name="USER_LOGIN"  placeholder="Ваш логин"/> */ ?>
 		</div>
 		<div class="field-pop field-pop2">
-			<input type="password" name="USER_PASSWORD" placeholder="Пароль" />
+			<input required type="password" name="USER_PASSWORD" placeholder="Пароль" />
 			<div class="forgot"><a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?>Напомнить</a></div>
 		</div>
 		<div class="assest-inp customP">
 			<input type="checkbox" id="assest" name="USER_REMEMBER" checked value="Y" />
-			<label for="assest">Запомнить меня на этом компьютере</label>
+			<label for="assest">Запомнить меня на этом устройстве</label>
 		</div>
 		<div class="but-pop"><input type="submit" value="Войти"></div>
 	</form>
