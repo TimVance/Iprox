@@ -14,4 +14,15 @@ Class ApiYandexMap {
             else return explode(" ", $array["GeoObjectCollection"]["featureMember"]["GeoObject"]["Point"]["pos"]);
     }
 
+    function getDistricts($address) {
+        $responce = file_get_contents("https://geocode-maps.yandex.ru/1.x/?apikey=".$this->key."&geocode=".urlencode($address)."&kind=district");
+        $xml      = simplexml_load_string($responce);
+        $json     = json_encode($xml);
+        $array    = json_decode($json, TRUE);
+        $data = array();
+        if(!empty($array["GeoObjectCollection"]["featureMember"]))
+            $data = $array["GeoObjectCollection"]["featureMember"];
+        return $data;
+    }
+
 }
