@@ -2,6 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("GeoCode");
 
+exit();
 
 include_once("./lib/ApiYandexMap.php");
 
