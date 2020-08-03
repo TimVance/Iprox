@@ -342,6 +342,8 @@ class Category
                     .(!empty($prop_array["city"]) ? $prop_array["city"].', ' : '')
                     .(!empty($prop_array["microdistrict"]) ? $prop_array["microdistrict"].', ' : '')
                     .(!empty($prop_array["street"]) ? $prop_array["street"] : '');
+
+                $items[$key]["address"] = $this->clear_tags($items[$key]["address"]);
             }
 
 
@@ -365,6 +367,11 @@ class Category
 
     private function format($price) {
         return number_format($price, 0, ",", " ");
+    }
+
+    private function clear_tags($data) {
+        $matches = ["&amp;", "amp;", "quot;"];
+        return trim(str_replace($matches, "", strip_tags($data)));
     }
 
     private function changeFormatDate($data)

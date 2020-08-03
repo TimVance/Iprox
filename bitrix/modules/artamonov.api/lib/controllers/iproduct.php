@@ -112,13 +112,11 @@ class iProduct
                     $product_data["address"] = ''
                         .(!empty($product_prop["city"]) ? $product_prop["city"].', ' : '')
                         //.(!empty($prop_array["district"]) ? $prop_array["district"].', ' : '')
-                        .(!empty($product_prop["microdistrict"]) ? $product_prop["microdistrict"].', ' : '')
+                        //.(!empty($product_prop["microdistrict"]) ? $product_prop["microdistrict"].', ' : '')
                         .(!empty($product_prop["street"]) ? $product_prop["street"] : '');
 
 
-                    //print_r($product_prop);
-                    //print_r($_SESSION);
-                    //print_r($_SERVER);
+                    $product_data["address"] = $this->clear_tags($product_data["address"]);
 
 
                     $product_data["status"] = $product_prop["STATUS"];
@@ -234,6 +232,11 @@ class iProduct
 
     private function format($price) {
         return number_format($price, 0, ",", " ");
+    }
+
+    private function clear_tags($data) {
+        $matches = ["&amp;", "amp;", "quot;"];
+        return trim(str_replace($matches, "", strip_tags($data)));
     }
 
     private function formatPhone($phone)
