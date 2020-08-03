@@ -6,6 +6,7 @@ namespace Artamonov\Api\Controllers;
 
 use Artamonov\Api\Request;
 use Artamonov\Api\Response;
+use Bitrix\Main\Data\Cache;
 use Bitrix\Main\Loader;
 use CIBlockElement;
 use CUser;
@@ -29,9 +30,18 @@ class iFilter
                 $iblock_id = $arResult["PARAMETERS"][0]; // Получаем id товара из адреса
             else Response::iBadRequest();
         }
-        $data = $this->getProductData($iblock_id);
-        //$arResult['OPERATING_METHOD'] = 'OBJECT_ORIENTED';
-        //Response::ShowResult($arResult, JSON_UNESCAPED_UNICODE);
+
+        if (!empty($iblock_id)) {
+            $cache = Cache::createInstance();
+            if ($cache->initCache(7200, $iblock_id)) {
+                $data = $cache->getVars();
+            }
+            elseif ($cache->startDataCache()) {
+                $data = $this->getProductData($iblock_id);
+                $cache->endDataCache($data);
+            }
+        }
+
         if(!empty($data)) Response::iShowResult($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         else Response::iNoResult();
     }
