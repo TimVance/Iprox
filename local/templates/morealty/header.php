@@ -92,9 +92,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="select-town__phone"></div>
 				<label>Недвижимость в</label>
 
+                <?
+
+                    $cityes = CIBlockElement::getList(
+                        array(),
+                        array("IBLOCK_ID" => 5, "ACTIVE" => "Y"),
+                        false,
+                        array(),
+                        array("ID", "NAME")
+                    );
+
+                    $array_cityes = array();
+                    while ($city = $cityes->GetNext()) {
+                        $array_cityes[] = $city;
+                    }
+
+                ?>
+
 				<div class="sel-t">
 					<select>
-						<option>Сочи</option>
+						<?
+                        foreach ($array_cityes as $item_city) {
+                                echo '<option value="'.$item_city["ID"].'">'.$item_city["NAME"].'</option>';
+                            }
+                        ?>
 					</select>
 				</div><!--sel-t-->
 			</div><!--select-town-->
