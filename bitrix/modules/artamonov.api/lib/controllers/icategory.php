@@ -332,10 +332,7 @@ class iCategory
                     $items[$key]["longitude"] = "";
                     $items[$key]["latitude"]= "";
                 }
-                $items[$key]["address"] = ''
-                    .(!empty($prop_array["city"]) ? $prop_array["city"].', ' : '')
-                    .(!empty($prop_array["microdistrict"]) ? $prop_array["microdistrict"].', ' : '')
-                    .(!empty($prop_array["street"]) ? $prop_array["street"] : '');
+                $items[$key]["address"] = (!empty($prop_array["street"]) ? $prop_array["street"] : '');
 
                 $items[$key]["address"] = $this->clear_tags($items[$key]["address"]);
             }

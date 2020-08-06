@@ -109,11 +109,7 @@ class iProduct
                     if ($product["IBLOCK_ID"] == 19) {
                         $product_data["price_1m"] = $this->format($product_prop["price_m2_ot"]);
                     }
-                    $product_data["address"] = ''
-                        .(!empty($product_prop["city"]) ? $product_prop["city"].', ' : '')
-                        //.(!empty($prop_array["district"]) ? $prop_array["district"].', ' : '')
-                        //.(!empty($product_prop["microdistrict"]) ? $product_prop["microdistrict"].', ' : '')
-                        .(!empty($product_prop["street"]) ? $product_prop["street"] : '');
+                    $product_data["address"] = (!empty($product_prop["street"]) ? $product_prop["street"] : '');
 
 
                     $product_data["address"] = $this->clear_tags($product_data["address"]);
