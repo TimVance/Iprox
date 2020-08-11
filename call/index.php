@@ -127,14 +127,16 @@ if (!empty($_POST)) {
 
 <?
 
-$block_id = (!empty($_GET["block_id"]) ? $_GET["block_id"] : '7'); // ID инфлоблока Новостроек
-$start    = (!empty($request->get("start")) ? $request->get("start") : date('Y-m-d', time())) . ' 00:00:00';
-$end      = (!empty($request->get("end")) ? $request->get("end") : date('Y-m-d', time())) . ' 23:59:59';
-$count    = 5;
-$page     = (!empty($_GET["page"]) ? $_GET["page"] : 1);
-$status   = (!empty($_GET["status"]) ? $_GET["status"] : "");
-$public   = (!empty($_GET["only_active"]) ? "Y" : "");
-$accept   = (!empty($_GET["only_active"]) ? "Да" : "");
+$block_id  = (!empty($_GET["block_id"]) ? $_GET["block_id"] : '7'); // ID инфлоблока Новостроек
+$start     = (!empty($request->get("start")) ? $request->get("start") : '');
+$start_mod = (!empty($request->get("start_mod")) ? $request->get("start_mod") : '');
+$end       = (!empty($request->get("end")) ? $request->get("end") : '');
+$end_mod   = (!empty($request->get("end_mod")) ? $request->get("end_mod") : '');
+$count     = 5;
+$page      = (!empty($_GET["page"]) ? $_GET["page"] : 1);
+$status    = (!empty($_GET["status"]) ? $_GET["status"] : "");
+$public    = (!empty($_GET["only_active"]) ? "Y" : "");
+$accept    = (!empty($_GET["only_active"]) ? "Да" : "");
 
 switch ($block_id) {
     case 7:
@@ -162,11 +164,20 @@ if ($public == "Y") {
 
 $Select_filter["PROPERTY_call_status"] = $status;
 $Select_filter["!IBLOCK_SECTION_ID"]   = array("2", "155");
-$Select_filter[]                       = array(
-    "LOGIC"         => "AND",
-    ">=DATE_CREATE" => ConvertTimeStamp(strtotime($start), 'FULL'),
-    "<=DATE_CREATE" => ConvertTimeStamp(strtotime($end), 'FULL'),
-);
+if (!empty($start) && !empty($end)) {
+    $Select_filter[] = array(
+        "LOGIC"         => "AND",
+        ">=DATE_CREATE" => ConvertTimeStamp(strtotime($start), 'FULL'),
+        "<=DATE_CREATE" => ConvertTimeStamp(strtotime($end), 'FULL'),
+    );
+}
+if (!empty($start_mod) && !empty($end_mod)) {
+    $Select_filter[]                       = array(
+        "LOGIC"         => "AND",
+        ">=TIMESTAMP_X" => ConvertTimeStamp(strtotime($start_mod), 'FULL'),
+        "<=TIMESTAMP_X" => ConvertTimeStamp(strtotime($end_mod), 'FULL'),
+    );
+}
 
 $Sort_filter = array("TIMESTAMP_X" => "ASC");
 if ($block_id == 19) $Sort_filter = array("PROPERTY_price_flat_min" => "ASC");
@@ -215,6 +226,9 @@ echo '<div id="horizontal-scroller" class="call-center">';
 echo '<form method="get">';
 echo '<div>Дата создания</div><span><input type="date" class="date start" name="start" value="' . substr($start, 0, 10) . '">-';
 echo '<input type="date" class="date end" name="end" value="' . substr($end, 0, 10) . '"></span>';
+
+echo '<div>Дата изменения</div><span><input type="date" class="date start" name="start_mod" value="' . substr($start_mod, 0, 10) . '">-';
+echo '<input type="date" class="date end" name="end_mod" value="' . substr($end_mod, 0, 10) . '"></span>';
 
 echo '<select style="width:140px" name="block_id">';
 echo '<option ' . ($block_id == 7 ? 'selected ' : '') . 'value="7">Квартиры</option>';
