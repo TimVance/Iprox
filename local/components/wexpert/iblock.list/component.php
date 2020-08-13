@@ -35,6 +35,11 @@ if ($this->StartResultCache(false)) {
 	if (count($arParams["FILTER"]) > 0) {
 		$arFilter = array_merge($arFilter, $arParams["~FILTER"]);
 	}
+
+    $arFilter["PROPERTY_city"] = 13;
+	if (!empty($_COOKIE["city"]))
+        $arFilter["PROPERTY_city"] = $_COOKIE["city"];
+
 	$arNavParams = false;
 	if ($arParams["NTOPCOUNT"] > 0) {
 		$arNavParams["nTopCount"] = $arParams["NTOPCOUNT"];

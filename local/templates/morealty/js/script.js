@@ -1081,6 +1081,18 @@ $(function() {
         	$(".search_elements").show();
         }
     });
-    //
-    //
-}); //\document.ready
+
+    // Выбор города
+    $(".select-main-city").change(function () {
+    	let city = $(this).val();
+		setCookie('city', city, '14');
+		window.location = '/sell/flat/';
+	});
+
+});
+
+function setCookie(key, value, expiry) {
+	var expires = new Date();
+	expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 1000));
+	document.cookie = key + '=' + value + ';expires=' + expires.toUTCString() + '; path=/';
+}

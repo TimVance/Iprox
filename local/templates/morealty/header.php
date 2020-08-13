@@ -107,13 +107,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         $array_cityes[] = $city;
                     }
 
+                    $id_city = 13;
+                    if (!empty($_COOKIE["city"]))
+                        $id_city = $_COOKIE["city"];
+
                 ?>
 
 				<div class="sel-t">
-					<select>
+					<select class="select-main-city">
 						<?
                         foreach ($array_cityes as $item_city) {
-                                echo '<option value="'.$item_city["ID"].'">'.$item_city["NAME"].'</option>';
+                                echo '<option '.($id_city == $item_city["ID"] ? 'selected' : '').' value="'.$item_city["ID"].'">'.$item_city["NAME"].'</option>';
                             }
                         ?>
 					</select>
