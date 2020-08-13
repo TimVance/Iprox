@@ -52,6 +52,18 @@ if ($arResult["ITEMS"] && count($arResult["ITEMS"]) > 0)
 					?>
 					
 					<p><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=$arItem["NAME"]?></a></p>
+                    <?
+                        if (!empty($arItem["PROPERTIES"]["price"]["VALUE"])) {
+                            echo '<p>';
+                                echo number_format($arItem["PROPERTIES"]["price"]["VALUE"], 0, '', ' ');
+                            echo 'р.</p>';
+                        }
+                        if (!empty($arItem["PROPERTIES"]["price_flat_min"]["VALUE"])) {
+                            echo '<p>от ';
+                            echo number_format($arItem["PROPERTIES"]["price_flat_min"]["VALUE"], 0, '', ' ');
+                            echo 'р.</p>';
+                        }
+                    ?>
 					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="to_element"></a>
 				</div>
 		</li>

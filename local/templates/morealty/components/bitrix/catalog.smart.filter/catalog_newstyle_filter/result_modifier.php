@@ -57,6 +57,7 @@ foreach ($arResult["ITEMS"] as $key => $arItem)
 		$districtKey = $key;
 	}
 }
+
 if ($district && $microdistrict)
 {
 	$district = \Morealty\Filter::twinDistrictMicroDistrict($district, $microdistrict);
@@ -65,6 +66,7 @@ if ($district && $microdistrict)
 		$arResult["ITEMS"][$districtKey] = $district;
 	}
 }
+
 unset($district, $microdistrict, $districtKey);
 //2863959788
 

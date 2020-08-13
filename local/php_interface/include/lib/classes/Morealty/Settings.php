@@ -35,7 +35,11 @@ class Settings
 		array(
 			"ID" => 10,
 			"FILTER_NAME" => "Участок"
-		)
+		),
+        array(
+            "ID" => 9,
+            "FILTER_NAME" => "Коттеджные поселки"
+        )
 	);
 	
 	public static $CATALOG_IBLOCK_NEWBUILDING = array(

@@ -3,7 +3,6 @@
 <?
 $data = json_decode(file_get_contents("data.txt"),true);
 
-
 if (is_null($data) || (time() -  $data["last_time"]) > 3600 * 24 || $_REQUEST["clear_cache"] == "Y")
 {
 	$arSelect = Array('ID', 'NAME');

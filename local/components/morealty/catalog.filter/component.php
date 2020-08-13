@@ -7,7 +7,6 @@ $query = $arParams['QUERY'];
 $arResult = array();
 
 
-
 $arSelect = Array("ID", "NAME", "IBLOCK_ID");
 $arFilter = Array("IBLOCK_ID" => $GLOBALS['CATALOG_IBLOCKS_ARRAY'], "ID" => $arID, "ACTIVE"=>"Y", "%NAME" => $query);
 $res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
