@@ -247,3 +247,7 @@ button.add-photo:hover {
     display: block;
     float: none;
 }
+
+.form-date-time-x {
+    margin-top: 10px;
+}

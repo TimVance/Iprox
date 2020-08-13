@@ -227,7 +227,7 @@ echo '<form method="get">';
 echo '<div>Дата создания</div><span><input type="date" class="date start" name="start" value="' . substr($start, 0, 10) . '">-';
 echo '<input type="date" class="date end" name="end" value="' . substr($end, 0, 10) . '"></span>';
 
-echo '<div>Дата изменения</div><span><input type="date" class="date start" name="start_mod" value="' . substr($start_mod, 0, 10) . '">-';
+echo '<div class="form-date-time-x">Дата изменения</div><span><input type="date" class="date start" name="start_mod" value="' . substr($start_mod, 0, 10) . '">-';
 echo '<input type="date" class="date end" name="end_mod" value="' . substr($end_mod, 0, 10) . '"></span>';
 
 echo '<select style="width:140px" name="block_id">';
@@ -708,17 +708,18 @@ if ($block_id == 9) {
 
     // Получаем список свойств для новостроек
     if (CModule::IncludeModule("iblock")):
-        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 5));
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 5, "ACTIVE" => "Y"));
         while ($enum_fields = $property_enums->GetNext()) {
             $param_for_addform["city"][$enum_fields["ID"]] = $enum_fields["NAME"];
             //print_r($enum_fields);
         }
-        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 14));
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 14, "ACTIVE" => "Y"), false, array(), array("ID", "IBLOCK_ID", "PROPERTY_city", "NAME"));
         while ($enum_fields = $property_enums->GetNext()) {
-            $param_for_addform["district"][$enum_fields["ID"]] = $enum_fields["NAME"];
+            $param_for_addform["district"][$enum_fields["ID"]]["name"] = $enum_fields["NAME"];
+            $param_for_addform["district"][$enum_fields["ID"]]["city"] = $enum_fields["PROPERTY_CITY_VALUE"];
             //print_r($enum_fields);
         }
-        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 15));
+        $property_enums = CIBlockElement::GetList(array("ID" => "ASC", "SORT" => "ASC"), array("IBLOCK_ID" => 15, "ACTIVE" => "Y"));
         while ($enum_fields = $property_enums->GetNext()) {
             $param_for_addform["microdistrict"][$enum_fields["ID"]] = $enum_fields["NAME"];
             //print_r($enum_fields);
@@ -798,7 +799,7 @@ if ($block_id == 9) {
                 <select name="district">';
     echo '<option value="">-</option>';
     foreach ($param_for_addform["district"] as $key => $value) {
-        echo '<option value="' . $key . '">' . $value . '</option>';
+        echo '<option data-city="'.$value["city"].'" value="' . $key . '">' . $value["name"] . '</option>';
     }
     echo '
                 </select>

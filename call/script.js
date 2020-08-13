@@ -28,6 +28,16 @@ $(function() {
         $(this).parent().find('.upload-photo').click();
         console.log('Добавление фото');
     });
+
+
+    // Выставляем правильные районы
+    $("form[name='add_new_kottedzh'] select[name='city']").change(function () {
+        let city = $(this);
+        let id = city.find("option:selected").val();
+        $("select[name='district'] option:not([value=''])").hide();
+        $("select[name='district'] option[data-city='"+id+"']").show();
+    });
+
 });
 
 document.getElementById("horizontal-scroller")
