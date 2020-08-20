@@ -29,6 +29,7 @@ $arFilter = array(
     "PROPERTY_floor" => $_REQUEST['cost']['stage']
 );
 
+
 $arResult['SIMILAR_IDS'] = array();
 $props = array('ID', 'NAME', 'IBLOCK_ID', 'PROPERTY_*');
 $min_price_m2 = 999999999999;

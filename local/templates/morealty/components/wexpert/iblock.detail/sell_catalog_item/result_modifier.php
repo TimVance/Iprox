@@ -9,8 +9,6 @@ $ipropValues = new \Bitrix\Iblock\InheritedProperty\ElementValues($IBLOCK_ID, $E
 $arResult["I_PROPS"] = $ipropValues->getValues();
 
 
-
-
 //TO DO: IN RESULT_MODIFIER
 $arProperties = $arResult['PROPERTIES'];
 $res          = CIBlockElement::GetByID($arProperties['city']['VALUE']);

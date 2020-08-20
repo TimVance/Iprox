@@ -100,4 +100,45 @@ class Filter
 		}
 		return $return;
 	}
+
+	/*
+		Отображаем в фильтре только те районы, которые есть у города
+	*/
+
+	public static function checkDistrictInCurrentCity($districts) {
+		$id_city = (!empty($_COOKIE["city"]) && (int)$_COOKIE["city"] > 0) ? $_COOKIE["city"] : 13;
+		
+		foreach ($districts['VALUES'] as $key => $district) {
+			$query[] = $key;
+		}
+
+		if ($query) {
+			$res = \CIBlockElement::GetList(
+				array(),
+				array("IBLOCK_ID" => CSettings::IBLOCK_DISTRICT, "ACTIVE" => "Y", "ID" => $query),
+				false,
+				false,
+				array("ID" , "IBLOCK_ID", "PROPERTY_".CSettings::PROPERTY_CITY)
+			);
+			$return = array();
+			
+			while ($arItem = $res->Fetch())
+			{
+				if ($arItem["PROPERTY_CITY_VALUE"] == $id_city) {
+					$arSubCity[] = $arItem['ID'];
+				}
+			}
+
+		foreach ($districts['VALUES'] as $key => $district) {
+			if (!in_array($district['FACET_VALUE'], $arSubCity)) {
+					unset($districts['VALUES'][$key]);
+				}
+			}
+			
+			return $districts;
+		}	
+
+		return false;
+	}
+
 }

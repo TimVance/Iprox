@@ -309,3 +309,4 @@ if ( array_key_exists($_REQUEST["SECTION_ID"], $array1) ){
 <? if ($bAjax) {
 	die();
 } ?>
+

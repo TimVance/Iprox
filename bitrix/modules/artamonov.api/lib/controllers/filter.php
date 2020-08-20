@@ -32,7 +32,7 @@ class Filter
 
         if (!empty($iblock_id)) {
             $cache = Cache::createInstance();
-            if ($cache->initCache(7200, $iblock_id)) {
+            if ($cache->initCache(1, $iblock_id)) {
                 $data = $cache->getVars();
             }
             elseif ($cache->startDataCache()) {
@@ -205,9 +205,17 @@ class Filter
                 foreach ($room as $room_item) {
                     $room_sort[$room_item["value"]] = $room_item;
                 }
-                ksort($room_sort);
+                asort($room_sort);
+                $is_much_room = false;
                 foreach ($room_sort as $room_item) {
-                    $data["room"][] = $room_item;
+                    if (intval($room_item["value"]) > 5) $is_much_room = true;
+                    else $data["room"][] = $room_item;
+                }
+                if ($is_much_room) {
+                    $data["room"][] = [
+                        "id"    => "much",
+                        "value" => "Многокомнатные"
+                    ];
                 }
             }
 

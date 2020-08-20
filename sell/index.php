@@ -231,6 +231,7 @@ else
 				$arFilter["INCLUDE_SUBSECTIONS"] = "Y";
 			}
 			$arFilter = array_merge($arFilter, (array) $GLOBALS["arrFilter"]);
+
 			
 			$APPLICATION->IncludeComponent("wexpert:iblock.list", "catalog_items", Array(
 				"ORDER"                             => \Morealty\Catalog::getCurrentSort(),

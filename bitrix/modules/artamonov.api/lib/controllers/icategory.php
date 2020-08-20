@@ -161,11 +161,30 @@ class iCategory
                 if(is_array($_GET["room"])) {
                     $room = array("LOGIC" => "OR");
                     foreach ($_GET["room"] as $gkey => $gval) {
-                        $room[] = array("=PROPERTY_room_number" => $gval);
+                        if ($gval == "much") {
+                            $room[] = array("=PROPERTY_room_number" => 6);
+                            $room[] = array("=PROPERTY_room_number" => 7);
+                            $room[] = array("=PROPERTY_room_number" => 8);
+                            $room[] = array("=PROPERTY_room_number" => 9);
+                            $room[] = array("=PROPERTY_room_number" => 10);
+                            $room[] = array("=PROPERTY_room_number" => 11);
+                            $room[] = array("=PROPERTY_room_number" => 12);
+                        }
+                        else $room[] = array("=PROPERTY_room_number" => $gval);
                     }
                 }
                 else {
-                    $room = $_GET["room"];
+                    if ($_GET["room"] == "much") {
+                        $room = array("LOGIC" => "OR");
+                        $room[] = array("=PROPERTY_room_number" => 6);
+                        $room[] = array("=PROPERTY_room_number" => 7);
+                        $room[] = array("=PROPERTY_room_number" => 8);
+                        $room[] = array("=PROPERTY_room_number" => 9);
+                        $room[] = array("=PROPERTY_room_number" => 10);
+                        $room[] = array("=PROPERTY_room_number" => 11);
+                        $room[] = array("=PROPERTY_room_number" => 12);
+                    }
+                    else $room = $_GET["room"];
                 }
             }
             else {

@@ -1,6 +1,5 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
-
 $arResult["IBLOCKS"] = \Morealty\Catalog::getCatalogIblocksInfo($arParams["USE_NEWBUILDING"] === "Y");
 foreach ($arResult["IBLOCKS"] as $iblockKey => &$iblock)
 {
@@ -58,12 +57,19 @@ foreach ($arResult["ITEMS"] as $key => $arItem)
 	}
 }
 
-if ($district && $microdistrict)
+/*
+	Удаляем из фильтра районы, которые не принадлежат текущему городу
+*/
+
+if ($district)
 {
-	$district = \Morealty\Filter::twinDistrictMicroDistrict($district, $microdistrict);
-	if ($district && $districtKey)
+	$district = \Morealty\Filter::checkDistrictInCurrentCity($district);
+	
+	if ($district)
 	{
 		$arResult["ITEMS"][$districtKey] = $district;
+	} else {
+		unset($arResult["ITEMS"][$districtKey]);
 	}
 }
 
