@@ -219,7 +219,7 @@ class Filter
                 }
             }
 
-
+            /*
             if(empty($_GET["arend"])) {
                 $remont       = array();
                 $array_for_if = array();
@@ -237,6 +237,7 @@ class Filter
                     $data["remont"][] = $remont_item;
                 }
             }
+            */
 
 
             // Тип коммерции
