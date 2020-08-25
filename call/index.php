@@ -128,10 +128,10 @@ if (!empty($_POST)) {
 <?
 
 $block_id  = (!empty($_GET["block_id"]) ? $_GET["block_id"] : '7'); // ID инфлоблока Новостроек
-$start     = (!empty($request->get("start")) ? $request->get("start") : '');
-$start_mod = (!empty($request->get("start_mod")) ? $request->get("start_mod") : '');
-$end       = (!empty($request->get("end")) ? $request->get("end") : '');
-$end_mod   = (!empty($request->get("end_mod")) ? $request->get("end_mod") : '');
+$start     = (!empty($request->get("start")) ? $request->get("start").' 00:00:00' : '');
+$start_mod = (!empty($request->get("start_mod")) ? $request->get("start_mod").' 00:00:00' : '');
+$end       = (!empty($request->get("end")) ? $request->get("end").' 23:59:59' : '');
+$end_mod   = (!empty($request->get("end_mod")) ? $request->get("end_mod").' 23:59:59' : '');
 $count     = 5;
 $page      = (!empty($_GET["page"]) ? $_GET["page"] : 1);
 $status    = (!empty($_GET["status"]) ? $_GET["status"] : "");
@@ -164,6 +164,7 @@ if ($public == "Y") {
 
 $Select_filter["PROPERTY_call_status"] = $status;
 $Select_filter["!IBLOCK_SECTION_ID"]   = array("2", "155");
+echo $start.' = '.$end;
 if (!empty($start) && !empty($end)) {
     $Select_filter[] = array(
         "LOGIC"         => "AND",
