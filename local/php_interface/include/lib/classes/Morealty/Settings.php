@@ -19,6 +19,8 @@ class Settings
 	
 	const PROPERTY_MICRODISTRICT_DISTRICT = "district";
 	
+	const PROPERTY_CITY = "city";
+	
 	public static $CATALOG_IBLOCKS_INFO	= array(
 		array(
 			"ID" => 7,
