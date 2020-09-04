@@ -164,7 +164,6 @@ if ($public == "Y") {
 
 $Select_filter["PROPERTY_call_status"] = $status;
 $Select_filter["!IBLOCK_SECTION_ID"]   = array("2", "155");
-echo $start.' = '.$end;
 if (!empty($start) && !empty($end)) {
     $Select_filter[] = array(
         "LOGIC"         => "AND",
