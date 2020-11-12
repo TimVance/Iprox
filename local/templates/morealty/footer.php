@@ -163,6 +163,60 @@ IncludeTemplateLangFile(__FILE__);
 	
 	  gtag('config', 'UA-114200826-1');
 	</script>
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-messaging.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDZUpK5pFs_Ks4jPW9HxYkE4smkmbq0BKk",
+            authDomain: "iprox-ec392.firebaseapp.com",
+            databaseURL: "https://iprox-ec392.firebaseio.com",
+            projectId: "iprox-ec392",
+            storageBucket: "iprox-ec392.appspot.com",
+            messagingSenderId: "554969024398",
+            appId: "1:554969024398:web:bba2c5d29134649d9986df",
+            measurementId: "G-NB3SSH1L79"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        const messaging = firebase.messaging();
+
+        messaging.onBackgroundMessage(function(payload) {
+            console.log('Received background message ', payload);
+            // Customize notification here
+            const notificationTitle = 'Background Message Title';
+            const notificationOptions = {
+                body: 'Background Message body.',
+                icon: '/firebase-logo.png'
+            };
+
+            self.registration.showNotification(notificationTitle,
+                notificationOptions);
+        });
+
+        messaging.onMessage((payload) => {
+            console.log('Message received. ', payload);
+            // ...
+        });
+
+    </script>
+
+
+
 </div>
 </body>
 </html>
